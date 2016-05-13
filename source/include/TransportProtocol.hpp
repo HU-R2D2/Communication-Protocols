@@ -2,7 +2,6 @@
 #define _TRANSPORTPROTOCOL_HPP
 
 #include <cstdint>
-#include <queue>
 
 class TransportProtocol{
 
@@ -23,8 +22,7 @@ public:
 	virtual bool is_open() = 0;
 
 private:
-	std::queue<uint8_t> send_buffer;
-	std::queue<uint8_t> receive_buffer;
+
 };
 
 #endif
