@@ -3,6 +3,8 @@ ClockR2D2
 build
 # Created by https://www.gitignore.io/api/visualstudio,c++,xcode
 
+*.gch
+
 build/**
 *.*pp~
 
