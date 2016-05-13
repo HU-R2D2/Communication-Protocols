@@ -1,12 +1,16 @@
 #ifndef _APPLICATION_HPP
 #define _APPLICATION_HPP
+
 #include "TransportProtocol.hpp"
-class ApplicationProtocol
-{
+
+class ApplicationProtocol{
+
 public:
     ApplicationProtocol();
-    ApplicationProtocol(TransportProtocol t);
+    ApplicationProtocol(TransportProtocol &t);
+
 private:
-    TransportProtocol transport;
+    TransportProtocol &transport;
 };
+
 #endif
