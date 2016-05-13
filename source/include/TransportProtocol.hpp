@@ -1,3 +1,6 @@
+#ifndef _TRANSPORTPROTOCOL_HPP
+#define _TRANSPORTPROTOCOL_HPP
+
 class TransportProtocol{
 
 public:
@@ -20,3 +23,4 @@ private:
 	std::queue<uint8_t> send_buffer;
 	std::queue<uint8_t> receive_buffer;
 }
+#endif
