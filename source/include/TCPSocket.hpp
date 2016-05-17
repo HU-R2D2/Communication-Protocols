@@ -39,6 +39,7 @@ private:
 		*result = NULL,
 		*ptr = NULL,
 		hints;
+		
 	SOCKET ConnectSocket = INVALID_SOCKET;
 	
 	std::string portNumber, ipNumber;

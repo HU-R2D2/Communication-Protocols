@@ -1,7 +1,7 @@
 // TCPSocket.cpp : Defines the entry point for the console application.
 //
 #include <iostream>
-#include "include/TCPSocket.hpp"
+#include "../include/TCPSocket.hpp"
 
 TCPSocket::TCPSocket(){
 
@@ -32,6 +32,7 @@ void TCPSocket::data_write(uint8_t* data) {
 }
 
 uint8_t * TCPSocket::data_read(){
+
 	do {
 		iResult = recv(ConnectSocket, recv_buf, bufLen, 0);
 		if (iResult > 0)
@@ -44,10 +45,10 @@ uint8_t * TCPSocket::data_read(){
 	} 
 	while (iResult > 0);
 	closesocket(ConnectSocket);
-	WSACleanup();
-	//HIER WAS IK GEBLEVEN EN DE RETURN IS NET GEDAAN
+	WSACleanup(); //Terminates use of the Ws2_32.DLL.
 	
 	return (uint8_t*) recv_buf;
+	//HIER WAS IK GEBLEVEN EN DE RETURN IS NET GEDAAN
 }
 
 void TCPSocket::connect(){
