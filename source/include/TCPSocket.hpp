@@ -6,6 +6,12 @@
 #include <winsock2.h>	//winsock2.h contains most of the Winsock functions, structures, and definitions. 
 #include <ws2tcpip.h>	//contains definitions introduced in the WinSock 2 Protocol-Specific Annex document for TCP/IP that includes newer functions and structures used to retrieve IP addresses. 
 #include <windows.h>
+
+//#include "mstcpip.h"   //keep alive
+//#include <ws2tcpip.h>   //keep alive
+
+
+#include <string>
 #include <queue>
 
 #define WIN32_LEAN_AND_MEAN //used to exclude rarely-used services from Windows headers(to speed up building time)
@@ -20,6 +26,10 @@ class TCPSocket : public TransportProtocol {
 
 public:
 	TCPSocket(std::string ipNr, std::string portNr);
+
+	void t_init();
+
+	//void t_setKeepAlive(bool set, int time, int interval);
 
 	void t_data_write(uint8_t* data);
 
@@ -37,14 +47,16 @@ private:
 	WSADATA wsaData;
 	SOCKET ConnectSocket = INVALID_SOCKET;
 	struct addrinfo *result = NULL,
-		*ptr = NULL,
-		hints;
+					*ptr = NULL,
+					hints;
+	//struct tcp_keepalive alive; //keep alive
 
-	std::string portNr, ipNr;
+	const std::string ipNr, portNr;
 	char *sendbuf = "this is a test";
 	char recvbuf[DEFAULT_BUFLEN];
 	int iResult;
 	int recvbuflen = DEFAULT_BUFLEN;
+	bool isOpen = false;
 
 	std::queue<uint8_t> send_buffer;
 	std::queue<uint8_t> receive_buffer;
