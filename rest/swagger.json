@@ -1,0 +1,42 @@
+{
+	"paths" : {
+		"/shoppingcart/item" : {
+			"post" : {
+				"parameters" : [
+					{
+						"required" : true,
+						"name" : "qty",
+						"in" : "query",
+						"description" : "Quantity of that item to add",
+						"type" : "string"
+					},
+					{
+						"required" : true,
+						"name" : "sku",
+						"in" : "query",
+						"description" : "Item SKU",
+						"type" : "string"
+					},
+					{
+						"required" : true,
+						"name" : "id",
+						"in" : "query",
+						"description" : "Shopping cart ID",
+						"type" : "string"
+					}
+				],
+				"description" : "This lets you add an item to a shopping cart",
+				"summary" : "This lets you add an item to a shopping cart"
+			}
+		}
+	},
+	"basePath" : "/api",
+	"swagger" : 2,
+	"info" : {
+		"descrition" : "description",
+		"title" : "title",
+		"version" : "1"
+	},
+	"schemes" : "http",
+	"host" : "localhost"
+}
