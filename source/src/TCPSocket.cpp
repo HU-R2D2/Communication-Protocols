@@ -1,7 +1,9 @@
 // TCPSocket.cpp : Defines the entry point for the console application.
-//
-#include <iostream>
 #include "../include/TCPSocket.hpp"
+#include <iostream>
+#include <sstream>
+
+
 
 TCPSocket::TCPSocket(std::string ipNr, std::string portNr):
 	ipNr(ipNr),
@@ -13,7 +15,7 @@ TCPSocket::TCPSocket(std::string ipNr, std::string portNr):
 	const char* portNumber = portNr.c_str();	//dunno why
 	iResult = getaddrinfo(ipNumber, portNumber, &hints, &result);
 	if (iResult != 0) {
-		printf("getaddrinfo failed with error: %d\n", iResult);
+		std::cout << "getaddrinfo failed with error:" << iResult;
 		WSACleanup();
 		exit(EXIT_FAILURE);
 	}
@@ -21,10 +23,10 @@ TCPSocket::TCPSocket(std::string ipNr, std::string portNr):
 }
 
 void TCPSocket::t_init() {
-	printf("initialise Winsock");
+	std::cout << "initialise Winsock\n";
 	iResult = WSAStartup(MAKEWORD(2, 2), &wsaData); //MAKEWORD(2.2) makes request for winsock version 2.2, WSAStartup iniate use of the WS2_32.dll
 	if (iResult != 0) {
-		printf("WSAStartup failed with error: %d\n", iResult);
+		std::cout << "WSAStartup failed with error: " << iResult;
 		exit(EXIT_FAILURE);
 	}
 	ZeroMemory(&hints, sizeof(hints));
@@ -32,7 +34,7 @@ void TCPSocket::t_init() {
 	hints.ai_socktype = SOCK_STREAM;
 	hints.ai_protocol = IPPROTO_TCP;
 
-	printf("Initialised");
+	std::cout << "Initialised\n";
 }
 
 void TCPSocket::t_connect() {
@@ -43,7 +45,7 @@ void TCPSocket::t_connect() {
 		ConnectSocket = socket(ptr->ai_family, ptr->ai_socktype,
 			ptr->ai_protocol);
 		if (ConnectSocket == INVALID_SOCKET) {
-			printf("socket failed with error: %ld\n", WSAGetLastError());
+			std::cout << "socket failed with error: " << WSAGetLastError();
 			WSACleanup();
 			exit(EXIT_FAILURE);
 		}
@@ -59,45 +61,81 @@ void TCPSocket::t_connect() {
 	}
 
 	freeaddrinfo(result);
-
 	if (ConnectSocket == INVALID_SOCKET) {
-		printf("Unable to connect to server!\n");
+		std::cout << ("Unable to connect to server!\n");
 		WSACleanup();
 		exit(EXIT_FAILURE);
 	}
-	printf("Connected!");
+	std::cout << ("Connected!");
+
+	/*
+	if (ConnectSocket == INVALID_SOCKET) {
+        printf("Unable to connect to server!\n");
+        WSACleanup();
+        return 1;
+    }
+
+    // Send an initial buffer
+    iResult = send( ConnectSocket, sendbuf, (int)strlen(sendbuf), 0 );
+    if (iResult == SOCKET_ERROR) {
+        printf("send failed with error: %d\n", WSAGetLastError());
+        closesocket(ConnectSocket);
+        WSACleanup();
+        return 1;
+    }
+
+    printf("Bytes Sent: %ld\n", iResult);
+
+    // shutdown the connection since no more data will be sent
+    iResult = shutdown(ConnectSocket, SD_SEND);
+    if (iResult == SOCKET_ERROR) {
+        printf("shutdown failed with error: %d\n", WSAGetLastError());
+        closesocket(ConnectSocket);
+        WSACleanup();
+        return 1;
+    }
+
+    // Receive until the peer closes the connection
+    do {
+
+        iResult = recv(ConnectSocket, recvbuf, recvbuflen, 0);
+        if ( iResult > 0 )
+            printf("Bytes received: %d\n", iResult);
+        else if ( iResult == 0 )
+            printf("Connection closed\n");
+        else
+            printf("recv failed with error: %d\n", WSAGetLastError());
+
+    } while( iResult > 0 );
+	*/
 }
 
 
 void TCPSocket::t_data_write(uint8_t* data) {
-	// Send an initial buffer
-	iResult = send(ConnectSocket, sendbuf, (int)strlen(sendbuf), 0);
-	if (iResult == SOCKET_ERROR) {
-		printf("send failed with error: %d\n", WSAGetLastError());
-		closesocket(ConnectSocket);
-		WSACleanup();
-		exit(EXIT_FAILURE);
+	//vin send buffr zetten en versturen
+	//check if empty
+	for (int i = 0; i < sizeof(data); i++) {
+		receive_buffer.push(data[i]);
 	}
-	printf("Bytes Sent: %ld\n", iResult);
+}
+
+void TCPSocket::t_data_write(std::string data) {
+	//uint8_t * data = new uint8_t[sizeof(send_buffer)];
 }
 
 uint8_t * TCPSocket::t_data_read(){
-	do {
-		iResult = recv(ConnectSocket, recvbuf, recvbuflen, 0);
-		if (iResult > 0)
-			printf("Bytes received: %d\n", iResult);
-		else if (iResult == 0)
-			printf("Connection closed\n");
-		else
-			printf("recv failed: %d\n", WSAGetLastError());
-
-	} 
-	while (iResult > 0);
-	closesocket(ConnectSocket);
-	WSACleanup(); //Terminates use of the Ws2_32.DLL.
-	
-	return (uint8_t*) recvbuf;
-	//HIER WAS IK GEBLEVEN EN DE RETURN IS NET GEDAAN
+	//uint8 char lezen naar een pointer en die returnen
+	uint8_t * data = new uint8_t[sizeof(send_buffer)];
+	if ( !send_buffer.empty() ) {
+		for (int i = 0; i < sizeof(send_buffer); i++) {
+			data[i] = send_buffer.front();
+			send_buffer.pop();
+		}
+	}
+	else {
+		//exit(EXIT_FAILURE);
+	}
+	return data;
 }
 
 
@@ -109,9 +147,39 @@ void TCPSocket::t_disconnect(){
 }
 
 void TCPSocket::t_flush(){
+	std::queue<int> empty;
+	std::queue<uint8_t>().swap(receive_buffer);
 }
 
 bool TCPSocket::t_is_open(){
 	return isOpen;
+}
+
+int main() {
+	TCPSocket * sock1 = new TCPSocket("127.0.0.1", "27015");
+	std::cout << sock1->t_data_read();
+	uint8_t * data = new uint8_t[5];
+	
+
+	std::string s = "haha";
+	const char * c = s.c_str();
+	for (int i = 0; i < sizeof(c); i++) {
+		data[i] = c[i];
+	}
+	std::cout << ("data write\n");
+	sock1->t_data_write(data);
+	data = sock1->t_data_read();
+	std::stringstream ss;
+	ss << data;
+	std::cout << "BALBAL\n";
+	std::cout << ss.str();
+	std::cout << ("connect)\n");
+
+	int x = 0xa1a56;
+	std::stringstream ss;
+	ss << x;
+	std::cout << "\nOHEHOE" << ss.str();
+
+	sock1->t_connect();
 }
 

@@ -6,32 +6,25 @@
 #include <winsock2.h>	//winsock2.h contains most of the Winsock functions, structures, and definitions. 
 #include <ws2tcpip.h>	//contains definitions introduced in the WinSock 2 Protocol-Specific Annex document for TCP/IP that includes newer functions and structures used to retrieve IP addresses. 
 #include <windows.h>
-
-//#include "mstcpip.h"   //keep alive
-//#include <ws2tcpip.h>   //keep alive
-
-
 #include <string>
 #include <queue>
-
-#define WIN32_LEAN_AND_MEAN //used to exclude rarely-used services from Windows headers(to speed up building time)
-#define DEFAULT_BUFLEN 512
-#define DEFAULT_PORT "27015"
 
 #pragma comment(lib, "Ws2_32.lib") //tells to the linker that Ww2_32.lib is needed
 #pragma comment (lib, "Mswsock.lib")
 #pragma comment (lib, "AdvApi32.lib")
 
+#define WIN32_LEAN_AND_MEAN //used to exclude rarely-used services from Windows headers(to speed up building time)
+#define DEFAULT_BUFLEN 512
+#define DEFAULT_PORT "27015"
+
 class TCPSocket : public TransportProtocol {
 
 public:
 	TCPSocket(std::string ipNr, std::string portNr);
-
 	void t_init();
 
-	//void t_setKeepAlive(bool set, int time, int interval);
-
 	void t_data_write(uint8_t* data);
+	void t_data_write(std::string data);
 
 	uint8_t* t_data_read();
 
@@ -49,7 +42,6 @@ private:
 	struct addrinfo *result = NULL,
 					*ptr = NULL,
 					hints;
-	//struct tcp_keepalive alive; //keep alive
 
 	const std::string ipNr, portNr;
 	char *sendbuf = "this is a test";
