@@ -1,23 +1,23 @@
 #ifndef _REST_PROTOCOL_HPP
 #define _REST_PROTOCOL_HPP
 
-//#include "ApplicationProtocol.hpp"
+#include "ApplicationProtocol.hpp"
 #include "TransportListener.hpp"
-
+#include <fstream>
+#include <iostream>
 #include "RESTCallBack.h"
 #include "RESTEngine.h"
 #include <string>
 #include <vector>
 
-class RestApplicationProtocol : public TransportListener{
+class RestApplicationProtocol : public TransportListener, public ApplicationProtocol{
 
 public:
     RestApplicationProtocol();
-    //RestApplicationProtocol(TransportProtocol &t);
+    ~RestApplicationProtocol();
+    RestApplicationProtocol(TransportProtocol *t);
 
     void addCallbackFunction(std::string link, std::string method, RESTCallBack * callBackAddition);
-
-    std::vector<RESTCallBack *> getCallBackFunctions();
 
     void data_received(uint8_t * data) override;
 
@@ -26,8 +26,6 @@ public:
     void getJsonAPIDump(std::string fileName);
 
 private:
-
-    std::vector<RESTCallBack * > listOfCallBacks;
     RESTEngine engine;
 };
 

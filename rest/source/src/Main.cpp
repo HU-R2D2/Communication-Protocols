@@ -1,9 +1,10 @@
-#include "../include/rest/RESTCallBack.h"
-#include "../include/rest/RESTEngine.h"
-#include "../include/rest/RestApplicationProtocol.hpp"
+#include "../include/RESTCallBack.h"
+#include "../include/RESTEngine.h"
+#include "../include/RestApplicationProtocol.hpp"
 #include <stdio.h>
 #include <iostream>
 #include <fstream>
+#include <iostream>
 
 class ShoppingCart {
 
@@ -37,7 +38,7 @@ int main(){
   pc1->addParam("sku","Item SKU");
   pc1->addParam("qty","Quantity of that item to add");
 
-  RESTCallBack * pc2 = new RESTCallBack(p,&ShoppingCart::removeFromCart,"This lets you remove an item from a shopping cart");
+  RESTCallBack * pc2 = new RESTCallBack(p, &ShoppingCart::removeFromCart,"This lets you remove an item from a shopping cart");
   pc2->addParam("id","Shopping cart ID");
   pc2->addParam("sku","Item SKU");
 
@@ -47,9 +48,14 @@ int main(){
 
   rap.invokeApiCall("/shoppingcart/item?id=1&sku=242&qty=4","POST","blablablabla");
 
+  rap.invokeApiCall("/shoppingcart/item?id=1&sku=242&qty=4","DELETE","blablablabla");
+
+
   delete p;
   delete pc1;
   delete pc2;
+
+  getchar();
 
 
 }

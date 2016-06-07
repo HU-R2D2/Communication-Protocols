@@ -2,6 +2,7 @@
 #define _TRANSPORTPROTOCOL_HPP
 
 #include <cstdint>
+#include "TransportListener.hpp"
 
 class TransportProtocol{
 
@@ -20,6 +21,12 @@ public:
 	virtual void t_flush() = 0;
 
 	virtual bool t_is_open() = 0;
+
+	virtual bool set_listener(TransportListener * t) = 0;
+
+	virtual bool remove_listener(TransportListener * t) = 0;
+
+
 private:
 
 };
