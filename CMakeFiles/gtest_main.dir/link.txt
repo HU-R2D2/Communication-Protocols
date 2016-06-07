@@ -1,2 +1,0 @@
-C:\MinGW\bin\ar.exe qc libgtest_main.a  CMakeFiles/gtest_main.dir/C_/Users/Job/Documents/Git/deps/gtest-1.7.0/src/gtest_main.cc.obj
-C:\MinGW\bin\ranlib.exe libgtest_main.a
