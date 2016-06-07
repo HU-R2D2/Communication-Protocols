@@ -155,31 +155,5 @@ bool TCPSocket::t_is_open(){
 	return isOpen;
 }
 
-int main() {
-	TCPSocket * sock1 = new TCPSocket("127.0.0.1", "27015");
-	std::cout << sock1->t_data_read();
-	uint8_t * data = new uint8_t[5];
-	
 
-	std::string s = "haha";
-	const char * c = s.c_str();
-	for (int i = 0; i < sizeof(c); i++) {
-		data[i] = c[i];
-	}
-	std::cout << ("data write\n");
-	sock1->t_data_write(data);
-	data = sock1->t_data_read();
-	std::stringstream ss;
-	ss << data;
-	std::cout << "BALBAL\n";
-	std::cout << ss.str();
-	std::cout << ("connect)\n");
-
-	int x = 0xa1a56;
-	std::stringstream ss;
-	ss << x;
-	std::cout << "\nOHEHOE" << ss.str();
-
-	sock1->t_connect();
-}
 

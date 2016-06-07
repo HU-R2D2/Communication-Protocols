@@ -3,15 +3,14 @@
 
 //#include "ConnectionException.hpp"
 #include "TransportProtocol.hpp"
+#define _WIN32_WINNT 0x0501
+
+#include <ws2tcpip.h>
 #include <winsock2.h>	//winsock2.h contains most of the Winsock functions, structures, and definitions. 
-#include <ws2tcpip.h>	//contains definitions introduced in the WinSock 2 Protocol-Specific Annex document for TCP/IP that includes newer functions and structures used to retrieve IP addresses. 
 #include <windows.h>
 #include <string>
 #include <queue>
 
-#pragma comment(lib, "Ws2_32.lib") //tells to the linker that Ww2_32.lib is needed
-#pragma comment (lib, "Mswsock.lib")
-#pragma comment (lib, "AdvApi32.lib")
 
 #define WIN32_LEAN_AND_MEAN //used to exclude rarely-used services from Windows headers(to speed up building time)
 #define DEFAULT_BUFLEN 512
@@ -20,6 +19,7 @@
 class TCPSocket : public TransportProtocol {
 
 public:
+	TCPSocket(){}
 	TCPSocket(std::string ipNr, std::string portNr);
 	void t_init();
 
