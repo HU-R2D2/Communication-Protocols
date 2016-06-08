@@ -1,3 +1,0 @@
-C:/Users/Job/Documents/Git/communication-protocols/CMakeFiles/comp.dir
-C:/Users/Job/Documents/Git/communication-protocols/CMakeFiles/edit_cache.dir
-C:/Users/Job/Documents/Git/communication-protocols/CMakeFiles/rebuild_cache.dir

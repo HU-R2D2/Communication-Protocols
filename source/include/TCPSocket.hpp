@@ -3,7 +3,7 @@
 
 //#include "ConnectionException.hpp"
 #include "TransportProtocol.hpp"
-#define _WIN32_WINNT 0x0501
+//#define _WIN32_WINNT 0x0501
 
 #include <ws2tcpip.h>
 #include <winsock2.h>	//winsock2.h contains most of the Winsock functions, structures, and definitions. 
@@ -19,22 +19,31 @@
 class TCPSocket : public TransportProtocol {
 
 public:
-	TCPSocket(){}
+	TCPSocket() {};
 	TCPSocket(std::string ipNr, std::string portNr);
-	void t_init();
+	void init();
 
-	void t_data_write(uint8_t* data);
-	void t_data_write(std::string data);
+	void data_write(uint8_t* data, int numberOfBytes);
 
-	uint8_t* t_data_read();
+	uint8_t* data_read();
 
-	void t_connect();
+	void connect();
 
-	void t_disconnect();
+	void disconnect();
 
-	void t_flush();
+	void flush();
 
-	bool t_is_open();
+	bool is_open();
+
+	void receiveMessage();
+
+	void sendMessage(std::string data);
+
+	bool set_listener(TransportProtocol * t);
+
+	//bool selistener(TCPSocket * t);
+
+	bool remove_listener(TransportProtocol * t);
 
 private:
 	WSADATA wsaData;
@@ -44,11 +53,13 @@ private:
 					hints;
 
 	const std::string ipNr, portNr;
-	char *sendbuf = "this is a test";
-	char recvbuf[DEFAULT_BUFLEN];
+
+	char tcp_recvbuf[DEFAULT_BUFLEN];
 	int iResult;
-	int recvbuflen = DEFAULT_BUFLEN;
+	int tcp_recvbuflen = DEFAULT_BUFLEN;
 	bool isOpen = false;
+
+	std::vector<TransportProtocol*> list;
 
 	std::queue<uint8_t> send_buffer;
 	std::queue<uint8_t> receive_buffer;

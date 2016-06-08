@@ -1,7 +1,6 @@
 // TCPSocket.cpp : Defines the entry point for the console application.
 #include "../include/TCPSocket.hpp"
 #include <iostream>
-#include <sstream>
 
 
 
@@ -9,20 +8,16 @@ TCPSocket::TCPSocket(std::string ipNr, std::string portNr):
 	ipNr(ipNr),
 	portNr(portNr)
 {
-	t_init();	
-	// Resolve the server address and port
-	const char* ipNumber = ipNr.c_str();		//TIJDELIJK DIT KAN ANDERS?
-	const char* portNumber = portNr.c_str();	//dunno why
-	iResult = getaddrinfo(ipNumber, portNumber, &hints, &result);
+	init();	
+	iResult = getaddrinfo(ipNr.c_str(), portNr.c_str(), &hints, &result);
 	if (iResult != 0) {
-		std::cout << "getaddrinfo failed with error:" << iResult;
+		std::cout << "\ngetaddrinfo failed with error:" << iResult;
 		WSACleanup();
 		exit(EXIT_FAILURE);
 	}
-
 }
 
-void TCPSocket::t_init() {
+void TCPSocket::init(){
 	std::cout << "initialise Winsock\n";
 	iResult = WSAStartup(MAKEWORD(2, 2), &wsaData); //MAKEWORD(2.2) makes request for winsock version 2.2, WSAStartup iniate use of the WS2_32.dll
 	if (iResult != 0) {
@@ -36,22 +31,20 @@ void TCPSocket::t_init() {
 
 	std::cout << "Initialised\n";
 }
+void TCPSocket::connect(){
 
-void TCPSocket::t_connect() {
 	// Attempt to connect to an address until one succeeds
 	for (ptr = result; ptr != NULL; ptr = ptr->ai_next) {
-
 		// Create a SOCKET for connecting to server
 		ConnectSocket = socket(ptr->ai_family, ptr->ai_socktype,
 			ptr->ai_protocol);
 		if (ConnectSocket == INVALID_SOCKET) {
-			std::cout << "socket failed with error: " << WSAGetLastError();
+			std::cout << "\nsocket failed with error: " << WSAGetLastError();
 			WSACleanup();
 			exit(EXIT_FAILURE);
 		}
-
 		// Connect to server.
-		iResult = connect(ConnectSocket, ptr->ai_addr, (int)ptr->ai_addrlen);
+		iResult = ::connect(ConnectSocket, ptr->ai_addr, (int)ptr->ai_addrlen);
 		if (iResult == SOCKET_ERROR) {
 			closesocket(ConnectSocket);
 			ConnectSocket = INVALID_SOCKET;
@@ -66,94 +59,89 @@ void TCPSocket::t_connect() {
 		WSACleanup();
 		exit(EXIT_FAILURE);
 	}
-	std::cout << ("Connected!");
-
-	/*
-	if (ConnectSocket == INVALID_SOCKET) {
-        printf("Unable to connect to server!\n");
-        WSACleanup();
-        return 1;
-    }
-
-    // Send an initial buffer
-    iResult = send( ConnectSocket, sendbuf, (int)strlen(sendbuf), 0 );
-    if (iResult == SOCKET_ERROR) {
-        printf("send failed with error: %d\n", WSAGetLastError());
-        closesocket(ConnectSocket);
-        WSACleanup();
-        return 1;
-    }
-
-    printf("Bytes Sent: %ld\n", iResult);
-
-    // shutdown the connection since no more data will be sent
-    iResult = shutdown(ConnectSocket, SD_SEND);
-    if (iResult == SOCKET_ERROR) {
-        printf("shutdown failed with error: %d\n", WSAGetLastError());
-        closesocket(ConnectSocket);
-        WSACleanup();
-        return 1;
-    }
-
-    // Receive until the peer closes the connection
-    do {
-
-        iResult = recv(ConnectSocket, recvbuf, recvbuflen, 0);
-        if ( iResult > 0 )
-            printf("Bytes received: %d\n", iResult);
-        else if ( iResult == 0 )
-            printf("Connection closed\n");
-        else
-            printf("recv failed with error: %d\n", WSAGetLastError());
-
-    } while( iResult > 0 );
-	*/
+	isOpen = true;
+	std::cout << ("Connected!\n");
+	sendMessage("go");
+	receiveMessage();
 }
 
-
-void TCPSocket::t_data_write(uint8_t* data) {
+void TCPSocket::data_write(uint8_t* data, int numberOfBytes) {
 	//vin send buffr zetten en versturen
-	//check if empty
-	for (int i = 0; i < sizeof(data); i++) {
-		receive_buffer.push(data[i]);
+	for (unsigned int i = 0; i < sizeof(data); i++) {
+		send_buffer.push(data[i]);
 	}
 }
 
-void TCPSocket::t_data_write(std::string data) {
-	//uint8_t * data = new uint8_t[sizeof(send_buffer)];
-}
-
-uint8_t * TCPSocket::t_data_read(){
-	//uint8 char lezen naar een pointer en die returnen
-	uint8_t * data = new uint8_t[sizeof(send_buffer)];
-	if ( !send_buffer.empty() ) {
-		for (int i = 0; i < sizeof(send_buffer); i++) {
-			data[i] = send_buffer.front();
-			send_buffer.pop();
+uint8_t * TCPSocket::data_read(){
+	uint8_t * data = new uint8_t[sizeof(receive_buffer)];
+	if (!receive_buffer.empty()) {
+		for (unsigned int i = 0; i < sizeof(receive_buffer); i++) {
+			data[i] = receive_buffer.front();
+			receive_buffer.pop();
 		}
-	}
-	else {
-		//exit(EXIT_FAILURE);
 	}
 	return data;
 }
 
-
-void TCPSocket::t_disconnect(){
+void TCPSocket::disconnect(){
 	// shutdown the connection since no more data will be sent
 	shutdown(ConnectSocket, SD_SEND);
 	closesocket(ConnectSocket);
 	WSACleanup();
+	isOpen = false;
+	std::cout << "Disconnected!\n";
 }
 
-void TCPSocket::t_flush(){
+void TCPSocket::flush(){
 	std::queue<int> empty;
 	std::queue<uint8_t>().swap(receive_buffer);
 }
 
-bool TCPSocket::t_is_open(){
+bool TCPSocket::is_open(){
 	return isOpen;
 }
 
+void TCPSocket::receiveMessage(){
+	iResult = recv(ConnectSocket, tcp_recvbuf, tcp_recvbuflen, 0);
+	if (iResult > 0) {
+		std::cout << "SIZE OF iResult: " << iResult << "\n\n";
+		for (unsigned int i = 0; i < iResult; i++) {
+			receive_buffer.push(tcp_recvbuf[i]);
+		}
+		//std::cout << "Message received: " << recvbuf << " Bytes received: " << iResult << "\n";
+	}
+	else if (iResult == 0)
+		std::cout << "Error: connection is closed";
+	else
+		std::cout << "recv failed with error: " << WSAGetLastError() << "\n";
+}
 
+void TCPSocket::sendMessage(std::string data){
+	// Send an initial buffer
+	iResult = send(ConnectSocket, data.c_str(), (int)strlen(data.c_str()), 0);
+	if (iResult == SOCKET_ERROR) {
+		std::cout << ("send failed with error: %d\n", WSAGetLastError());
+		closesocket(ConnectSocket);
+		WSACleanup();
+		exit(EXIT_FAILURE);
+	}
+	std::cout << iResult << " bytes message: \"" << data << "\" sent\n";
+}
 
+bool TCPSocket::set_listener(TransportProtocol * t){
+	//list.push_back(t);
+	return false;
+}
+
+bool TCPSocket::remove_listener(TransportProtocol * t){
+	//list.erase(std::remove(list.begin(), list.end(), t), list.end());
+	return false;
+}
+
+int main(){
+	TCPSocket* sock1 = new TCPSocket("127.0.0.1", "27015");
+	sock1->connect();
+	sock1->sendMessage("halllo ik ben test!");
+	sock1->disconnect();
+	std::cout << sock1->data_read();
+}
