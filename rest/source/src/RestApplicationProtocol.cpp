@@ -1,15 +1,7 @@
 #include "../include/RestApplicationProtocol.hpp"
 
 
-
-RestApplicationProtocol::RestApplicationProtocol():
-ApplicationProtocol{}
-{
-    engine = RESTEngine();
-
-}
-
-RestApplicationProtocol::RestApplicationProtocol(TransportProtocol * t):
+RestApplicationProtocol::RestApplicationProtocol(TransportProtocol & t):
 ApplicationProtocol{t}
 {
     engine = RESTEngine();
@@ -31,7 +23,7 @@ void RestApplicationProtocol::addCallbackFunction(std::string link, std::string 
 }
 
 void RestApplicationProtocol::data_received(uint8_t * data){
-
+//TODO cut string and method and message from http request? Use API or external library.
 /*  std::string link = ""
   if(data[0] == "link"){
     link = data[1]
