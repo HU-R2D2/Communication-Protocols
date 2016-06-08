@@ -1,7 +1,7 @@
-#include "List.h"
+#include "../../include/json/List.h"
 
-#include "Object.h"
-#include "Value.h"
+#include "../../include/json/Object.h"
+#include "../../include/json/Value.h"
 #include <sstream>
 
 using namespace Dumais::JSON;
@@ -191,4 +191,3 @@ size_t List::getSize()
 {
     return mMembers.size();
 }
-

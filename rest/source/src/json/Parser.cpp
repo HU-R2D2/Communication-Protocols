@@ -1,13 +1,13 @@
-#include "Parser.h"
+#include "../../include/json/Parser.h"
 
-#include "Object.h"
-#include "List.h"
-#include "Value.h"
+#include "../../include/json/Object.h"
+#include "../../include/json/List.h"
+#include "../../include/json/Value.h"
 #include <algorithm>
 
 using namespace Dumais::JSON;
 
-//TODO: This could be considerably optimized. 
+//TODO: This could be considerably optimized.
 
 Parser::Parser(){
 }
@@ -18,7 +18,7 @@ Parser::~Parser(){
 std::string Parser::removeSpaces(std::string str)
 {
     // According to the RFC, /r /n /t and spaces are allowed in the document.
-    // We will remove them all to make the parsing easier. 
+    // We will remove them all to make the parsing easier.
     std::string ret="";
     ret.reserve(str.size());
 
@@ -59,7 +59,7 @@ Pair Parser::getPair(std::string str)
     const char *buf = str.c_str();
     Pair p;
     p.size=0;
-    
+
     // parse the string, This will be the key.
     std::string key = parseString(str);
     if (key=="")
@@ -94,7 +94,7 @@ Pair Parser::getPair(std::string str)
 // This will return the whole content inside a string. Escaped chars will not be un-escaped
 JSONProperty Parser::getValue(std::string str)
 {
-    
+
     JSONProperty val;
     val.size=0;
 	if (str.size() < 1 )
@@ -123,7 +123,7 @@ JSONProperty Parser::getValue(std::string str)
         } else {
             val.type = JSON_Invalid;
         }
-    } else if (*buf=='\"'){ 
+    } else if (*buf=='\"'){
         // The value is a string
         val.value=parseString(str);
         val.type=JSON_Value;
@@ -229,7 +229,7 @@ ValueSubType Parser::validateNakedValue(std::string ret)
     }
 
     return nrv;
-    
+
 }
 
 // retrive a literal value from the string.
@@ -238,7 +238,7 @@ std::string Parser::parseNakedValue(std::string str)
    if (str.size() < 1) return "";
     const char *buf=str.c_str();
 
-    // According to the RFC, naked values (called Literal Names) could only be: null, true, false. 
+    // According to the RFC, naked values (called Literal Names) could only be: null, true, false.
     // We also parse numbers in here.
 
     std::string ret;
@@ -325,7 +325,7 @@ size_t Parser::findClosingQuote(std::string str)
    if (str.size() < 1) return std::string::npos;
     const char *buf=str.c_str();
     const char *b2 = buf;
-    
+
     if (buf[0]!='\"') return std::string::npos;
 
     buf++;
@@ -341,7 +341,7 @@ size_t Parser::findClosingQuote(std::string str)
             if (*buf=='\\') // escape char, skip next one to make sure we don't find a quote
             {
                 nextEscape = true;
-            } 
+            }
             else if (*buf=='\"')
             {
                 break;
@@ -353,4 +353,3 @@ size_t Parser::findClosingQuote(std::string str)
    return ((unsigned long)buf - (unsigned long)b2 + 1);
 
 }
-

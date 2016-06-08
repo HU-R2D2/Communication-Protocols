@@ -1,9 +1,9 @@
-#include "JSON.h"
 #include <string.h>
 #include <sstream>
 #include <streambuf>
 #include <fstream>
-#include "Object.h"
+#include "../../include/json/Object.h"
+#include "../../include/json/JSON.h"
 #include <regex>
 
 using namespace Dumais::JSON;
@@ -38,10 +38,10 @@ namespace Dumais
 
     When creating an instance of this object and then parsing a string, the mRoot will be a JSON::Object.
     All operations will be forwarded down to the JSON::Object. The Parsing operation will create
-    all required entities and for this reason, this instance will be a root instance of a JSON tree. 
+    all required entities and for this reason, this instance will be a root instance of a JSON tree.
     Only the root instance should be allowed to delete what is in the tree
 
-    Note that only the JSON::JSON object can create Object,List and Value objects. Therefore it is safe to 
+    Note that only the JSON::JSON object can create Object,List and Value objects. Therefore it is safe to
     assume that deletion will be done from here at all times.
 
     When creating an instance of this object and using the operator= to assign it a value, the mRoot will reference
@@ -64,7 +64,7 @@ void JSON::clean()
     {
         if (mRoot != 0)
         {
-            delete mRoot;    
+            delete mRoot;
         }
         mRoot = this;
     }
@@ -461,5 +461,3 @@ JSON* JSON::matchNode(std::queue<std::string>& query)
 
    return pNextNode->matchNode(query);
 }
-
-

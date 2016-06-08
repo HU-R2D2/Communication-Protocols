@@ -1,4 +1,4 @@
-#include "Value.h"
+#include "../../include/json/Value.h"
 #include <sstream>
 #include <stdlib.h>
 #include <algorithm>
@@ -13,7 +13,7 @@ Value::Value()
 }
 Value::Value(std::string value, ValueSubType subType){
     mSubType = subType;
-    
+
     if (mSubType==Bool)
     {
        std::string tmp = value;
@@ -24,7 +24,7 @@ Value::Value(std::string value, ValueSubType subType){
     {
       mValue = unEscapeString(value);
     }
-    
+
 }
 
 Value::Value(unsigned int value){
@@ -105,7 +105,7 @@ JSON* Value::getByKey(std::string key)
 
 std::string Value::toString()
 {
-    
+
     return mValue;
 }
 
@@ -143,7 +143,7 @@ void Value::setStringValue(std::string value)
 
 void Value::assign(const JSON& json)
 {
-    
+
 }
 
 JSON& Value::addObject(const std::string& name)

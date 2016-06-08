@@ -1,4 +1,4 @@
-#include "RESTParameters.h"
+#include "../include/RESTParameters.h"
 
 RESTParameters::RESTParameters(const std::string &params, const ParamMap &registeredParams)
 {

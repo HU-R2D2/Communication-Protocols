@@ -1,8 +1,8 @@
-#include "Object.h"
+#include "../../include/json/Object.h"
 #include <string.h>
 
-#include "Value.h"
-#include "List.h"
+#include "../../include/json/Value.h"
+#include "../../include/json/List.h"
 #include <sstream>
 
 using namespace Dumais::JSON;
@@ -41,7 +41,7 @@ JSON* Object::copy()
 
 JSON* Object::getByIndex(size_t i)
 {
-   return &mInvalid; 
+   return &mInvalid;
 }
 
 JSON* Object::getByKey(std::string key)
@@ -99,7 +99,7 @@ void Object::parseObject(std::string str)
         if (tmp[p.size]!=',') return;
         i+=p.size+1; //skip comma
         tmp = str.substr(i);
-    
+
     }
 
 }
@@ -124,7 +124,7 @@ std::string Object::stringify(int level)
         it++;
         if (it!=mMembers.end()) ss << ",";
         if (level!=-1) ss<<"\r\n";
-        
+
     }
 
     for (int i=0;i<level-1;i++) ss<<"\t";
@@ -183,7 +183,7 @@ std::string Object::generateKey()
     } while (mMembers.find(ret) != mMembers.end());
 
     return ret;
-    
+
 }
 
 JSON& Object::addValue(const std::string& val,const std::string& name)
@@ -192,7 +192,7 @@ JSON& Object::addValue(const std::string& val,const std::string& name)
    if (name == "")
    {
       key = generateKey();
-   }    
+   }
 
    std::unordered_map<std::string,JSON*>::iterator it =  mMembers.find(key);
    if (it != mMembers.end())
@@ -290,6 +290,3 @@ void Object::setInt(int val)
 void Object::setDouble(double val)
 {
 }
-
-
-

@@ -1,5 +1,5 @@
-#include "RESTEngine.h"
-#include "RESTCallBack.h"
+#include "../include/RESTEngine.h"
+#include "../include/RESTCallBack.h"
 #include <sstream>
 #include <stdio.h>
 #include <algorithm>
@@ -11,7 +11,7 @@ RESTEngine::RESTEngine(){
 RESTEngine::~RESTEngine()
 {
     for (CallbackMap::iterator it = mCallbacks.begin(); it != mCallbacks.end(); it++)
-    {    
+    {
         for (std::list<ResourceIdentifier>::iterator it2 = it->second.begin(); it2 != it->second.end(); ++it2)
         {
             delete it2->mpCallback;
@@ -27,7 +27,7 @@ void RESTEngine::addCallBack(std::string uri, std::string method, RESTCallBack* 
     ri.mpCallback = p;
 
     std::string tmp = method;
-    std::transform(tmp.begin(),tmp.end(),tmp.begin(),::toupper); 
+    std::transform(tmp.begin(),tmp.end(),tmp.begin(),::toupper);
     mCallbacks[tmp].push_back(ri);
 }
 
@@ -52,7 +52,7 @@ RESTEngine::ResponseCode RESTEngine::invoke(Dumais::JSON::JSON& j, std::string u
                                             std::shared_ptr<void> userData) const
 {
     std::string tmp = method;
-    std::transform(tmp.begin(),tmp.end(),tmp.begin(),::toupper); 
+    std::transform(tmp.begin(),tmp.end(),tmp.begin(),::toupper);
     if (mCallbacks.count(tmp) == 0)
         return MethodNotAllowed;
 
@@ -105,7 +105,7 @@ void RESTEngine::documentInterface(Dumais::JSON::JSON& json)
     for (CallbackMap::iterator it = mCallbacks.begin(); it != mCallbacks.end(); it++)
     {
         std::string method = it->first;
-        std::transform(method.begin(),method.end(),method.begin(),::toupper); 
+        std::transform(method.begin(),method.end(),method.begin(),::toupper);
         for (auto it2 = it->second.begin(); it2 != it->second.end(); ++it2)
         {
             Dumais::JSON::JSON& j = json["api"].addObject();

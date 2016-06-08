@@ -6,7 +6,7 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -mcmodel=medium -std=gnu++0x -W -O3 -lpt
 
 
 
-file(GLOB SOURCES "source/src/*.cpp" "source/include/*.cpp" "source/include/json/*.cpp")
+file(GLOB SOURCES "source/src/*.cpp" "source/src/json/*.cpp" )
 
 
 
