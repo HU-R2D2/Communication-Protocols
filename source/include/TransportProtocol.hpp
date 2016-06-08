@@ -6,8 +6,6 @@
 class TransportProtocol{
 
 public:
-	TransportProtocol();
-	~TransportProtocol();
 
 	virtual void data_write(uint8_t* data) = 0;
 
