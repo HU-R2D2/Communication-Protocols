@@ -22,9 +22,9 @@ public:
 
 	virtual bool t_is_open() = 0;
 
-	virtual bool set_listener(TransportListener * t) = 0;
+	virtual bool t_set_listener(TransportListener * t) = 0;
 
-	virtual bool remove_listener(TransportListener * t) = 0;
+	virtual bool t_remove_listener(TransportListener * t) = 0;
 
 
 private:

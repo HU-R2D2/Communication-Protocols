@@ -1,7 +1,7 @@
 #ifndef _REST_PROTOCOL_HPP
 #define _REST_PROTOCOL_HPP
 
-#include "ApplicationProtocol.hpp"
+//#include "ApplicationProtocol.hpp"
 #include "TransportListener.hpp"
 #include <fstream>
 #include <iostream>
@@ -14,18 +14,15 @@
 /// \author Koen van der Kruk
 /// \version 1.0
 /// \date 8-6-2016
-class RestApplicationProtocol : public TransportListener, public ApplicationProtocol{
+class RestApplicationProtocol : public TransportListener{//, public ApplicationProtocol{
 
 public:
 
     /// Second constructor with support for the TransportProtocol.
-    RestApplicationProtocol(TransportProtocol & t);
-
+    RestApplicationProtocol(); //TransportProtocol & t
 
     /// Destructs the ApplicationProtocol object so the TransportProtocol is also removed.
     ~RestApplicationProtocol();
-
-
 
     /// This will assign a new function as callback function.
     /// \param link The http url to access

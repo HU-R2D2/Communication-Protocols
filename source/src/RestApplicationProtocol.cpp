@@ -1,20 +1,16 @@
 #include "../include/RestApplicationProtocol.hpp"
 
 
-RestApplicationProtocol::RestApplicationProtocol(TransportProtocol & t):
-ApplicationProtocol{t}
+RestApplicationProtocol::RestApplicationProtocol()//: TransportProtocol & t
+//ApplicationProtocol{t}
 {
     engine = RESTEngine();
-    if(transport != nullptr){
-      transport->t_connect();
-    }
+  //  transport.t_connect();
+
 }
 
 RestApplicationProtocol::~RestApplicationProtocol(){
-  if(transport != nullptr){
-    transport->t_disconnect();
-    delete transport;
-  }
+  //  transport.t_disconnect();
 }
 
 
