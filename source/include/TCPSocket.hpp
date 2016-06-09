@@ -8,8 +8,10 @@
 #include <ws2tcpip.h>
 #include <winsock2.h>	//winsock2.h contains most of the Winsock functions, structures, and definitions. 
 #include <windows.h>
+
 #include <string>
 #include <queue>
+#include <thread>
 
 
 #define WIN32_LEAN_AND_MEAN //used to exclude rarely-used services from Windows headers(to speed up building time)
@@ -37,13 +39,18 @@ public:
 
 	void receiveMessage();
 
-	void sendMessage(std::string data);
+	//void sendMessage(uint8_t* data);
+	void sendMessage();
+	void sendMessage(uint8_t * d);
+	void sendMessage(std::string d);
 
 	bool set_listener(TransportProtocol * t);
 
 	//bool selistener(TCPSocket * t);
 
 	bool remove_listener(TransportProtocol * t);
+
+	void run();
 
 private:
 	WSADATA wsaData;
