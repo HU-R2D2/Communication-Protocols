@@ -3,6 +3,7 @@
 #include <sstream>
 #include <stdio.h>
 #include <algorithm>
+#include <iostream>
 #include <regex>
 
 RESTEngine::RESTEngine(){
@@ -10,6 +11,7 @@ RESTEngine::RESTEngine(){
 
 RESTEngine::~RESTEngine()
 {
+    std::cout << "Restengine break down" << "\n";
     for (CallbackMap::iterator it = mCallbacks.begin(); it != mCallbacks.end(); it++)
     {
         for (std::list<ResourceIdentifier>::iterator it2 = it->second.begin(); it2 != it->second.end(); ++it2)
