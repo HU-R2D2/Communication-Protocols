@@ -1,0 +1,2 @@
+/usr/bin/ar cr librs232.a  CMakeFiles/rs232.dir/home/norazan/R2D2/deps/rs232/rs232.c.o CMakeFiles/rs232.dir/source/src/UART.cpp.o
+/usr/bin/ranlib librs232.a

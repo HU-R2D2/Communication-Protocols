@@ -7,7 +7,7 @@ class TransportProtocol{
 
 public:
 
-	virtual void data_write(uint8_t* data) = 0;
+	virtual void data_write(uint8_t* data, int numberOfBytes) = 0;
 
 	virtual uint8_t* data_read() = 0;
 

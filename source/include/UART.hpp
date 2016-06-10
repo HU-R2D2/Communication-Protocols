@@ -3,21 +3,18 @@
 
 #include <queue>
 #include <iostream>
-#include <sstream>
-#include <string>
-#include <vector>
 #include <thread>
+#include <unistd.h>
 #include "TransportProtocol.hpp"
-#include "serial/serial.h"
+#include "comport_defines.hpp"
+#include "rs232.h"
 
 class UART : public TransportProtocol, public std::thread{
 
 public:
-	UART(int com, uint32_t baud = 9600, int bytesize = 8, int paritytype = 0, double stopbits = 1, int flow  = 0);
+	UART(int comport_nr, int baudrate, const char* mode);
 
-	void data_write(uint8_t* data);
-
-	void data_write(std::string data);
+	void data_write(uint8_t* data, int numberOfBytes);
 
 	uint8_t* data_read();
 
@@ -30,25 +27,14 @@ public:
 	bool is_open();
 
 	void run();
-
-	void setReadSize(size_t size);
-
-	bool getPort();
-
+std::queue<uint8_t> send_buffer;
+	std::queue<uint8_t> receive_buffer;
 private:
 	int comport;
-	uint32_t baudrate;
-	int databitcount;
-	int parity;
-	double stopbitcount;
-	int flowcontrol;
+	int baud;
+	const char* mode;
 
-	size_t read_size = 0;
-
-	std::queue<uint8_t> send_buffer;
-	std::queue<uint8_t> receive_buffer;
-
-	serial::Serial serialconnection;
+	
 };
 
 #endif

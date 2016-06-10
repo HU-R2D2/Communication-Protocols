@@ -1,0 +1,2 @@
+/home/norazan/R2D2/communication-protocols/CMakeFiles/rs232.dir
+/home/norazan/R2D2/communication-protocols/CMakeFiles/test_uart.dir
