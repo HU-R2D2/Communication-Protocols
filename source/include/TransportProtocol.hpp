@@ -2,15 +2,12 @@
 #define _TRANSPORTPROTOCOL_HPP
 
 #include <cstdint>
-#include <queue>
 
 class TransportProtocol{
 
 public:
-	TransportProtocol();
-	~TransportProtocol();
 
-	virtual void data_write(uint8_t* data) = 0;
+	virtual void data_write(uint8_t* data, int numberOfBytes) = 0;
 
 	virtual uint8_t* data_read() = 0;
 
@@ -21,10 +18,6 @@ public:
 	virtual void flush() = 0;
 
 	virtual bool is_open() = 0;
-
-private:
-	std::queue<uint8_t> send_buffer;
-	std::queue<uint8_t> receive_buffer;
 };
 
 #endif
