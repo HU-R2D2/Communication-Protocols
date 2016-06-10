@@ -1,1 +1,0 @@
-/usr/bin/c++    -std=gnu++11 -pthread -Wall -Wextra -o2    CMakeFiles/test_uart.dir/tests/main.cpp.o  -o test_uart -rdynamic librs232.a 
