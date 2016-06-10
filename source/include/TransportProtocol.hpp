@@ -10,24 +10,21 @@ public:
 	//TransportProtocol();
 	//~TransportProtocol();
 
-	virtual void t_data_write(uint8_t* data) = 0;
+	virtual void data_write(uint8_t* data, int numberOfBytes) = 0;
 
-	virtual uint8_t* t_data_read() = 0;
+	virtual uint8_t* data_read() = 0;
 
-	virtual void t_connect() = 0;
+	virtual void connect() = 0;
 
-	virtual void t_disconnect() = 0;
+	virtual void disconnect() = 0;
 
-	virtual void t_flush() = 0;
+	virtual void flush() = 0;
 
-	virtual bool t_is_open() = 0;
+	virtual bool is_open() = 0;
 
 	virtual bool t_set_listener(TransportListener * t) = 0;
 
 	virtual bool t_remove_listener(TransportListener * t) = 0;
-
-
-private:
 
 };
 
