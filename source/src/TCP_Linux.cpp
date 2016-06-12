@@ -1,10 +1,10 @@
 #include "../include/TCP_Linux.hpp"
 
-
-TCP_Linux::TCP_Linux(char * ipNr, char * portNr):
+TCP_Linux::TCP_Linux(std::string ipNr, std::string portNr):
 	ipNr(ipNr),
 	portNr(portNr)
-{
+{	
+
 }
 
 void TCP_Linux::data_write(uint8_t* data, int numberOfBytes){
@@ -26,7 +26,7 @@ uint8_t* TCP_Linux::data_read(){
 }
 
 void TCP_Linux::connect(){
-	SocketAddress servaddr(ipNr, portNr);
+	SocketAddress servaddr(ipNr.c_str(), portNr.c_str());
 	sock.connect(servaddr);
 }
 
@@ -41,9 +41,28 @@ void TCP_Linux::flush(){
 }
 
 bool TCP_Linux::is_open(){
+	std::string s = "isOpen?";
+	sock.send( s.data(), s.size() ); 	
+	return true;
+	//void CommunicatingSocket::send(const void *buffer, int bufferLen)
+
+}
+
+
+void TCP_Linux::sendMessage(){
+	if(!send_buffer.empty()){
+		
+	}
+
+}
+
+void TCP_Linux::receiveMessage(){
+	
 
 }
 
 void TCP_Linux::run(){
 
 }
+
+
