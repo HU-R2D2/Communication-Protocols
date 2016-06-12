@@ -45,24 +45,25 @@ bool TCP_Linux::is_open(){
 	sock.send( s.data(), s.size() ); 	
 	return true;
 	//void CommunicatingSocket::send(const void *buffer, int bufferLen)
-
 }
-
 
 void TCP_Linux::sendMessage(){
 	if(!send_buffer.empty()){
-		
+		char* buffer = new char[500];
+		sock.send(buffer, buffer.size());
 	}
 
 }
 
 void TCP_Linux::receiveMessage(){
-	
-
+	//temp for testing
+	char* buffer = new char[500];
+	if(( sock.recvFully(buffer, 2) ) != 1){
+		buffer[len+1] = '\0';
+	}
+	std::cout << "fout" << std::endl;
 }
 
 void TCP_Linux::run(){
 
 }
-
-
