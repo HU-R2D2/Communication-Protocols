@@ -1,4 +1,18 @@
 #include "../include/UART.hpp"
+#include <windows.h>
+
+void usleep(__int64 usec)
+{
+    HANDLE timer;
+    LARGE_INTEGER ft;
+
+    ft.QuadPart = -(10*usec); // Convert to 100 nanosecond interval, negative value indicates relative time
+
+    timer = CreateWaitableTimer(NULL, TRUE, NULL);
+    SetWaitableTimer(timer, &ft, 0, NULL, NULL, 0);
+    WaitForSingleObject(timer, INFINITE);
+    CloseHandle(timer);
+}
 
 UART::UART(int comport_nr, int baudrate, const char* mode_type):
 comport(comport_nr),
@@ -6,6 +20,10 @@ baud(baudrate),
 mode(mode_type)
 {
 	RS232_setPortInvalid();
+}
+
+UART::~UART(){
+	runningThread.join();
 }
 
 void UART::data_write(uint8_t* data, int numberOfBytes){
@@ -26,10 +44,13 @@ uint8_t* UART::data_read(){
 
 void UART::connect(){
 	RS232_OpenComport(comport, baud, mode);
+	running = true;
+	runningThread = std::thread(&UART::run, this);
 }
 
 void UART::disconnect(){
 	RS232_CloseComport(comport);
+	running = false;
 }
 
 void UART::flush(){
@@ -48,11 +69,19 @@ bool UART::is_open(){
 	}
 }
 
+void UART::set_listener(TransportListener * t){
+	transportListeners.push_back(t);
+}
+
+void UART::remove_listener(TransportListener * t){
+	transportListeners.erase(std::remove(transportListeners.begin(), transportListeners.end(), t), transportListeners.end());
+}
+
 void UART::run(){
 	unsigned char* tempSendBuf;
 	unsigned char* tempReceiveBuf = (unsigned char*) malloc(4096);
 	int numberOfReadBytes = 0;
-	while(1){
+	while(running){
 		if(is_open()){
 			if(send_buffer.size() > 0){
 				uint size = send_buffer.size();
@@ -66,6 +95,9 @@ void UART::run(){
 			if((numberOfReadBytes = RS232_PollComport(comport, tempReceiveBuf, 4096)) > 0){
 				for(int i = 0; i < numberOfReadBytes; i++){
 					receive_buffer.push(tempReceiveBuf[i]);
+					for(auto &TransportListener : transportListeners){
+						TransportListener->data_received(&tempReceiveBuf[i]);
+					}
 				}
 				numberOfReadBytes = 0;
 				usleep(100000);

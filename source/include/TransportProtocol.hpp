@@ -22,10 +22,17 @@ public:
 
 	virtual bool is_open() = 0;
 
-	virtual bool t_set_listener(TransportListener * t) = 0;
+	virtual void set_listener(TransportListener * t) = 0;
 
-	virtual bool t_remove_listener(TransportListener * t) = 0;
+	virtual void remove_listener(TransportListener * t) = 0;
 
+protected:
+
+	std::vector<TransportListener *> transportListeners;
+
+	std::queue<uint8_t> send_buffer;
+
+	std::queue<uint8_t> receive_buffer;
 };
 
 #endif
