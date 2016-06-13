@@ -7,7 +7,7 @@
 #include <unistd.h>
 #include "TransportProtocol.hpp"
 #include "comport_defines.hpp"
-#include "rs232.h"
+#include "../../../deps/rs232/rs232.h"
 
 class UART : public TransportProtocol, public std::thread{
 
@@ -27,14 +27,14 @@ public:
 	bool is_open();
 
 	void run();
-std::queue<uint8_t> send_buffer;
-	std::queue<uint8_t> receive_buffer;
+
 private:
 	int comport;
 	int baud;
 	const char* mode;
+	std::queue<uint8_t> send_buffer;
+	std::queue<uint8_t> receive_buffer;
 
-	
 };
 
 #endif

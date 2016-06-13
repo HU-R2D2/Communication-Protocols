@@ -12,10 +12,10 @@ file(GLOB SOURCES_GTEST "source/src/*.cpp" "source/src/json/*.cpp" "test/*.cpp")
 include_directories(
   ../deps/gtest-1.7.0/include
   ../deps/gtest-1.7.0
-  sources/include ../deps/rs232
+  ../deps/rs232
   )
 
-SET(serial_SRCS ../deps/rs232/rs232.h ../deps/rs232/rs232.c ./source/include/UART.hpp ./source/src/UART.cpp)
+SET(serial_SRCS ../deps/rs232/rs232.h ./source/include/UART.hpp)
 
 link_directories(../deps/gtest-1.7.0/src)
 ADD_LIBRARY(gtest ../deps/gtest-1.7.0/src/gtest-all.cc)
@@ -24,7 +24,6 @@ ADD_LIBRARY(gtest_main ../deps/gtest-1.7.0/src/gtest_main.cc)
 
 
 add_executable(ComminucationProtocols_test  ${GTEST} ${SOURCES_GTEST}  ${SOURCES})
-##add_executable(test_uart tests/main.cpp)
 target_link_libraries(ComminucationProtocols_test  gtest gtest_main ${CMAKE_THREAD_LIBS_INIT} ${SOURCES} "-Wl,--allow-multiple-definition")
 
 
