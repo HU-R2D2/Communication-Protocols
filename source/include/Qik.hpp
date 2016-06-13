@@ -83,121 +83,121 @@ public:
     //! @param  t       The transportprotocol that is used to send data.
     Qik(TransportProtocol t);
     
-    //! @fn  Qik::getFrimwareVersion();
+    //! @fn  Qik::get_firmware_version();
     //!
     //! @brief  reads the frimwareversion from the Qik.
     //!
     //! @return uint8_t The frimware version that is readed.    
-    uint8_t getFirmwareVersion();
+    uint8_t get_firmware_version();
 
-    //! @fn  Qik::getErrors();
+    //! @fn  Qik::get_errors();
     //!
     //! @brief  reads the Errors from the Qik.
     //!
     //! @return uint8_t The Errorcode version that is readed. 
-    uint8_t getErrors();
+    uint8_t get_errors();
 
-    //! @fn  Qik::getConfigurationParameter(byte parameter);
+    //! @fn  Qik::get_configuration_parameter(byte parameter);
     //!
     //! @brief  reads the configurated parameter from the qik;
     //!
     //! @param  parameter the parameter in range 0-11 that needs to be readed;
     //! @return uint8_t The value of the parameter that is readed;
-    uint8_t getConfigurationParameter(byte parameter);
+    uint8_t get_configuration_parameter(byte parameter);
 
-    //! @fn Qik::setConfigurationParamater(byte parameter, byte value);
+    //! @fn Qik::set_configuration_paramater(byte parameter, byte value);
     //!
     //! @brief  set a parameter of the qik
     //! 
     //! @param parameter  the parameter in range 0-11 that needs to be changed
-    uint8_t setConfigurationParameter(byte parameter, byte value);
+    uint8_t set_configuration_parameter(byte parameter, byte value);
 
 
-    //! @fn Qik::setM0Speed(int speed)
+    //! @fn Qik::set_m0_speed(int speed)
     //!
     //! @brief set the speed of motor 0
     //!
     //! @param speed the speed value for motor 0 in range 0-255
-    void setM0Speed(int speed);
+    void set_m0_speed(int speed);
 
-    //! @fn Qik::setM0Speed(int speed)
+    //! @fn Qik::set_m1_speed(int speed)
     //!
-    //! @brief set the speed of motor 0
+    //! @brief set the speed of motor 1
     //!
     //! @param speed the speed value for motor 1 in range 0-255
-    void setM1Speed(int speed);
+    void set_m1_speed(int speed);
 
-    //! @fn Qik::setSpeeds(int m0Speed, int m1Speed)
+    //! @fn Qik::set_speeds(int m0Speed, int m1Speed)
     //!
     //! @brief set the speeds of motor 1 and 2
     //!
     //! @param m0Speed the speed value for motor 0 in range 0-255
     //! @param m0Speed the speed value for motor 1 in range 0-255
-    void setSpeeds(int m0Speed, int m1Speed);
+    void set_speeds(int m0Speed, int m1Speed);
     
-    //! @fn Qik::setM0Brake(uint8_t brake)
+    //! @fn Qik::set_m0_brake(uint8_t brake)
     //!
     //! @brief set the brake for motor 0
     //!
     //! @param brake the brake value for motor 0
-    void setM0Brake(uint8_t brake);
+    void set_m0_brake(uint8_t brake);
     
-    //! @fn Qik::setM0Brake(uint8_t brake)
+    //! @fn Qik::set_m1_brake(uint8_t brake)
     //!
     //! @brief set the brake for motor 0
     //!
     //! @param brake the brake value for motor 1
-    void setM1Brake(uint8_t brake);
+    void set_m1_brake(uint8_t brake);
 
-    //! @fn Qik::setM0Brake(uint8_t brake)
+    //! @fn Qik::set_brakes(uint8_t brake)
     //!
     //! @brief set the brakes for motor 0 and 1
     //!
     //! @param m0Brake the brake value for motor 0
     //! @param m1Brake the brake value for motor 1
-    void setBrakes(uint8_t m0Brake, uint8_t m1Brake);
+    void set_brakes(uint8_t m0Brake, uint8_t m1Brake);
 
-    //! @fn Qik::getM0Current()
+    //! @fn Qik::get_m0_current()
     //!
     //! @brief get the current of motor 0
     //!
     //! @return uint8_t the current value of motor 0
-    uint8_t getM0Current();
+    uint8_t get_m0_current();
 
-    //! @fn Qik::getM1Current()
+    //! @fn Qik::get_m1_current()
     //!
     //! @brief get the current of motor 1
     //!
     //! @return uint8_t the current value of motor 1
-    uint8_t getM1Current();
+    uint8_t get_m1_current();
 
-    //! @fn Qik::getM0CurrentMilliamps()
+    //! @fn Qik::get_m0_current_milliamps()
     //!
     //! @brief get the current of motor 0 in milliamps
     //!
     //! @return unsigned int the current value of motor 0 in milliamps
-    unsigned int getM0CurrentMilliamps();
+    unsigned int get_m0_current_milliamps();
     
-    //! @fn Qik::getM1CurrentMilliamps()
+    //! @fn Qik::get_m1_current_milliamps()
     //!
     //! @brief get the current of motor 1 in milliamps
     //!
     //! @return unsigned int the current value of motor 1 in milliamps
-    unsigned int getM1CurrentMilliamps();
+    unsigned int get_m1_current_milliamps();
 
-    //! @fn Qik::getM0Speed()
+    //! @fn Qik::get_m0_speed()
     //!
     //! @brief get the speed of motor 0
     //!
     //! @return uint8_t the speed value of motor 0 in range 0-255.
-    uint8_t getM0Speed();
+    uint8_t get_m0_speed();
 
-    //! @fn Qik::getM1Speed()
+    //! @fn Qik::get_m1_speed()
     //!
     //! @brief get the speed of motor 1
     //!
     //! @return uint8_t the speed value of motor 1 in range 0-255.
-    uint8_t getM1Speed();
+    uint8_t get_m1_speed();
 private:
     uint8_t cmd[5];
 };
