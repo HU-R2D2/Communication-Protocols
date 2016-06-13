@@ -1,4 +1,5 @@
 #include "../include/UART.hpp"
+#include <unistd.h>
 
 UART::UART(int comport_nr, int baudrate, const char* mode_type):
 comport(comport_nr),
