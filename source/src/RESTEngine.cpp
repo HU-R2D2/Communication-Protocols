@@ -1,5 +1,5 @@
-#include "../include/RESTEngine.h"
-#include "../include/RESTCallBack.h"
+#include "../include/RESTEngine.hpp"
+#include "../include/RESTCallBack.hpp"
 #include <sstream>
 #include <stdio.h>
 #include <algorithm>

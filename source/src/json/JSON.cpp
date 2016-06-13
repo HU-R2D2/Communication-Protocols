@@ -2,8 +2,8 @@
 #include <sstream>
 #include <streambuf>
 #include <fstream>
-#include "../../include/json/Object.h"
-#include "../../include/json/JSON.h"
+#include "../../include/json/Object.hpp"
+#include "../../include/json/JSON.hpp"
 #include <regex>
 
 using namespace Dumais::JSON;

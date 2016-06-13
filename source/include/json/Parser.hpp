@@ -32,7 +32,7 @@ namespace Dumais
     	    JSONType type;
     	    size_t size;
     	};
-    
+
     	struct Pair
     	{
 	        std::string key;
@@ -51,17 +51,16 @@ namespace Dumais
     	public:
     		Parser();
     		~Parser();
-    
+
     	    std::string removeSpaces(std::string);
 	        Pair getPair(std::string);
     	    JSONProperty getValue(std::string);
-    
+
     	    size_t findClosingCurly(std::string str);
     	    size_t findClosingBracket(std::string str);
 	        size_t findClosingQuote(std::string str);
-    
+
     	};
     }
 }
 #endif
-

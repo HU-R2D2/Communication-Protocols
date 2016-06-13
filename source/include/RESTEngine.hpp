@@ -1,7 +1,7 @@
 #ifndef RESTENGINE_H
 #define RESTENGINE_H
 
-#include "json/JSON.h"
+#include "json/JSON.hpp"
 #include <regex>
 #include <list>
 #include <map>
@@ -21,7 +21,7 @@ typedef std::map<std::string, CallbackList> CallbackMap;
 
 class RESTEngine{
 private:
-    CallbackMap mCallbacks;    
+    CallbackMap mCallbacks;
 
 public:
     enum ResponseCode
@@ -44,7 +44,7 @@ public:
     void removeCallBack(RESTCallBack* p);
     ResponseCode invoke(Dumais::JSON::JSON& j, std::string url, const std::string& method, const std::string& data,
                         std::shared_ptr<void> userData = NULL) const;
-    
+
     void documentInterface(Dumais::JSON::JSON& j);
 
     /**
@@ -64,4 +64,3 @@ public:
 };
 
 #endif
-

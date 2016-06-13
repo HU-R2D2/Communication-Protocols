@@ -2,6 +2,8 @@
 #define _TRANSPORTPROTOCOL_HPP
 
 #include <cstdint>
+#include <queue>
+#include <vector>
 #include "TransportListener.hpp"
 
 class TransportProtocol{

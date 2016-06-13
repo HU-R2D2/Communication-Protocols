@@ -1,7 +1,7 @@
 #ifndef JSONVALUE_H
 #define JSONVALUE_H
 
-#include "JSON.h"
+#include "JSON.hpp"
 
 namespace Dumais
 {
@@ -24,7 +24,7 @@ namespace Dumais
             std::string escapeString(const std::string& st);
             std::string unEscapeString(const std::string& st);
 
-            std::string stringify(int level);    
+            std::string stringify(int level);
             virtual JSON* copy();
             virtual JSON* getByIndex(size_t i);
     	    virtual JSON* getByKey(std::string key);
@@ -37,7 +37,7 @@ namespace Dumais
             virtual JSON& addValue(unsigned int val,const std::string& name="");
             virtual JSON& addValue(int val,const std::string& name="");
             virtual JSON& addValue(double val,const std::string& name="");
-            virtual JSON& addValue(bool val,const std::string& name="");    
+            virtual JSON& addValue(bool val,const std::string& name="");
             virtual double convertToDouble();
             virtual int convertToInt();
             virtual unsigned int convertToUInt();
@@ -56,4 +56,3 @@ namespace Dumais
     }
 }
 #endif
-

@@ -2,7 +2,7 @@
 #define JSONLIST_H
 
 #include <vector>
-#include "JSON.h"
+#include "JSON.hpp"
 namespace Dumais
 {
     namespace JSON
@@ -42,4 +42,3 @@ namespace Dumais
     }
 }
 #endif
-

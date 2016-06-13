@@ -1,8 +1,8 @@
 #pragma once
 #include <unordered_map>
-#include "json/JSON.h"
-#include "RESTParameters.h"
-#include "RESTEngine.h"
+#include "json/JSON.hpp"
+#include "RESTParameters.hpp"
+#include "RESTEngine.hpp"
 #include <functional>
 #include <regex>
 

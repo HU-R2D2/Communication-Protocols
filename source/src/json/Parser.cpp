@@ -1,8 +1,8 @@
-#include "../../include/json/Parser.h"
+#include "../../include/json/Parser.hpp"
 
-#include "../../include/json/Object.h"
-#include "../../include/json/List.h"
-#include "../../include/json/Value.h"
+#include "../../include/json/Object.hpp"
+#include "../../include/json/List.hpp"
+#include "../../include/json/Value.hpp"
 #include <algorithm>
 
 using namespace Dumais::JSON;

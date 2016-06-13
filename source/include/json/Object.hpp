@@ -1,7 +1,7 @@
 #ifndef JSONOBJECT_H
 #define JSONOBJECT_H
 
-#include "JSON.h"
+#include "JSON.hpp"
 #include <unordered_map>
 namespace Dumais
 {
@@ -12,7 +12,7 @@ namespace Dumais
     	private:
 	        friend class Parser;
             friend class List;
-            friend class JSON; 
+            friend class JSON;
 	        std::unordered_map<std::string,JSON*> mMembers;
 	        void parseObject(std::string str);
             std::string generateKey();
@@ -31,14 +31,14 @@ namespace Dumais
     	    virtual std::string stringify(int level);
     	    virtual std::string toString();
     	    virtual void setStringValue(std::string value);
-    	    virtual void assign(const JSON& json); 
+    	    virtual void assign(const JSON& json);
             virtual void setBool(bool val);
             virtual void setUInt(unsigned int val);
             virtual void setInt(int val);
             virtual void setDouble(double val);
         	virtual bool getIsValid();
             virtual std::vector<std::string> getKeys();
-            
+
 
 
 	    public:
@@ -50,4 +50,3 @@ namespace Dumais
     }
 }
 #endif
-

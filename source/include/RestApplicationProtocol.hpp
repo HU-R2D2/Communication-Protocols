@@ -5,8 +5,8 @@
 #include "TransportListener.hpp"
 #include <fstream>
 #include <iostream>
-#include "RESTCallBack.h"
-#include "RESTEngine.h"
+#include "RESTCallBack.hpp"
+#include "RESTEngine.hpp"
 #include <string>
 #include <vector>
 

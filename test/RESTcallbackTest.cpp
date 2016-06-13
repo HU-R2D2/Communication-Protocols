@@ -1,6 +1,6 @@
 #include "gtest/gtest.h"
-#include "../source/include/RESTCallBack.h"
-#include "../source/include/RESTEngine.h"
+#include "../source/include/RESTCallBack.hpp"
+#include "../source/include/RESTEngine.hpp"
 #include "../source/include/RestApplicationProtocol.hpp"
 //#include "../source/include/TransportProtocol.hpp"
 #include <stdio.h>

@@ -2,7 +2,7 @@
 #define JSON_H
 
 #include <string>
-#include "Parser.h"
+#include "Parser.hpp"
 #include <vector>
 #include <queue>
 
@@ -13,7 +13,7 @@ namespace Dumais
     namespace JSON
     {
 
-        // WARNING: It is not possible to use this object as a return value of a function. See "assign" method 
+        // WARNING: It is not possible to use this object as a return value of a function. See "assign" method
         // for description of why we can't do this.
        	class JSON{
         private:
@@ -28,7 +28,7 @@ namespace Dumais
             static JSON mInvalid;
 
     	    virtual void clean();
-    	    std::string parseString(const char *buf); 
+    	    std::string parseString(const char *buf);
     	    virtual void setStringValue(std::string value);
     	    virtual void assign(const JSON& json);
             virtual void setBool(bool val);
@@ -67,14 +67,14 @@ namespace Dumais
             int toInt();
             unsigned int toUInt();
             bool toBool();
-    
+
     	    void parse(std::string& json);
             void parseFile(const std::string& filename);
 
             std::vector<std::string> keys();
 	        std::string stringify(bool formatted=false);
 	        virtual std::string stringify(int level=-1);
-        
+
             virtual JSON& addObject(const std::string& name="");
             virtual JSON& addList(const std::string& name="");
             virtual JSON& addValue(const std::string& val,const std::string& name="");
@@ -90,4 +90,3 @@ namespace Dumais
     }
 }
 #endif
-

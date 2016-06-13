@@ -1,8 +1,8 @@
-#include "../../include/json/Object.h"
+#include "../../include/json/Object.hpp"
 #include <string.h>
 
-#include "../../include/json/Value.h"
-#include "../../include/json/List.h"
+#include "../../include/json/Value.hpp"
+#include "../../include/json/List.hpp"
 #include <sstream>
 
 using namespace Dumais::JSON;
