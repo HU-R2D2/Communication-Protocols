@@ -3,6 +3,8 @@
 
 #include <cstdint>
 #include <queue>
+#include <vector>
+#include "TransportListener.hpp"
 
 class TransportProtocol{
 
@@ -34,7 +36,12 @@ public:
     //This method throws ConnectionExceptions when something is wrong
 	virtual bool is_open() = 0;
 
+    virtual bool set_listener(TransportListener *t);
+
+    virtual bool remove_listener(TransportListener *t);
+
 private:
+    std::vector<*TransportListener> transport_listeners;
 	std::queue<uint8_t> send_buffer;
 	std::queue<uint8_t> receive_buffer;
 };
