@@ -2,12 +2,12 @@
 #define _TRANSPORTPROTOCOL_HPP
 
 #include <cstdint>
+#include "TransportListener.hpp"
+#include <queue>
 
 class TransportProtocol{
 
 public:
-	//TransportProtocol();
-	//~TransportProtocol();
 
 	virtual void data_write(uint8_t* data, int numberOfBytes) = 0;
 
@@ -21,12 +21,14 @@ public:
 
 	virtual bool is_open() = 0;
 
-	virtual bool set_listener(TransportProtocol * t) = 0;
+	virtual void set_listener(TransportListener * t) = 0;
 
-	virtual bool remove_listener(TransportProtocol * t) = 0;
+	virtual void remove_listener(TransportListener * t) = 0;
 
-private:
-
+protected:
+	std::vector<TransportListener *> transportListeners;	
+	std::queue<uint8_t> send_buffer;	
+	std::queue<uint8_t> receive_buffer;
 };
 
 #endif

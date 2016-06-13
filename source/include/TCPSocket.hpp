@@ -1,10 +1,6 @@
 #ifndef HPP_TCPSOCKET
 #define HPP_TCPSOCKET
 
-//#include "ConnectionException.hpp"
-#include "TransportProtocol.hpp"
-//#define _WIN32_WINNT 0x0501
-
 #include <ws2tcpip.h>
 #include <winsock2.h>	//winsock2.h contains most of the Winsock functions, structures, and definitions. 
 #include <windows.h>
@@ -12,45 +8,81 @@
 #include <string>
 #include <queue>
 #include <thread>
+#include <iostream>
+#include <algorithm>
+//#include "ConnectionException.hpp"
+#include "TransportProtocol.hpp"
+//#define _WIN32_WINNT 0x0501
 
 
 #define WIN32_LEAN_AND_MEAN //used to exclude rarely-used services from Windows headers(to speed up building time)
-#define DEFAULT_BUFLEN 512
-#define DEFAULT_PORT "27015"
+#define DEFAULT_BUFLEN 4096
 
-class TCPSocket : public TransportProtocol {
+/// A protocol class for TCPSocket, wrapper for the winsock library.
+/// \author Waila Woe
+/// \version 1.0
+/// \date 13-6-2016
+class TCPSocket : public TransportProtocol, public std::thread {
 
 public:
-	TCPSocket() {};
+	///The constructor for TCP 
+	///\param ipNr The ip addres you want to connect to
+	///\param portNR The port number which it will be connected to
 	TCPSocket(std::string ipNr, std::string portNr);
+
+	~TCPSocket();
+
+	///Initialize winsock
+	///Will be called in the constructor to initialize winsock. 
+	///Do not change this.
 	void init();
 
+	///Writes data to the send_buffer queue. 
+	///\param data The data to be send.
+	///\param numberOfBytes Number of bytes that data contains.
 	void data_write(uint8_t* data, int numberOfBytes);
 
+	///Reads data from the receive_buffer queue.
 	uint8_t* data_read();
 
+	///Establisching the TCP connection.
 	void connect();
-
+	///Disconnet the TCP connection.
 	void disconnect();
 
+	///Flushes the send_buffer & receive_buffer .
 	void flush();
 
+	//Checks wether the connection is open.
 	bool is_open();
 
-	void receiveMessage();
+	///Checks for messages in the send_buffer queue to send to the 
+	///connected TCP Connection.
+	void send_message();
 
-	//void sendMessage(uint8_t* data);
-	void sendMessage();
-	void sendMessage(uint8_t * d);
-	void sendMessage(std::string d);
+	///Sends the given message to the connected TCP connection
+	void send_message(uint8_t * d);
 
-	bool set_listener(TransportProtocol * t);
+	///Waits untill data is received from the sender and puts the
+	///received data in the receive_buffer queue.
+	void receive_message();
 
-	//bool selistener(TCPSocket * t);
+	///Sets the timeout for 
+	void set_receive_timeout(unsigned int i);
 
-	bool remove_listener(TransportProtocol * t);
+	/// Method for adding a listener to the listeners list.
+	/// \param t TransportListener to be added
+	void set_listener(TransportListener * t);
 
+	/// Method for removing a listener to the listeners list.
+	/// \param t TransportListener to be removed
+	void remove_listener(TransportListener * t);
+
+	/// Active method which should run in it's own thread. 
+	/// Sends data in the send_buffer through the established connection, 
+	/// and polls for received data while putting it in the receive_buffer.
 	void run();
+
 
 private:
 	WSADATA wsaData;
@@ -60,16 +92,8 @@ private:
 					hints;
 
 	const std::string ipNr, portNr;
-
-	char tcp_recvbuf[DEFAULT_BUFLEN];
+	std::thread runningThread;
 	int iResult;
-	int tcp_recvbuflen = DEFAULT_BUFLEN;
 	bool isOpen = false;
-
-	std::vector<TransportProtocol*> list;
-
-	std::queue<uint8_t> send_buffer;
-	std::queue<uint8_t> receive_buffer;
-
 };
 #endif
