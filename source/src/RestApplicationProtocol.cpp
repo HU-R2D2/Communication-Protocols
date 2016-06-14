@@ -1,16 +1,17 @@
 #include "../include/RestApplicationProtocol.hpp"
+#include <iostream>
+#include <sstream>
+#include <string>
 
-
-RestApplicationProtocol::RestApplicationProtocol()//: TransportProtocol & t
-//ApplicationProtocol{t}
+RestApplicationProtocol::RestApplicationProtocol(TransportProtocol & t):
+ApplicationProtocol{t}
 {
     engine = RESTEngine();
-  //  transport.t_connect();
-
+    transport.connect();
 }
 
 RestApplicationProtocol::~RestApplicationProtocol(){
-  //  transport.t_disconnect();
+    transport.disconnect();
 //  engine.
 }
 
@@ -21,13 +22,26 @@ void RestApplicationProtocol::addCallbackFunction(std::string link, std::string 
 
 void RestApplicationProtocol::data_received(uint8_t * data){
 //TODO cut string and method and message from http request? Use API or external library.
-/*  std::string link = ""
-  if(data[0] == "link"){
-    link = data[1]
-  }
+//Send data like this: URL,METHOD,DATA
+    std::stringstream ss(std::string(data));
+    std::vector<std::string> result;
 
-    this.invokeApiCall(link,method,data);
-    */
+    while( ss.good() )
+    {
+        std::string substr;
+        getline( ss, substr, ',' );
+        result.push_back( substr );
+    }
+    std::string link = result.get(0);
+    std::string method = result.get(1);
+    std::string data = result.get(2);
+
+    if(!link.empty() && !method.empty() && !data.empty())
+    {
+        this.invokeApiCall(link,method,data);
+    } else{
+      std::cout << "Wrong input, ignoring result" << "\n";
+    }
 }
 
 void RestApplicationProtocol::invokeApiCall(std::string link, std::string method, std::string message ){

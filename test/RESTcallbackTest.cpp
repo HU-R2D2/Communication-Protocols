@@ -2,7 +2,7 @@
 #include "../source/include/RESTCallBack.hpp"
 #include "../source/include/RESTEngine.hpp"
 #include "../source/include/RestApplicationProtocol.hpp"
-//#include "../source/include/TransportProtocol.hpp"
+#include "../source/include/UART.hpp"
 #include <stdio.h>
 #include <iostream>
 #include <fstream>
@@ -38,8 +38,9 @@ public:
 
 TEST(RestApplicationProtocol, AddingProductShoppingCart){
   ShoppingCart * p = new ShoppingCart();
+  UART sendPort{ttyUSB0, 9600, "8N1"};
 //  TransportProtocol tp = TransportProtocol();
-  RestApplicationProtocol * rap = new RestApplicationProtocol();
+  RestApplicationProtocol * rap = new RestApplicationProtocol(sendPort);
 
   RESTCallBack * pc1 = new RESTCallBack(p, &ShoppingCart::addToCart, "This lets you add an item to a shopping cart");
   pc1->addParam("id","Shopping cart ID");
@@ -57,7 +58,8 @@ TEST(RestApplicationProtocol, AddingProductShoppingCart){
 TEST(RestApplicationProtocol, RemovingProductShoppingCart){
   ShoppingCart * p = new ShoppingCart();
 //  TransportProtocol tp = TransportProtocol();
-  RestApplicationProtocol * rap = new RestApplicationProtocol();
+  UART sendPort{ttyUSB0, 9600, "8N1"};
+  RestApplicationProtocol * rap = new RestApplicationProtocol(sendPort);
 
   RESTCallBack * pc2 = new RESTCallBack(p, &ShoppingCart::removeFromCart,"This lets you remove an item from a shopping cart");
   pc2->addParam("id","Shopping cart ID");

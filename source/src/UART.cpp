@@ -19,7 +19,7 @@ comport(comport_nr),
 baud(baudrate),
 mode(mode_type)
 {
-	RS232_setPortInvalid();
+//	RS232_setPortInvalid();
 }
 
 UART::~UART(){
@@ -61,12 +61,13 @@ void UART::flush(){
 }
 
 bool UART::is_open(){
-	if(RS232_cport(comport) == -1){
+/*	if(RS232_cport(comport) == -1){
 		return false;
 	}
 	else{
 		return true;
 	}
+  */
 }
 
 void UART::set_listener(TransportListener * t){
