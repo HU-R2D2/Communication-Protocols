@@ -87,7 +87,7 @@ void UART::run(){
 					}
 				}
 				numberOfReadBytes = 0;
-				usleep(100000);
+				std::this_thread::sleep_for(std::chrono::milliseconds(100));
 			}
 		}
 	}

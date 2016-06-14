@@ -5,6 +5,7 @@
 #include <iostream>
 #include <thread>
 #include <algorithm>
+#include <chrono>
 #include "TransportProtocol.hpp"
 #include "comport_defines.hpp"
 #include "../../../deps/rs232/rs232.h"
