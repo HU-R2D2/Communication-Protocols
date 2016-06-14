@@ -206,7 +206,6 @@ public:
     //! @return uint8_t the speed value of motor 1 in range 0-255.
     uint8_t get_m1_speed();
 private:
-    uint8_t* getAnswer(int dataBytesNeeded);
     uint8_t cmd[5], recbuff[4];
     int dataBytesNeeded, currentIndex;
     bool dataReady;

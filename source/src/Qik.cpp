@@ -4,17 +4,11 @@ Qik::Qik(TransportProtocol *t): ApplicationProtocol(t){
     t->set_listener(this);
 }
 
-void Qik::data_received(){
+void Qik::data_received(uint8_t * data){
 }
 
 uint8_t* getAnswer(int dataBytesNeeded){
-    dataBytesNeeded = 1;
-    dataReady = false;
-    currentIndex = 0;
-    while(!dataReade){
-        //TODO build in timeout for exception
-        //Get computer time and wait for time to pass
-    }
+
 
 }
 
