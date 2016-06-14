@@ -32,12 +32,24 @@ sys/file.h
 windows.h
 -
 
+/cygdrive/c/Users/Job/Documents/Git/communication-protocols/source/include/ApplicationProtocol.hpp
+TransportProtocol.hpp
+/cygdrive/c/Users/Job/Documents/Git/communication-protocols/source/include/TransportProtocol.hpp
+
+/cygdrive/c/Users/Job/Documents/Git/communication-protocols/source/include/Qik.hpp
+ApplicationProtocol.hpp
+/cygdrive/c/Users/Job/Documents/Git/communication-protocols/source/include/ApplicationProtocol.hpp
+
 /cygdrive/c/Users/Job/Documents/Git/communication-protocols/source/include/TransportListener.hpp
 cstdint
 -
 
 /cygdrive/c/Users/Job/Documents/Git/communication-protocols/source/include/TransportProtocol.hpp
 cstdint
+-
+vector
+-
+queue
 -
 TransportListener.hpp
 /cygdrive/c/Users/Job/Documents/Git/communication-protocols/source/include/TransportListener.hpp
@@ -65,6 +77,10 @@ rs232.h
 /cygdrive/c/Users/Job/Documents/Git/communication-protocols/source/include/UART.hpp
 iostream
 -
+
+/cygdrive/c/Users/Job/Documents/Git/communication-protocols/source/src/Qik.cpp
+../include/Qik.hpp
+/cygdrive/c/Users/Job/Documents/Git/communication-protocols/source/include/Qik.hpp
 
 /cygdrive/c/Users/Job/Documents/Git/communication-protocols/source/src/UART.cpp
 ../include/UART.hpp

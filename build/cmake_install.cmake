@@ -1,8 +1,8 @@
-# Install script for directory: C:/Users/Job/Documents/Git/communication-protocols
+# Install script for directory: /cygdrive/c/Users/Job/Documents/Git/communication-protocols
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "C:/Program Files (x86)/communication_protocols")
+  set(CMAKE_INSTALL_PREFIX "/usr/local")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -35,5 +35,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "C:/Users/Job/Documents/Git/communication-protocols/build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/cygdrive/c/Users/Job/Documents/Git/communication-protocols/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

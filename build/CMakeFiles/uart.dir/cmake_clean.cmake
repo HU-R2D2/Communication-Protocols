@@ -1,5 +1,6 @@
 file(REMOVE_RECURSE
   "CMakeFiles/uart.dir/source/src/Main.cpp.o"
+  "CMakeFiles/uart.dir/source/src/Qik.cpp.o"
   "CMakeFiles/uart.dir/source/src/UART.cpp.o"
   "uart.pdb"
   "uart.exe"

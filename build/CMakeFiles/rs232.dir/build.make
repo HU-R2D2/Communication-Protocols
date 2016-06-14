@@ -81,43 +81,17 @@ CMakeFiles/rs232.dir/cygdrive/c/Users/Job/Documents/Git/deps/rs232/rs232.c.o.pro
 CMakeFiles/rs232.dir/cygdrive/c/Users/Job/Documents/Git/deps/rs232/rs232.c.o.provides.build: CMakeFiles/rs232.dir/cygdrive/c/Users/Job/Documents/Git/deps/rs232/rs232.c.o
 
 
-CMakeFiles/rs232.dir/source/src/UART.cpp.o: CMakeFiles/rs232.dir/flags.make
-CMakeFiles/rs232.dir/source/src/UART.cpp.o: ../source/src/UART.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/cygdrive/c/Users/Job/Documents/Git/communication-protocols/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/rs232.dir/source/src/UART.cpp.o"
-	/usr/bin/c++.exe   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/rs232.dir/source/src/UART.cpp.o -c /cygdrive/c/Users/Job/Documents/Git/communication-protocols/source/src/UART.cpp
-
-CMakeFiles/rs232.dir/source/src/UART.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/rs232.dir/source/src/UART.cpp.i"
-	/usr/bin/c++.exe  $(CXX_DEFINES) $(CXX_FLAGS) -E /cygdrive/c/Users/Job/Documents/Git/communication-protocols/source/src/UART.cpp > CMakeFiles/rs232.dir/source/src/UART.cpp.i
-
-CMakeFiles/rs232.dir/source/src/UART.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/rs232.dir/source/src/UART.cpp.s"
-	/usr/bin/c++.exe  $(CXX_DEFINES) $(CXX_FLAGS) -S /cygdrive/c/Users/Job/Documents/Git/communication-protocols/source/src/UART.cpp -o CMakeFiles/rs232.dir/source/src/UART.cpp.s
-
-CMakeFiles/rs232.dir/source/src/UART.cpp.o.requires:
-
-.PHONY : CMakeFiles/rs232.dir/source/src/UART.cpp.o.requires
-
-CMakeFiles/rs232.dir/source/src/UART.cpp.o.provides: CMakeFiles/rs232.dir/source/src/UART.cpp.o.requires
-	$(MAKE) -f CMakeFiles/rs232.dir/build.make CMakeFiles/rs232.dir/source/src/UART.cpp.o.provides.build
-.PHONY : CMakeFiles/rs232.dir/source/src/UART.cpp.o.provides
-
-CMakeFiles/rs232.dir/source/src/UART.cpp.o.provides.build: CMakeFiles/rs232.dir/source/src/UART.cpp.o
-
-
 # Object files for target rs232
 rs232_OBJECTS = \
-"CMakeFiles/rs232.dir/cygdrive/c/Users/Job/Documents/Git/deps/rs232/rs232.c.o" \
-"CMakeFiles/rs232.dir/source/src/UART.cpp.o"
+"CMakeFiles/rs232.dir/cygdrive/c/Users/Job/Documents/Git/deps/rs232/rs232.c.o"
 
 # External object files for target rs232
 rs232_EXTERNAL_OBJECTS =
 
 librs232.a: CMakeFiles/rs232.dir/cygdrive/c/Users/Job/Documents/Git/deps/rs232/rs232.c.o
-librs232.a: CMakeFiles/rs232.dir/source/src/UART.cpp.o
 librs232.a: CMakeFiles/rs232.dir/build.make
 librs232.a: CMakeFiles/rs232.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/cygdrive/c/Users/Job/Documents/Git/communication-protocols/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX static library librs232.a"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/cygdrive/c/Users/Job/Documents/Git/communication-protocols/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking C static library librs232.a"
 	$(CMAKE_COMMAND) -P CMakeFiles/rs232.dir/cmake_clean_target.cmake
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/rs232.dir/link.txt --verbose=$(VERBOSE)
 
@@ -127,7 +101,6 @@ CMakeFiles/rs232.dir/build: librs232.a
 .PHONY : CMakeFiles/rs232.dir/build
 
 CMakeFiles/rs232.dir/requires: CMakeFiles/rs232.dir/cygdrive/c/Users/Job/Documents/Git/deps/rs232/rs232.c.o.requires
-CMakeFiles/rs232.dir/requires: CMakeFiles/rs232.dir/source/src/UART.cpp.o.requires
 
 .PHONY : CMakeFiles/rs232.dir/requires
 

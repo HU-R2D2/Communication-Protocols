@@ -6,7 +6,7 @@ comport(comport_nr),
 baud(baudrate),
 mode(mode_type)
 {
-	RS232_setPortInvalid();
+	//RS232_setPortInvalid();
 }
 
 UART::~UART(){

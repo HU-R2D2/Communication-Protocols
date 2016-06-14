@@ -8,6 +8,12 @@ CMakeFiles/uart.dir/source/src/Main.cpp.o
  /cygdrive/c/Users/Job/Documents/Git/communication-protocols/source/include/UART.hpp
  /cygdrive/c/Users/Job/Documents/Git/communication-protocols/source/include/comport_defines.hpp
  /cygdrive/c/Users/Job/Documents/Git/communication-protocols/source/src/Main.cpp
+CMakeFiles/uart.dir/source/src/Qik.cpp.o
+ /cygdrive/c/Users/Job/Documents/Git/communication-protocols/source/include/ApplicationProtocol.hpp
+ /cygdrive/c/Users/Job/Documents/Git/communication-protocols/source/include/Qik.hpp
+ /cygdrive/c/Users/Job/Documents/Git/communication-protocols/source/include/TransportListener.hpp
+ /cygdrive/c/Users/Job/Documents/Git/communication-protocols/source/include/TransportProtocol.hpp
+ /cygdrive/c/Users/Job/Documents/Git/communication-protocols/source/src/Qik.cpp
 CMakeFiles/uart.dir/source/src/UART.cpp.o
  ../../deps/rs232/rs232.h
  /cygdrive/c/Users/Job/Documents/Git/communication-protocols/source/include/TransportListener.hpp

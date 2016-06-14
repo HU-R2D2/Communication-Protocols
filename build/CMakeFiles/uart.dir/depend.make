@@ -8,6 +8,12 @@ CMakeFiles/uart.dir/source/src/Main.cpp.o: ../source/include/UART.hpp
 CMakeFiles/uart.dir/source/src/Main.cpp.o: ../source/include/comport_defines.hpp
 CMakeFiles/uart.dir/source/src/Main.cpp.o: ../source/src/Main.cpp
 
+CMakeFiles/uart.dir/source/src/Qik.cpp.o: ../source/include/ApplicationProtocol.hpp
+CMakeFiles/uart.dir/source/src/Qik.cpp.o: ../source/include/Qik.hpp
+CMakeFiles/uart.dir/source/src/Qik.cpp.o: ../source/include/TransportListener.hpp
+CMakeFiles/uart.dir/source/src/Qik.cpp.o: ../source/include/TransportProtocol.hpp
+CMakeFiles/uart.dir/source/src/Qik.cpp.o: ../source/src/Qik.cpp
+
 CMakeFiles/uart.dir/source/src/UART.cpp.o: ../../deps/rs232/rs232.h
 CMakeFiles/uart.dir/source/src/UART.cpp.o: ../source/include/TransportListener.hpp
 CMakeFiles/uart.dir/source/src/UART.cpp.o: ../source/include/TransportProtocol.hpp

@@ -1,1 +1,1 @@
--IC:/Users/Job/Documents/Git/communication-protocols/../deps/gtest-1.7.0/include -IC:/Users/Job/Documents/Git/communication-protocols/../deps/gtest-1.7.0 -IC:/Users/Job/Documents/Git/communication-protocols/sources/include -IC:/Users/Job/Documents/Git/communication-protocols/../deps/rs232 
+-IC:/Users/Job/Documents/Git/communication-protocols/sources/include -IC:/Users/Job/Documents/Git/communication-protocols/../deps/rs232 

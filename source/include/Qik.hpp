@@ -81,7 +81,7 @@ public:
     //! @brief  Constructor of the Qik Application protocol
     //!
     //! @param  t       The transportprotocol that is used to send data.
-    Qik(TransportProtocol t);
+    Qik(TransportProtocol *t);
     
     //! @fn  Qik::get_firmware_version();
     //!
@@ -97,20 +97,20 @@ public:
     //! @return uint8_t The Errorcode version that is readed. 
     uint8_t get_errors();
 
-    //! @fn  Qik::get_configuration_parameter(byte parameter);
+    //! @fn  Qik::get_configuration_parameter(uint8_t parameter);
     //!
     //! @brief  reads the configurated parameter from the qik;
     //!
     //! @param  parameter the parameter in range 0-11 that needs to be readed;
     //! @return uint8_t The value of the parameter that is readed;
-    uint8_t get_configuration_parameter(byte parameter);
+    uint8_t get_configuration_parameter(uint8_t parameter);
 
-    //! @fn Qik::set_configuration_paramater(byte parameter, byte value);
+    //! @fn Qik::set_configuration_paramater(uint8_t parameter, uint8_t value);
     //!
     //! @brief  set a parameter of the qik
     //! 
     //! @param parameter  the parameter in range 0-11 that needs to be changed
-    uint8_t set_configuration_parameter(byte parameter, byte value);
+    uint8_t set_configuration_parameter(uint8_t parameter, uint8_t value);
 
 
     //! @fn Qik::set_m0_speed(int speed)

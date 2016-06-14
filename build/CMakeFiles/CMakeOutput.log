@@ -565,3 +565,87 @@ mingw32-make.exe[1]: Leaving directory 'C:/Users/Job/Documents/Git/communication
     Feature record: CXX_FEATURE:0cxx_variable_templates
     Feature record: CXX_FEATURE:0cxx_variadic_macros
     Feature record: CXX_FEATURE:0cxx_variadic_templates
+Determining if files pthread.h exist passed with the following output:
+Change Dir: /cygdrive/c/Users/Job/Documents/Git/communication-protocols/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make.exe" "cmTC_291bb/fast"
+/usr/bin/make -f CMakeFiles/cmTC_291bb.dir/build.make CMakeFiles/cmTC_291bb.dir/build
+make[1]: Entering directory '/cygdrive/c/Users/Job/Documents/Git/communication-protocols/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_291bb.dir/CheckIncludeFiles.c.o
+/usr/bin/cc    -o CMakeFiles/cmTC_291bb.dir/CheckIncludeFiles.c.o   -c /cygdrive/c/Users/Job/Documents/Git/communication-protocols/build/CMakeFiles/CMakeTmp/CheckIncludeFiles.c
+Linking C executable cmTC_291bb.exe
+/usr/bin/cmake.exe -E cmake_link_script CMakeFiles/cmTC_291bb.dir/link.txt --verbose=1
+/usr/bin/cc     -Wl,--enable-auto-import  CMakeFiles/cmTC_291bb.dir/CheckIncludeFiles.c.o  -o cmTC_291bb.exe -Wl,--out-implib,libcmTC_291bb.dll.a -Wl,--major-image-version,0,--minor-image-version,0  
+make[1]: Leaving directory '/cygdrive/c/Users/Job/Documents/Git/communication-protocols/build/CMakeFiles/CMakeTmp'
+
+
+Determining if the pthread_create exist passed with the following output:
+Change Dir: /cygdrive/c/Users/Job/Documents/Git/communication-protocols/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make.exe" "cmTC_b0988/fast"
+/usr/bin/make -f CMakeFiles/cmTC_b0988.dir/build.make CMakeFiles/cmTC_b0988.dir/build
+make[1]: Entering directory '/cygdrive/c/Users/Job/Documents/Git/communication-protocols/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_b0988.dir/CheckSymbolExists.c.o
+/usr/bin/cc    -o CMakeFiles/cmTC_b0988.dir/CheckSymbolExists.c.o   -c /cygdrive/c/Users/Job/Documents/Git/communication-protocols/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTC_b0988.exe
+/usr/bin/cmake.exe -E cmake_link_script CMakeFiles/cmTC_b0988.dir/link.txt --verbose=1
+/usr/bin/cc     -Wl,--enable-auto-import  CMakeFiles/cmTC_b0988.dir/CheckSymbolExists.c.o  -o cmTC_b0988.exe -Wl,--out-implib,libcmTC_b0988.dll.a -Wl,--major-image-version,0,--minor-image-version,0  
+make[1]: Leaving directory '/cygdrive/c/Users/Job/Documents/Git/communication-protocols/build/CMakeFiles/CMakeTmp'
+
+File /cygdrive/c/Users/Job/Documents/Git/communication-protocols/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <pthread.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef pthread_create
+  return ((int*)(&pthread_create))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if files pthread.h exist passed with the following output:
+Change Dir: /cygdrive/c/Users/Job/Documents/Git/communication-protocols/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make.exe" "cmTC_b0447/fast"
+/usr/bin/make -f CMakeFiles/cmTC_b0447.dir/build.make CMakeFiles/cmTC_b0447.dir/build
+make[1]: Entering directory '/cygdrive/c/Users/Job/Documents/Git/communication-protocols/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_b0447.dir/CheckIncludeFiles.c.o
+/usr/bin/cc    -o CMakeFiles/cmTC_b0447.dir/CheckIncludeFiles.c.o   -c /cygdrive/c/Users/Job/Documents/Git/communication-protocols/build/CMakeFiles/CMakeTmp/CheckIncludeFiles.c
+Linking C executable cmTC_b0447.exe
+/usr/bin/cmake.exe -E cmake_link_script CMakeFiles/cmTC_b0447.dir/link.txt --verbose=1
+/usr/bin/cc     -Wl,--enable-auto-import  CMakeFiles/cmTC_b0447.dir/CheckIncludeFiles.c.o  -o cmTC_b0447.exe -Wl,--out-implib,libcmTC_b0447.dll.a -Wl,--major-image-version,0,--minor-image-version,0  
+make[1]: Leaving directory '/cygdrive/c/Users/Job/Documents/Git/communication-protocols/build/CMakeFiles/CMakeTmp'
+
+
+Determining if the pthread_create exist passed with the following output:
+Change Dir: /cygdrive/c/Users/Job/Documents/Git/communication-protocols/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make.exe" "cmTC_3e545/fast"
+/usr/bin/make -f CMakeFiles/cmTC_3e545.dir/build.make CMakeFiles/cmTC_3e545.dir/build
+make[1]: Entering directory '/cygdrive/c/Users/Job/Documents/Git/communication-protocols/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_3e545.dir/CheckSymbolExists.c.o
+/usr/bin/cc    -o CMakeFiles/cmTC_3e545.dir/CheckSymbolExists.c.o   -c /cygdrive/c/Users/Job/Documents/Git/communication-protocols/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTC_3e545.exe
+/usr/bin/cmake.exe -E cmake_link_script CMakeFiles/cmTC_3e545.dir/link.txt --verbose=1
+/usr/bin/cc     -Wl,--enable-auto-import  CMakeFiles/cmTC_3e545.dir/CheckSymbolExists.c.o  -o cmTC_3e545.exe -Wl,--out-implib,libcmTC_3e545.dll.a -Wl,--major-image-version,0,--minor-image-version,0  
+make[1]: Leaving directory '/cygdrive/c/Users/Job/Documents/Git/communication-protocols/build/CMakeFiles/CMakeTmp'
+
+File /cygdrive/c/Users/Job/Documents/Git/communication-protocols/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <pthread.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef pthread_create
+  return ((int*)(&pthread_create))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+

@@ -10,9 +10,9 @@ set(CMAKE_CXX_COMPILER_ID "GNU")
 
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
+  "../"
   "../../deps/gtest-1.7.0/include"
   "../../deps/gtest-1.7.0"
-  "../sources/include"
   "../../deps/rs232"
   )
 

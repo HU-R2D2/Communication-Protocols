@@ -6,38 +6,16 @@
 
 #IncludeRegexTransform: 
 
-../../deps/rs232/rs232.h
-stdio.h
--
-string.h
--
-ctype.h
--
-termios.h
--
-sys/ioctl.h
--
-unistd.h
--
-fcntl.h
--
-sys/types.h
--
-sys/stat.h
--
-limits.h
--
-sys/file.h
--
-windows.h
--
-
 /cygdrive/c/Users/Job/Documents/Git/communication-protocols/source/include/TransportListener.hpp
 cstdint
 -
 
 /cygdrive/c/Users/Job/Documents/Git/communication-protocols/source/include/TransportProtocol.hpp
 cstdint
+-
+vector
+-
+queue
 -
 TransportListener.hpp
 /cygdrive/c/Users/Job/Documents/Git/communication-protocols/source/include/TransportListener.hpp
@@ -55,8 +33,8 @@ TransportProtocol.hpp
 /cygdrive/c/Users/Job/Documents/Git/communication-protocols/source/include/TransportProtocol.hpp
 comport_defines.hpp
 /cygdrive/c/Users/Job/Documents/Git/communication-protocols/source/include/comport_defines.hpp
-rs232.h
-/cygdrive/c/Users/Job/Documents/Git/communication-protocols/source/include/rs232.h
+rs232/rs232.h
+/cygdrive/c/Users/Job/Documents/Git/communication-protocols/source/include/rs232/rs232.h
 
 /cygdrive/c/Users/Job/Documents/Git/communication-protocols/source/include/comport_defines.hpp
 

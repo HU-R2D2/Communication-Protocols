@@ -1,3 +1,4 @@
-C:/Users/Job/Documents/Git/communication-protocols/build/CMakeFiles/comp.dir
-C:/Users/Job/Documents/Git/communication-protocols/build/CMakeFiles/edit_cache.dir
-C:/Users/Job/Documents/Git/communication-protocols/build/CMakeFiles/rebuild_cache.dir
+/cygdrive/c/Users/Job/Documents/Git/communication-protocols/build/CMakeFiles/ComminucationProtocols_test.dir
+/cygdrive/c/Users/Job/Documents/Git/communication-protocols/build/CMakeFiles/gtest_main.dir
+/cygdrive/c/Users/Job/Documents/Git/communication-protocols/build/CMakeFiles/rs232.dir
+/cygdrive/c/Users/Job/Documents/Git/communication-protocols/build/CMakeFiles/gtest.dir
