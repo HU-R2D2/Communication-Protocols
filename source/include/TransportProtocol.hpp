@@ -6,6 +6,10 @@
 #include <queue>
 #include "TransportListener.hpp"
 
+/// Base class for creating transport protocols
+/// \author Koen van der Kruk, Job Verhaar
+/// \version 1.0
+/// \date 8-6-2016
 class TransportProtocol{
 
 public:

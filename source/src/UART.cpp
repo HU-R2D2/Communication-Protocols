@@ -29,6 +29,7 @@ uint8_t* UART::data_read(){
 	return tempBuf;
 }
 
+
 void UART::connect(){
 	RS232_OpenComport(comport, baud, mode);
 	running = true;

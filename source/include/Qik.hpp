@@ -82,6 +82,13 @@ public:
     //!
     //! @param  t       The transportprotocol that is used to send data.
     Qik(TransportProtocol *t);
+
+    //! @fn Qik:datareceived(uint8_t * data)
+    //!
+    //! @brief listener method for transportListener
+    //!
+    //! @param data     Pointer to the receive buffer.
+    void data_received(uint8_t * data);
     
     //! @fn  Qik::get_firmware_version();
     //!
@@ -199,6 +206,9 @@ public:
     //! @return uint8_t the speed value of motor 1 in range 0-255.
     uint8_t get_m1_speed();
 private:
-    uint8_t cmd[5];
+    uint8_t* getAnswer(int dataBytesNeeded);
+    uint8_t cmd[5], recbuff[4];
+    int dataBytesNeeded, currentIndex;
+    bool dataReady;
 };
 #endif

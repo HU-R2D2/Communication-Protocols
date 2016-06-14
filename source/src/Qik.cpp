@@ -1,13 +1,27 @@
 #include "../include/Qik.hpp"
 
 Qik::Qik(TransportProtocol *t): ApplicationProtocol(t){
-    //maybe send start uint8_t if autodetection is on
+    t->set_listener(this);
+}
+
+void Qik::data_received(){
+}
+
+uint8_t* getAnswer(int dataBytesNeeded){
+    dataBytesNeeded = 1;
+    dataReady = false;
+    currentIndex = 0;
+    while(!dataReade){
+        //TODO build in timeout for exception
+        //Get computer time and wait for time to pass
+    }
+
 }
 
 uint8_t Qik::get_firmware_version(){
     cmd[0] = QIK_GET_FIRMWARE_VERSION;
     transport->data_write(cmd,1);
-    return transport->data_read()[0];
+    return getAnswer(1)[0];
 }
 
 uint8_t Qik::get_errors(){
