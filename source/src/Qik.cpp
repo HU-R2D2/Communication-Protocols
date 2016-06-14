@@ -1,9 +1,5 @@
 #include "../include/Qik.hpp"
 
-
-
-
-
 Qik::Qik(TransportProtocol *t): ApplicationProtocol(t){
     //maybe send start uint8_t if autodetection is on
 }

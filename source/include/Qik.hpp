@@ -73,7 +73,7 @@
 #define QIK_CONFIG_MOTOR_M0_CURRENT_LIMIT_RESPONSE 10
 #define QIK_CONFIG_MOTOR_M1_CURRENT_LIMIT_RESPONSE 11
 
-class Qik: public ApplicationProtocol
+class Qik: public ApplicationProtocol, public TransportListener
 {
 public:
     //! @fn  Qik::Qik(TransportProtocol t)

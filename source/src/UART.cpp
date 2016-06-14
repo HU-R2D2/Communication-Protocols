@@ -6,7 +6,7 @@ comport(comport_nr),
 baud(baudrate),
 mode(mode_type)
 {
-	//RS232_setPortInvalid();
+	RS232_setPortInvalid();
 }
 
 UART::~UART(){
@@ -47,7 +47,7 @@ void UART::flush(){
 	std::swap(receive_buffer, empty);
 }
 
-bool UART::is_open(){
+bool UART::is_open(){	
 	if(RS232_cport(comport) == -1){
 		return false;
 	}
@@ -87,7 +87,7 @@ void UART::run(){
 					}
 				}
 				numberOfReadBytes = 0;
-				std::this_thread::sleep_for(std::chrono::milliseconds(100));
+				usleep(100000);
 			}
 		}
 	}
