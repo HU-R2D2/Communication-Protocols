@@ -10,7 +10,7 @@ int main(void){
 	sendPort.data_write((uint8_t*) "Test", 4);
 	std::cout << "Send string: Test" << std::endl;
 
-	usleep(1000000);
+	std::this_thread::sleep_for(std::chrono::milliseconds(400));
 
 	std::cout << "Received string: " << receivePort.data_read() << std::endl;
 	
