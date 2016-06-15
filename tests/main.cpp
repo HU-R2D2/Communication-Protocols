@@ -1,8 +1,8 @@
 #include "../source/include/UART.hpp"
 
 int main(void){
-	UART sendPort(ttyUSB0, 9600, "8N1");
-	UART receivePort(ttyUSB1, 9600, "8N1");
+	UART sendPort(COM3, 9600, "8N1");
+	UART receivePort(COM4, 9600, "8N1");
 
 	sendPort.connect();
 	receivePort.connect();

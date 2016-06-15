@@ -10,6 +10,8 @@
 #include "comport_defines.hpp"
 #include "rs232.h"
 
+typedef unsigned int uint;
+
 
 /// A protocol class for UART, wrapper for the RS232 library.
 /// \author Thijs Hendrickx
