@@ -1,9 +1,11 @@
 #ifndef HPP_TCPSOCKET
 #define HPP_TCPSOCKET
 
-#include <ws2tcpip.h>
-#include <winsock2.h>	//winsock2.h contains most of the Winsock functions, structures, and definitions. 
+
+#include <winsock2.h>
 #include <windows.h>
+#include <ws2tcpip.h>
+
 
 #include <string>
 #include <queue>
@@ -25,7 +27,7 @@
 class TCPSocket : public TransportProtocol, public std::thread {
 
 public:
-	///The constructor for TCP 
+	///The constructor for TCP
 	///\param ipNr The ip addres you want to connect to
 	///\param portNR The port number which it will be connected to
 	TCPSocket(std::string ipNr, std::string portNr);
@@ -33,11 +35,11 @@ public:
 	~TCPSocket();
 
 	///Initialize winsock
-	///Will be called in the constructor to initialize winsock. 
+	///Will be called in the constructor to initialize winsock.
 	///Do not change this.
 	void init();
 
-	///Writes data to the send_buffer queue. 
+	///Writes data to the send_buffer queue.
 	///\param data The data to be send.
 	///\param numberOfBytes Number of bytes that data contains.
 	void data_write(uint8_t* data, int numberOfBytes);
@@ -53,10 +55,11 @@ public:
 	///Flushes the send_buffer & receive_buffer .
 	void flush();
 
+
 	//Checks wether the connection is open.
 	bool is_open();
 
-	///Checks for messages in the send_buffer queue to send to the 
+	///Checks for messages in the send_buffer queue to send to the
 	///connected TCP Connection.
 	void send_message();
 
@@ -67,7 +70,7 @@ public:
 	///received data in the receive_buffer queue.
 	void receive_message();
 
-	///Sets the timeout for 
+	///Sets the timeout for
 	void set_receive_timeout(unsigned int i);
 
 	/// Method for adding a listener to the listeners list.
@@ -78,8 +81,8 @@ public:
 	/// \param t TransportListener to be removed
 	void remove_listener(TransportListener * t);
 
-	/// Active method which should run in it's own thread. 
-	/// Sends data in the send_buffer through the established connection, 
+	/// Active method which should run in it's own thread.
+	/// Sends data in the send_buffer through the established connection,
 	/// and polls for received data while putting it in the receive_buffer.
 	void run();
 
