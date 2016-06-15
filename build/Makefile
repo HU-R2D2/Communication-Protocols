@@ -324,6 +324,33 @@ source/src/UART.cpp.s:
 	$(MAKE) -f CMakeFiles/ComminucationProtocols_test.dir/build.make CMakeFiles/ComminucationProtocols_test.dir/source/src/UART.cpp.s
 .PHONY : source/src/UART.cpp.s
 
+source/src/UartTester.o: source/src/UartTester.cpp.o
+
+.PHONY : source/src/UartTester.o
+
+# target to build an object file
+source/src/UartTester.cpp.o:
+	$(MAKE) -f CMakeFiles/ComminucationProtocols_test.dir/build.make CMakeFiles/ComminucationProtocols_test.dir/source/src/UartTester.cpp.o
+.PHONY : source/src/UartTester.cpp.o
+
+source/src/UartTester.i: source/src/UartTester.cpp.i
+
+.PHONY : source/src/UartTester.i
+
+# target to preprocess a source file
+source/src/UartTester.cpp.i:
+	$(MAKE) -f CMakeFiles/ComminucationProtocols_test.dir/build.make CMakeFiles/ComminucationProtocols_test.dir/source/src/UartTester.cpp.i
+.PHONY : source/src/UartTester.cpp.i
+
+source/src/UartTester.s: source/src/UartTester.cpp.s
+
+.PHONY : source/src/UartTester.s
+
+# target to generate assembly for a file
+source/src/UartTester.cpp.s:
+	$(MAKE) -f CMakeFiles/ComminucationProtocols_test.dir/build.make CMakeFiles/ComminucationProtocols_test.dir/source/src/UartTester.cpp.s
+.PHONY : source/src/UartTester.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -354,6 +381,9 @@ help:
 	@echo "... source/src/UART.o"
 	@echo "... source/src/UART.i"
 	@echo "... source/src/UART.s"
+	@echo "... source/src/UartTester.o"
+	@echo "... source/src/UartTester.i"
+	@echo "... source/src/UartTester.s"
 .PHONY : help
 
 

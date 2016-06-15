@@ -7,15 +7,11 @@ Qik::Qik(TransportProtocol *t): ApplicationProtocol(t){
 void Qik::data_received(uint8_t * data){
 }
 
-uint8_t* getAnswer(int dataBytesNeeded){
-
-
-}
 
 uint8_t Qik::get_firmware_version(){
     cmd[0] = QIK_GET_FIRMWARE_VERSION;
     transport->data_write(cmd,1);
-    return getAnswer(1)[0];
+    return transport->data_read()[0];
 }
 
 uint8_t Qik::get_errors(){
