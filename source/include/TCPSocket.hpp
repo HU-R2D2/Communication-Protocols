@@ -95,5 +95,7 @@ private:
 	std::thread runningThread;
 	int iResult;
 	bool isOpen = false;
+	bool is_running = false;
 };
+
 #endif

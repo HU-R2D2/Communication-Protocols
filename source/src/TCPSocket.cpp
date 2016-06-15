@@ -27,11 +27,9 @@ void TCPSocket::init() {
 	hints.ai_family = AF_UNSPEC;
 	hints.ai_socktype = SOCK_STREAM;
 	hints.ai_protocol = IPPROTO_TCP;
-
 	std::cout << "Initialised\n";
 }
 void TCPSocket::connect() {
-
 	// Attempt to connect to an address until one succeeds
 	for (ptr = result; ptr != NULL; ptr = ptr->ai_next) {
 		// Create a SOCKET for connecting to server
@@ -58,6 +56,7 @@ void TCPSocket::connect() {
 		exit(EXIT_FAILURE);
 	}
 	runningThread = std::thread(&TCPSocket::run, this);
+	is_running = true;
 	std::cout << ("Connected!\n");
 }
 
@@ -84,6 +83,7 @@ void TCPSocket::disconnect() {
 	shutdown(ConnectSocket, SD_SEND);
 	closesocket(ConnectSocket);
 	WSACleanup();
+	is_running = false;
 	std::cout << "Disconnected!\n";
 }
 
@@ -126,7 +126,7 @@ void TCPSocket::send_message(uint8_t * d) {
 		std::cout << ("send failed with error: %d\n", WSAGetLastError());
 		closesocket(ConnectSocket);
 		WSACleanup();
-		exit(EXIT_FAILURE);
+		exit(EXIT_FAILURE);	
 	}
 }
 
@@ -143,9 +143,8 @@ void TCPSocket::receive_message() {
 	}
 	else if (iResult == 0)
 		std::cout << "Error: connection is closed";
-	else if (iResult == 10093) {
+	else if (iResult == 10093)
 		std::cout << "receive timeout" << std::endl;
-	}
 	else
 		std::cout << "recv failed with error: " << WSAGetLastError() << "\n";
 }
@@ -162,7 +161,6 @@ void TCPSocket::set_receive_timeout(unsigned int i) {
 
 void TCPSocket::set_listener(TransportListener * t){
 	transportListeners.push_back(t);
-	
 }
 
 void TCPSocket::remove_listener(TransportListener * t){
@@ -170,7 +168,7 @@ void TCPSocket::remove_listener(TransportListener * t){
 }
 
 void TCPSocket::run(){
-	while (1) {
+	while (is_running) {
 		Sleep(1500);
 		if (is_open()) {
 			std::cout <<"jaja"<<std::endl;
@@ -181,29 +179,15 @@ void TCPSocket::run(){
 }
 
 int main() {
-
-	/*TCPSocket* sock1 = new TCPSocket("127.0.0.1", "27015");
-	sock1->connect();
-	sock1->set_receive_timeout(10000);
-	std::cout << "\nEerste sendMessage()\n" << std::endl;
-	sock1->sendMessage();
-	sock1->receive_message();
-	std::cout << "\nTweede sendMessage()\n" << std::endl;
-	sock1->sendMessage();
-	sock1->receive_message();
-	sock1->disconnect();
-	*/
-
 	TCPSocket sock1("127.0.0.1", "27015");
 	
 	sock1.connect();
-
 	sock1.set_receive_timeout(1000);
 	Sleep(1000);
 	std::cout<<"send wailawoe to server"<<std::endl;
 	sock1.data_write((uint8_t *) "wailawoe", 8);
 	Sleep(1000);
-	sock1.data_write((uint8_t *) "masterwoe", 9);
+	sock1.data_write((uint8_t *) "halloiets", 9);
 	Sleep(1000);
 
 	sock1.disconnect();
