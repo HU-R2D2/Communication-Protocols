@@ -33,7 +33,7 @@ public:
 
     //// RestApplicationProtocol is a TransportListener that will receive incoming messages.
     /// \param data The incoming data package
-    void data_received(uint8_t * data) override;
+    void data_received(uint8_t * data, int numberOfBytes) override;
 
     /// Invoke API call, callback to another function.
     /// \param link The url conencted to the callback function

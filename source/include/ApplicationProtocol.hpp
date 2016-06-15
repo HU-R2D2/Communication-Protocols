@@ -9,7 +9,6 @@
 /// \version 1.0
 /// \date 8-6-2016
 class ApplicationProtocol{
-
 public:
 
     /// Constructor to initialize a apllication protocol containing a transport protocol.

@@ -1,11 +1,11 @@
 cmake_minimum_required(VERSION 2.8.9)
 project(ComminucationProtocols)
 find_package (Threads)
+find_library(ws2_32_LIBRARY_PATH ws2_32)
 
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=gnu++11 -O2 -lpthread -lssl -lcrypto -pthread ")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=gnu++0x -O2 -lpthread -lssl -lcrypto -pthread ")
+set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -lws2_32")
 set(serial_SRCS ../deps/rs232/rs232.h ../deps/rs232/rs232.c ./source/include/UART.hpp ./source/src/UART.cpp)
-set(BASEPATH "${CMAKE_SOURCE_DIR}")
-include_directories("${BASEPATH}")
 
 
 file(GLOB SOURCES "source/src/*.cpp" "source/src/json/*.cpp"  )
@@ -25,5 +25,7 @@ add_library(rs232 ${serial_SRCS})
 add_library(gtest_main ../deps/gtest-1.7.0/src/gtest_main.cc)
 
 
-add_executable(ComminucationProtocols_test  ${GTEST} ${SOURCES_GTEST}  ${SOURCES})
-target_link_libraries(ComminucationProtocols_test gtest rs232 gtest_main ${CMAKE_THREAD_LIBS_INIT} ${SOURCES} "-Wl,--allow-multiple-definition")
+
+
+add_executable(ComminucationProtocols ${GTEST} ${SOURCES_GTEST}  ${SOURCES})
+target_link_libraries(ComminucationProtocols gtest rs232 gtest_main ${ws2_32_LIBRARY_PATH} ${CMAKE_THREAD_LIBS_INIT} ${SOURCES} )

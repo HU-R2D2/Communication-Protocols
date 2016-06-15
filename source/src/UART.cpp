@@ -83,7 +83,7 @@ void UART::run(){
 				for(int i = 0; i < numberOfReadBytes; i++){
 					receive_buffer.push(tempReceiveBuf[i]);
 					for(auto &TransportListener : transportListeners){
-						TransportListener->data_received(&tempReceiveBuf[i]);
+						TransportListener->data_received(&tempReceiveBuf[i], numberOfReadBytes);
 					}
 				}
 				numberOfReadBytes = 0;
