@@ -297,6 +297,114 @@ source/src/Qik.cpp.s:
 	$(MAKE) -f CMakeFiles/ComminucationProtocols_test.dir/build.make CMakeFiles/ComminucationProtocols_test.dir/source/src/Qik.cpp.s
 .PHONY : source/src/Qik.cpp.s
 
+source/src/RESTCallBack.o: source/src/RESTCallBack.cpp.o
+
+.PHONY : source/src/RESTCallBack.o
+
+# target to build an object file
+source/src/RESTCallBack.cpp.o:
+	$(MAKE) -f CMakeFiles/ComminucationProtocols_test.dir/build.make CMakeFiles/ComminucationProtocols_test.dir/source/src/RESTCallBack.cpp.o
+.PHONY : source/src/RESTCallBack.cpp.o
+
+source/src/RESTCallBack.i: source/src/RESTCallBack.cpp.i
+
+.PHONY : source/src/RESTCallBack.i
+
+# target to preprocess a source file
+source/src/RESTCallBack.cpp.i:
+	$(MAKE) -f CMakeFiles/ComminucationProtocols_test.dir/build.make CMakeFiles/ComminucationProtocols_test.dir/source/src/RESTCallBack.cpp.i
+.PHONY : source/src/RESTCallBack.cpp.i
+
+source/src/RESTCallBack.s: source/src/RESTCallBack.cpp.s
+
+.PHONY : source/src/RESTCallBack.s
+
+# target to generate assembly for a file
+source/src/RESTCallBack.cpp.s:
+	$(MAKE) -f CMakeFiles/ComminucationProtocols_test.dir/build.make CMakeFiles/ComminucationProtocols_test.dir/source/src/RESTCallBack.cpp.s
+.PHONY : source/src/RESTCallBack.cpp.s
+
+source/src/RESTEngine.o: source/src/RESTEngine.cpp.o
+
+.PHONY : source/src/RESTEngine.o
+
+# target to build an object file
+source/src/RESTEngine.cpp.o:
+	$(MAKE) -f CMakeFiles/ComminucationProtocols_test.dir/build.make CMakeFiles/ComminucationProtocols_test.dir/source/src/RESTEngine.cpp.o
+.PHONY : source/src/RESTEngine.cpp.o
+
+source/src/RESTEngine.i: source/src/RESTEngine.cpp.i
+
+.PHONY : source/src/RESTEngine.i
+
+# target to preprocess a source file
+source/src/RESTEngine.cpp.i:
+	$(MAKE) -f CMakeFiles/ComminucationProtocols_test.dir/build.make CMakeFiles/ComminucationProtocols_test.dir/source/src/RESTEngine.cpp.i
+.PHONY : source/src/RESTEngine.cpp.i
+
+source/src/RESTEngine.s: source/src/RESTEngine.cpp.s
+
+.PHONY : source/src/RESTEngine.s
+
+# target to generate assembly for a file
+source/src/RESTEngine.cpp.s:
+	$(MAKE) -f CMakeFiles/ComminucationProtocols_test.dir/build.make CMakeFiles/ComminucationProtocols_test.dir/source/src/RESTEngine.cpp.s
+.PHONY : source/src/RESTEngine.cpp.s
+
+source/src/RESTParameters.o: source/src/RESTParameters.cpp.o
+
+.PHONY : source/src/RESTParameters.o
+
+# target to build an object file
+source/src/RESTParameters.cpp.o:
+	$(MAKE) -f CMakeFiles/ComminucationProtocols_test.dir/build.make CMakeFiles/ComminucationProtocols_test.dir/source/src/RESTParameters.cpp.o
+.PHONY : source/src/RESTParameters.cpp.o
+
+source/src/RESTParameters.i: source/src/RESTParameters.cpp.i
+
+.PHONY : source/src/RESTParameters.i
+
+# target to preprocess a source file
+source/src/RESTParameters.cpp.i:
+	$(MAKE) -f CMakeFiles/ComminucationProtocols_test.dir/build.make CMakeFiles/ComminucationProtocols_test.dir/source/src/RESTParameters.cpp.i
+.PHONY : source/src/RESTParameters.cpp.i
+
+source/src/RESTParameters.s: source/src/RESTParameters.cpp.s
+
+.PHONY : source/src/RESTParameters.s
+
+# target to generate assembly for a file
+source/src/RESTParameters.cpp.s:
+	$(MAKE) -f CMakeFiles/ComminucationProtocols_test.dir/build.make CMakeFiles/ComminucationProtocols_test.dir/source/src/RESTParameters.cpp.s
+.PHONY : source/src/RESTParameters.cpp.s
+
+source/src/RestApplicationProtocol.o: source/src/RestApplicationProtocol.cpp.o
+
+.PHONY : source/src/RestApplicationProtocol.o
+
+# target to build an object file
+source/src/RestApplicationProtocol.cpp.o:
+	$(MAKE) -f CMakeFiles/ComminucationProtocols_test.dir/build.make CMakeFiles/ComminucationProtocols_test.dir/source/src/RestApplicationProtocol.cpp.o
+.PHONY : source/src/RestApplicationProtocol.cpp.o
+
+source/src/RestApplicationProtocol.i: source/src/RestApplicationProtocol.cpp.i
+
+.PHONY : source/src/RestApplicationProtocol.i
+
+# target to preprocess a source file
+source/src/RestApplicationProtocol.cpp.i:
+	$(MAKE) -f CMakeFiles/ComminucationProtocols_test.dir/build.make CMakeFiles/ComminucationProtocols_test.dir/source/src/RestApplicationProtocol.cpp.i
+.PHONY : source/src/RestApplicationProtocol.cpp.i
+
+source/src/RestApplicationProtocol.s: source/src/RestApplicationProtocol.cpp.s
+
+.PHONY : source/src/RestApplicationProtocol.s
+
+# target to generate assembly for a file
+source/src/RestApplicationProtocol.cpp.s:
+	$(MAKE) -f CMakeFiles/ComminucationProtocols_test.dir/build.make CMakeFiles/ComminucationProtocols_test.dir/source/src/RestApplicationProtocol.cpp.s
+.PHONY : source/src/RestApplicationProtocol.cpp.s
+
 source/src/UART.o: source/src/UART.cpp.o
 
 .PHONY : source/src/UART.o
@@ -351,6 +459,222 @@ source/src/UartTester.cpp.s:
 	$(MAKE) -f CMakeFiles/ComminucationProtocols_test.dir/build.make CMakeFiles/ComminucationProtocols_test.dir/source/src/UartTester.cpp.s
 .PHONY : source/src/UartTester.cpp.s
 
+source/src/json/JSON.o: source/src/json/JSON.cpp.o
+
+.PHONY : source/src/json/JSON.o
+
+# target to build an object file
+source/src/json/JSON.cpp.o:
+	$(MAKE) -f CMakeFiles/ComminucationProtocols_test.dir/build.make CMakeFiles/ComminucationProtocols_test.dir/source/src/json/JSON.cpp.o
+.PHONY : source/src/json/JSON.cpp.o
+
+source/src/json/JSON.i: source/src/json/JSON.cpp.i
+
+.PHONY : source/src/json/JSON.i
+
+# target to preprocess a source file
+source/src/json/JSON.cpp.i:
+	$(MAKE) -f CMakeFiles/ComminucationProtocols_test.dir/build.make CMakeFiles/ComminucationProtocols_test.dir/source/src/json/JSON.cpp.i
+.PHONY : source/src/json/JSON.cpp.i
+
+source/src/json/JSON.s: source/src/json/JSON.cpp.s
+
+.PHONY : source/src/json/JSON.s
+
+# target to generate assembly for a file
+source/src/json/JSON.cpp.s:
+	$(MAKE) -f CMakeFiles/ComminucationProtocols_test.dir/build.make CMakeFiles/ComminucationProtocols_test.dir/source/src/json/JSON.cpp.s
+.PHONY : source/src/json/JSON.cpp.s
+
+source/src/json/List.o: source/src/json/List.cpp.o
+
+.PHONY : source/src/json/List.o
+
+# target to build an object file
+source/src/json/List.cpp.o:
+	$(MAKE) -f CMakeFiles/ComminucationProtocols_test.dir/build.make CMakeFiles/ComminucationProtocols_test.dir/source/src/json/List.cpp.o
+.PHONY : source/src/json/List.cpp.o
+
+source/src/json/List.i: source/src/json/List.cpp.i
+
+.PHONY : source/src/json/List.i
+
+# target to preprocess a source file
+source/src/json/List.cpp.i:
+	$(MAKE) -f CMakeFiles/ComminucationProtocols_test.dir/build.make CMakeFiles/ComminucationProtocols_test.dir/source/src/json/List.cpp.i
+.PHONY : source/src/json/List.cpp.i
+
+source/src/json/List.s: source/src/json/List.cpp.s
+
+.PHONY : source/src/json/List.s
+
+# target to generate assembly for a file
+source/src/json/List.cpp.s:
+	$(MAKE) -f CMakeFiles/ComminucationProtocols_test.dir/build.make CMakeFiles/ComminucationProtocols_test.dir/source/src/json/List.cpp.s
+.PHONY : source/src/json/List.cpp.s
+
+source/src/json/Object.o: source/src/json/Object.cpp.o
+
+.PHONY : source/src/json/Object.o
+
+# target to build an object file
+source/src/json/Object.cpp.o:
+	$(MAKE) -f CMakeFiles/ComminucationProtocols_test.dir/build.make CMakeFiles/ComminucationProtocols_test.dir/source/src/json/Object.cpp.o
+.PHONY : source/src/json/Object.cpp.o
+
+source/src/json/Object.i: source/src/json/Object.cpp.i
+
+.PHONY : source/src/json/Object.i
+
+# target to preprocess a source file
+source/src/json/Object.cpp.i:
+	$(MAKE) -f CMakeFiles/ComminucationProtocols_test.dir/build.make CMakeFiles/ComminucationProtocols_test.dir/source/src/json/Object.cpp.i
+.PHONY : source/src/json/Object.cpp.i
+
+source/src/json/Object.s: source/src/json/Object.cpp.s
+
+.PHONY : source/src/json/Object.s
+
+# target to generate assembly for a file
+source/src/json/Object.cpp.s:
+	$(MAKE) -f CMakeFiles/ComminucationProtocols_test.dir/build.make CMakeFiles/ComminucationProtocols_test.dir/source/src/json/Object.cpp.s
+.PHONY : source/src/json/Object.cpp.s
+
+source/src/json/Parser.o: source/src/json/Parser.cpp.o
+
+.PHONY : source/src/json/Parser.o
+
+# target to build an object file
+source/src/json/Parser.cpp.o:
+	$(MAKE) -f CMakeFiles/ComminucationProtocols_test.dir/build.make CMakeFiles/ComminucationProtocols_test.dir/source/src/json/Parser.cpp.o
+.PHONY : source/src/json/Parser.cpp.o
+
+source/src/json/Parser.i: source/src/json/Parser.cpp.i
+
+.PHONY : source/src/json/Parser.i
+
+# target to preprocess a source file
+source/src/json/Parser.cpp.i:
+	$(MAKE) -f CMakeFiles/ComminucationProtocols_test.dir/build.make CMakeFiles/ComminucationProtocols_test.dir/source/src/json/Parser.cpp.i
+.PHONY : source/src/json/Parser.cpp.i
+
+source/src/json/Parser.s: source/src/json/Parser.cpp.s
+
+.PHONY : source/src/json/Parser.s
+
+# target to generate assembly for a file
+source/src/json/Parser.cpp.s:
+	$(MAKE) -f CMakeFiles/ComminucationProtocols_test.dir/build.make CMakeFiles/ComminucationProtocols_test.dir/source/src/json/Parser.cpp.s
+.PHONY : source/src/json/Parser.cpp.s
+
+source/src/json/Value.o: source/src/json/Value.cpp.o
+
+.PHONY : source/src/json/Value.o
+
+# target to build an object file
+source/src/json/Value.cpp.o:
+	$(MAKE) -f CMakeFiles/ComminucationProtocols_test.dir/build.make CMakeFiles/ComminucationProtocols_test.dir/source/src/json/Value.cpp.o
+.PHONY : source/src/json/Value.cpp.o
+
+source/src/json/Value.i: source/src/json/Value.cpp.i
+
+.PHONY : source/src/json/Value.i
+
+# target to preprocess a source file
+source/src/json/Value.cpp.i:
+	$(MAKE) -f CMakeFiles/ComminucationProtocols_test.dir/build.make CMakeFiles/ComminucationProtocols_test.dir/source/src/json/Value.cpp.i
+.PHONY : source/src/json/Value.cpp.i
+
+source/src/json/Value.s: source/src/json/Value.cpp.s
+
+.PHONY : source/src/json/Value.s
+
+# target to generate assembly for a file
+source/src/json/Value.cpp.s:
+	$(MAKE) -f CMakeFiles/ComminucationProtocols_test.dir/build.make CMakeFiles/ComminucationProtocols_test.dir/source/src/json/Value.cpp.s
+.PHONY : source/src/json/Value.cpp.s
+
+test/Main_TestAll.o: test/Main_TestAll.cpp.o
+
+.PHONY : test/Main_TestAll.o
+
+# target to build an object file
+test/Main_TestAll.cpp.o:
+	$(MAKE) -f CMakeFiles/ComminucationProtocols_test.dir/build.make CMakeFiles/ComminucationProtocols_test.dir/test/Main_TestAll.cpp.o
+.PHONY : test/Main_TestAll.cpp.o
+
+test/Main_TestAll.i: test/Main_TestAll.cpp.i
+
+.PHONY : test/Main_TestAll.i
+
+# target to preprocess a source file
+test/Main_TestAll.cpp.i:
+	$(MAKE) -f CMakeFiles/ComminucationProtocols_test.dir/build.make CMakeFiles/ComminucationProtocols_test.dir/test/Main_TestAll.cpp.i
+.PHONY : test/Main_TestAll.cpp.i
+
+test/Main_TestAll.s: test/Main_TestAll.cpp.s
+
+.PHONY : test/Main_TestAll.s
+
+# target to generate assembly for a file
+test/Main_TestAll.cpp.s:
+	$(MAKE) -f CMakeFiles/ComminucationProtocols_test.dir/build.make CMakeFiles/ComminucationProtocols_test.dir/test/Main_TestAll.cpp.s
+.PHONY : test/Main_TestAll.cpp.s
+
+test/RESTcallbackTest.o: test/RESTcallbackTest.cpp.o
+
+.PHONY : test/RESTcallbackTest.o
+
+# target to build an object file
+test/RESTcallbackTest.cpp.o:
+	$(MAKE) -f CMakeFiles/ComminucationProtocols_test.dir/build.make CMakeFiles/ComminucationProtocols_test.dir/test/RESTcallbackTest.cpp.o
+.PHONY : test/RESTcallbackTest.cpp.o
+
+test/RESTcallbackTest.i: test/RESTcallbackTest.cpp.i
+
+.PHONY : test/RESTcallbackTest.i
+
+# target to preprocess a source file
+test/RESTcallbackTest.cpp.i:
+	$(MAKE) -f CMakeFiles/ComminucationProtocols_test.dir/build.make CMakeFiles/ComminucationProtocols_test.dir/test/RESTcallbackTest.cpp.i
+.PHONY : test/RESTcallbackTest.cpp.i
+
+test/RESTcallbackTest.s: test/RESTcallbackTest.cpp.s
+
+.PHONY : test/RESTcallbackTest.s
+
+# target to generate assembly for a file
+test/RESTcallbackTest.cpp.s:
+	$(MAKE) -f CMakeFiles/ComminucationProtocols_test.dir/build.make CMakeFiles/ComminucationProtocols_test.dir/test/RESTcallbackTest.cpp.s
+.PHONY : test/RESTcallbackTest.cpp.s
+
+test/UartTest.o: test/UartTest.cpp.o
+
+.PHONY : test/UartTest.o
+
+# target to build an object file
+test/UartTest.cpp.o:
+	$(MAKE) -f CMakeFiles/ComminucationProtocols_test.dir/build.make CMakeFiles/ComminucationProtocols_test.dir/test/UartTest.cpp.o
+.PHONY : test/UartTest.cpp.o
+
+test/UartTest.i: test/UartTest.cpp.i
+
+.PHONY : test/UartTest.i
+
+# target to preprocess a source file
+test/UartTest.cpp.i:
+	$(MAKE) -f CMakeFiles/ComminucationProtocols_test.dir/build.make CMakeFiles/ComminucationProtocols_test.dir/test/UartTest.cpp.i
+.PHONY : test/UartTest.cpp.i
+
+test/UartTest.s: test/UartTest.cpp.s
+
+.PHONY : test/UartTest.s
+
+# target to generate assembly for a file
+test/UartTest.cpp.s:
+	$(MAKE) -f CMakeFiles/ComminucationProtocols_test.dir/build.make CMakeFiles/ComminucationProtocols_test.dir/test/UartTest.cpp.s
+.PHONY : test/UartTest.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -359,8 +683,8 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... ComminucationProtocols_test"
-	@echo "... gtest_main"
 	@echo "... rs232"
+	@echo "... gtest_main"
 	@echo "... rebuild_cache"
 	@echo "... gtest"
 	@echo "... cygdrive/c/Users/Job/Documents/Git/deps/gtest-1.7.0/src/gtest-all.o"
@@ -378,12 +702,48 @@ help:
 	@echo "... source/src/Qik.o"
 	@echo "... source/src/Qik.i"
 	@echo "... source/src/Qik.s"
+	@echo "... source/src/RESTCallBack.o"
+	@echo "... source/src/RESTCallBack.i"
+	@echo "... source/src/RESTCallBack.s"
+	@echo "... source/src/RESTEngine.o"
+	@echo "... source/src/RESTEngine.i"
+	@echo "... source/src/RESTEngine.s"
+	@echo "... source/src/RESTParameters.o"
+	@echo "... source/src/RESTParameters.i"
+	@echo "... source/src/RESTParameters.s"
+	@echo "... source/src/RestApplicationProtocol.o"
+	@echo "... source/src/RestApplicationProtocol.i"
+	@echo "... source/src/RestApplicationProtocol.s"
 	@echo "... source/src/UART.o"
 	@echo "... source/src/UART.i"
 	@echo "... source/src/UART.s"
 	@echo "... source/src/UartTester.o"
 	@echo "... source/src/UartTester.i"
 	@echo "... source/src/UartTester.s"
+	@echo "... source/src/json/JSON.o"
+	@echo "... source/src/json/JSON.i"
+	@echo "... source/src/json/JSON.s"
+	@echo "... source/src/json/List.o"
+	@echo "... source/src/json/List.i"
+	@echo "... source/src/json/List.s"
+	@echo "... source/src/json/Object.o"
+	@echo "... source/src/json/Object.i"
+	@echo "... source/src/json/Object.s"
+	@echo "... source/src/json/Parser.o"
+	@echo "... source/src/json/Parser.i"
+	@echo "... source/src/json/Parser.s"
+	@echo "... source/src/json/Value.o"
+	@echo "... source/src/json/Value.i"
+	@echo "... source/src/json/Value.s"
+	@echo "... test/Main_TestAll.o"
+	@echo "... test/Main_TestAll.i"
+	@echo "... test/Main_TestAll.s"
+	@echo "... test/RESTcallbackTest.o"
+	@echo "... test/RESTcallbackTest.i"
+	@echo "... test/RESTcallbackTest.s"
+	@echo "... test/UartTest.o"
+	@echo "... test/UartTest.i"
+	@echo "... test/UartTest.s"
 .PHONY : help
 
 

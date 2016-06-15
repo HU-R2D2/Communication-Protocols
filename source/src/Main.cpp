@@ -7,7 +7,7 @@ int main(){
     std::cout << "Hello!" << std::endl;
     UART u(COM3);
     u.connect();
-    UartTester t(&u, false);
+    UartTester t(u, false);
     t.sayHi();
     while(true){
         t.sayHi();

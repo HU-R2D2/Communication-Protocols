@@ -1,3 +1,4 @@
+
 cmake_minimum_required(VERSION 2.8.9)
 project(ComminucationProtocols)
 find_package (Threads)
@@ -16,14 +17,18 @@ include_directories(
   "../deps/rs232/"
   )
 
+file(GLOB SOURCES "source/src/*.cpp" "source/src/json/*.cpp"  )
+file(GLOB SOURCES_GTEST "source/src/*.cpp" "source/src/json/*.cpp" "test/*.cpp" )
+
 
 
 
 link_directories(../deps/gtest-1.7.0/src)
+add_library(gtest ../deps/gtest-1.7.0/src/gtest-all.cc)
+add_library(gtest_main ../deps/gtest-1.7.0/src/gtest_main.cc)
+link_directories(../deps/gtest-1.7.0/src)
 link_directories(../deps/rs232/)
-ADD_LIBRARY(gtest ../deps/gtest-1.7.0/src/gtest-all.cc)
 ADD_LIBRARY(rs232 ../deps/rs232/rs232.c)
 
-ADD_LIBRARY(gtest_main ../deps/gtest-1.7.0/src/gtest_main.cc)
 add_executable(ComminucationProtocols_test  ${GTEST} ${SOURCES_GTEST}  ${SOURCES} ${RS232} )
 target_link_libraries(ComminucationProtocols_test gtest rs232 gtest_main ${CMAKE_THREAD_LIBS_INIT} ${SOURCES} "-Wl,--allow-multiple-definition")

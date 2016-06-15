@@ -81,7 +81,7 @@ public:
     //! @brief  Constructor of the Qik Application protocol
     //!
     //! @param  t       The transportprotocol that is used to send data.
-    Qik(TransportProtocol *t);
+    Qik(TransportProtocol & t);
 
     //! @fn Qik:datareceived(uint8_t * data)
     //!

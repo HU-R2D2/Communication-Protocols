@@ -45,7 +45,7 @@
 class UartTester: public ApplicationProtocol, public TransportListener
 {
 public:
-    UartTester(TransportProtocol *t, bool listen);
+    UartTester(TransportProtocol & t, bool listen);
 
     //! @fn Qik:datareceived(uint8_t * data)
     //!

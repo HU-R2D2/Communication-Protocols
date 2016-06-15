@@ -1,7 +1,8 @@
 #include "../include/Qik.hpp"
 
-Qik::Qik(TransportProtocol *t): ApplicationProtocol(t){
-    t->set_listener(this);
+Qik::Qik(TransportProtocol &t): ApplicationProtocol(t){
+    transport.set_listener(this);
+    transport.connect();
 }
 
 void Qik::data_received(uint8_t * data){
@@ -18,26 +19,26 @@ uint8_t* Qik::get_answer(int dataLength){
     dataReady = false;
     while(!dataReady){
     }
-    return transport->data_read();
+    return transport.data_read();
 }
 
 
 uint8_t Qik::get_firmware_version(){
     cmd[0] = QIK_GET_FIRMWARE_VERSION;
-    transport->data_write(cmd,1);
+    transport.data_write(cmd,1);
     return get_answer(1)[0];
 }
 
 uint8_t Qik::get_errors(){
     cmd[0] = QIK_GET_ERROR_BYTE;
-    transport->data_write(cmd,1);
+    transport.data_write(cmd,1);
     return get_answer(1)[0];
 }
 
 uint8_t Qik::get_configuration_parameter(uint8_t parameter){
     cmd[0] = QIK_GET_CONFIGURATION_PARAMETER;
     cmd[1] = parameter;
-    transport->data_write(cmd,2);
+    transport.data_write(cmd,2);
     return get_answer(1)[0];
 }
 
@@ -47,15 +48,15 @@ uint8_t Qik::set_configuration_parameter(uint8_t parameter, uint8_t value){
     cmd[2] = value;
     cmd[3] = 0x55;
     cmd[4] = 0x2A;
-    transport->data_write(cmd, 5);
+    transport.data_write(cmd, 5);
     return get_answer(1)[0];
 }
 
 void Qik::set_m0_speed(int speed){
     bool reverse = false;
     if (speed < 0){
-        speed = -speed; // make speed a positive quantity
-        reverse = 1; // preserve the direction
+        speed = -speed;
+        reverse = 1; 
     }
 
     if (speed > 255)
@@ -71,7 +72,7 @@ void Qik::set_m0_speed(int speed){
     cmd[0] = reverse ? QIK_MOTOR_M0_REVERSE : QIK_MOTOR_M0_FORWARD;
     cmd[1] = speed;
     }
-    transport->data_write(cmd, 2);
+    transport.data_write(cmd, 2);
 }
 
 void Qik::set_m1_speed(int speed){
@@ -91,7 +92,7 @@ void Qik::set_m1_speed(int speed){
     cmd[0] = reverse ? QIK_MOTOR_M1_REVERSE : QIK_MOTOR_M1_FORWARD;
     cmd[1] = speed;
     }
-    transport->data_write(cmd, 2);
+    transport.data_write(cmd, 2);
 }
 
 void Qik::set_speeds(int m0Speed, int m1Speed){
@@ -104,7 +105,7 @@ void Qik::set_m0_brake(uint8_t brake){
     brake = 127;
     cmd[0] = QIK_2S12V10_MOTOR_M0_BRAKE;
     cmd[1] = brake;
-    transport->data_write(cmd, 2);
+    transport.data_write(cmd, 2);
 }
 
 void Qik::set_m1_brake(uint8_t brake){
@@ -112,7 +113,7 @@ void Qik::set_m1_brake(uint8_t brake){
     brake = 127;
     cmd[0] = QIK_2S12V10_MOTOR_M1_BRAKE;
     cmd[1] = brake;
-    transport->data_write(cmd, 2);
+    transport.data_write(cmd, 2);
 }
 
 void Qik::set_brakes(uint8_t m0Brake, uint8_t m1Brake){
@@ -122,13 +123,13 @@ void Qik::set_brakes(uint8_t m0Brake, uint8_t m1Brake){
 
 uint8_t Qik::get_m0_current(){
     cmd[0] = QIK_2S12V10_GET_MOTOR_M0_CURRENT;
-    transport->data_write(cmd, 1);
+    transport.data_write(cmd, 1);
     return get_answer(1)[0];
 }
 
 uint8_t Qik::get_m1_current(){
     cmd[0] = QIK_2S12V10_GET_MOTOR_M1_CURRENT;
-    transport->data_write(cmd, 1);
+    transport.data_write(cmd, 1);
     return get_answer(1)[0];
 }
 unsigned int Qik::get_m0_current_milliamps(){
@@ -140,12 +141,12 @@ unsigned int Qik::get_m1_current_milliamps(){
 
 uint8_t Qik::get_m0_speed(){
     cmd[0] = QIK_2S12V10_GET_MOTOR_M0_SPEED;
-    transport->data_write(cmd, 1);
+    transport.data_write(cmd, 1);
     return get_answer(1)[0];
 }
 
 uint8_t Qik::get_m1_speed(){
     cmd[0] = QIK_2S12V10_GET_MOTOR_M1_SPEED;
-    transport->data_write(cmd, 1);
+    transport.data_write(cmd, 1);
     return get_answer(1)[0];
 }

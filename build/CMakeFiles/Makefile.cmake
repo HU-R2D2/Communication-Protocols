@@ -51,7 +51,7 @@ set(CMAKE_MAKEFILE_PRODUCTS
 # Dependency information for all targets:
 set(CMAKE_DEPEND_INFO_FILES
   "CMakeFiles/ComminucationProtocols_test.dir/DependInfo.cmake"
-  "CMakeFiles/gtest_main.dir/DependInfo.cmake"
   "CMakeFiles/rs232.dir/DependInfo.cmake"
+  "CMakeFiles/gtest_main.dir/DependInfo.cmake"
   "CMakeFiles/gtest.dir/DependInfo.cmake"
   )
