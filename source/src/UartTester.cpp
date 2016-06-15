@@ -23,13 +23,10 @@ void UartTester::data_received(uint8_t * data){
 }
 
 uint8_t* UartTester::sayHi(){
-    uint8_t hi[2];
-    hi[1] = 'h';
-    hi[2] = 'i';
-    std::cout << "Sending: hi" << std::endl;
-    transport->data_write(hi, 2);
-    uint8_t* answer = getAnswer(2);
-    std::cout << "received: " << answer << std::endl;
+    //std::cout << "Sending: hi" << std::endl;
+    transport->data_write((uint8_t *) "Hallo thijsHallo thijsHallo thijsHallo thijsHallo thijsHallo thijsHallo thijsHallo thijsHallo thijsHallo thijs", 110);
+    //uint8_t* answer = getAnswer(2);
+    //std::cout << "received: " << answer << std::endl;
 }
 
 void UartTester::backHi(){
