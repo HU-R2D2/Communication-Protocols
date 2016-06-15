@@ -5,26 +5,40 @@ Qik::Qik(TransportProtocol *t): ApplicationProtocol(t){
 }
 
 void Qik::data_received(uint8_t * data){
+    static int count = 0;
+    ++count;
+    if(count == dataBytesNeeded){
+        dataReady = true;
+        count = 0;
+    }
+}
+
+uint8_t* Qik::get_answer(int dataLength){
+    dataBytesNeeded = dataLength;
+    dataReady = false;
+    while(!dataReady){
+    }
+    return transport->data_read();
 }
 
 
 uint8_t Qik::get_firmware_version(){
     cmd[0] = QIK_GET_FIRMWARE_VERSION;
     transport->data_write(cmd,1);
-    return transport->data_read()[0];
+    return get_answer(1)[0];
 }
 
 uint8_t Qik::get_errors(){
     cmd[0] = QIK_GET_ERROR_BYTE;
     transport->data_write(cmd,1);
-    return transport->data_read()[0];
+    return get_answer(1)[0];
 }
 
 uint8_t Qik::get_configuration_parameter(uint8_t parameter){
     cmd[0] = QIK_GET_CONFIGURATION_PARAMETER;
     cmd[1] = parameter;
     transport->data_write(cmd,2);
-    return transport->data_read()[0];
+    return get_answer(1)[0];
 }
 
 uint8_t Qik::set_configuration_parameter(uint8_t parameter, uint8_t value){
@@ -34,7 +48,7 @@ uint8_t Qik::set_configuration_parameter(uint8_t parameter, uint8_t value){
     cmd[3] = 0x55;
     cmd[4] = 0x2A;
     transport->data_write(cmd, 5);
-    return transport->data_read()[0];
+    return get_answer(1)[0];
 }
 
 void Qik::set_m0_speed(int speed){
@@ -109,13 +123,13 @@ void Qik::set_brakes(uint8_t m0Brake, uint8_t m1Brake){
 uint8_t Qik::get_m0_current(){
     cmd[0] = QIK_2S12V10_GET_MOTOR_M0_CURRENT;
     transport->data_write(cmd, 1);
-    return transport->data_read()[0];
+    return get_answer(1)[0];
 }
 
 uint8_t Qik::get_m1_current(){
     cmd[0] = QIK_2S12V10_GET_MOTOR_M1_CURRENT;
     transport->data_write(cmd, 1);
-    return transport->data_read()[0];
+    return get_answer(1)[0];
 }
 unsigned int Qik::get_m0_current_milliamps(){
     return get_m0_current() * 150;
@@ -127,11 +141,11 @@ unsigned int Qik::get_m1_current_milliamps(){
 uint8_t Qik::get_m0_speed(){
     cmd[0] = QIK_2S12V10_GET_MOTOR_M0_SPEED;
     transport->data_write(cmd, 1);
-    return transport->data_read()[0];
+    return get_answer(1)[0];
 }
 
 uint8_t Qik::get_m1_speed(){
     cmd[0] = QIK_2S12V10_GET_MOTOR_M1_SPEED;
     transport->data_write(cmd, 1);
-    return transport->data_read()[0];
+    return get_answer(1)[0];
 }

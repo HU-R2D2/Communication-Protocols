@@ -88,7 +88,6 @@ void UART::run(){
 					}
 				}
 				numberOfReadBytes = 0;
-				usleep(100000);
 			}
 		}
 	}

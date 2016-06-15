@@ -206,8 +206,16 @@ public:
     //! @return uint8_t the speed value of motor 1 in range 0-255.
     uint8_t get_m1_speed();
 private:
-    uint8_t cmd[5], recbuff[4];
-    int dataBytesNeeded, currentIndex;
+    //! @fn @Qik::get_answer(int datalength)
+    //!
+    //! @brief function to wait till the answer of a determined length is ready
+    //!
+    //! @param dataLength  The length of the answer.
+    //!
+    //! @return uint8_t* the received answer. 
+    uint8_t* get_answer(int dataLength);
+    uint8_t cmd[5];
+    int dataBytesNeeded;
     bool dataReady;
 };
 #endif
