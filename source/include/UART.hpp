@@ -7,7 +7,7 @@
 #include <algorithm>
 #include <chrono>
 #include "TransportProtocol.hpp"
-#include "comport_defines.hpp"
+#include "ComportDefines.hpp"
 #include "../../../deps/rs232/rs232.h"
 
 
