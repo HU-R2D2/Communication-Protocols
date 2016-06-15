@@ -62,7 +62,7 @@ void TCPSocket::connect() {
 
 void TCPSocket::data_write(uint8_t* data, int numberOfBytes) {
 	std::cout << "\ndata_write done! \n" << std::endl;
-	for (unsigned int i = 0; i < numberOfBytes; i++) {
+	for (int i = 0; i < numberOfBytes; i++) {
 		send_buffer.push(data[i]);
 	}
 }
@@ -111,7 +111,7 @@ void TCPSocket::send_message() {
 		}
 		iResult = send(ConnectSocket, data, s, 0);
 		if (iResult == SOCKET_ERROR) {
-			std::cout << ("send failed with error: %d\n", WSAGetLastError());
+			std::cout << "send failed with error: " << WSAGetLastError() << std::endl;
 			closesocket(ConnectSocket);
 			WSACleanup();
 			exit(EXIT_FAILURE);
@@ -123,7 +123,7 @@ void TCPSocket::send_message(uint8_t * d) {
 	char *data = reinterpret_cast<char*>(d);
 	iResult = send(ConnectSocket, data, (int)strlen(data), 0);
 	if (iResult == SOCKET_ERROR) {
-		std::cout << ("send failed with error: %d\n", WSAGetLastError());
+		std::cout << "send failed with error: " << WSAGetLastError() << std::endl;
 		closesocket(ConnectSocket);
 		WSACleanup();
 		exit(EXIT_FAILURE);	
@@ -134,7 +134,7 @@ void TCPSocket::receive_message() {
 	char* tempReceiveBuf = (char*)malloc(DEFAULT_BUFLEN);
 	iResult = recv(ConnectSocket, tempReceiveBuf, DEFAULT_BUFLEN, 0);
 	if (iResult > 0) {
-		for (unsigned int i = 0; i < iResult; i++) {
+		for (int i = 0; i < iResult; i++) {
 			receive_buffer.push(tempReceiveBuf[i]);
 		}
 		for(auto &TransportListener : transportListeners){
