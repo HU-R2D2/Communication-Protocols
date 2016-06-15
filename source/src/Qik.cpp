@@ -1,11 +1,13 @@
 #include "../include/Qik.hpp"
 
 Qik::Qik(TransportProtocol &t): ApplicationProtocol(t){
+    //Add listener and connect uart
     transport.set_listener(this);
     transport.connect();
 }
 
 void Qik::data_received(uint8_t * data){
+    //Use count to wait till lenght of data is equal to the databytes needed.
     static int count = 0;
     ++count;
     if(count == dataBytesNeeded){
@@ -17,6 +19,7 @@ void Qik::data_received(uint8_t * data){
 uint8_t* Qik::get_answer(int dataLength){
     dataBytesNeeded = dataLength;
     dataReady = false;
+    //Wait till dataReady is set true in function get_answer
     while(!dataReady){
     }
     return transport.data_read();
