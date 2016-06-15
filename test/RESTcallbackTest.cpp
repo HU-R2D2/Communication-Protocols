@@ -41,7 +41,7 @@ TEST(RestApplicationProtocol, AddingProductShoppingCart){
   UART sendPort{ttyUSB0, 9600, "8N1"};
 //  TransportProtocol tp = TransportProtocol();
   RestApplicationProtocol * rap = new RestApplicationProtocol(sendPort);
-
+  sendPort.set_listener(rap);
   RESTCallBack * pc1 = new RESTCallBack(p, &ShoppingCart::addToCart, "This lets you add an item to a shopping cart");
   pc1->addParam("id","Shopping cart ID");
   pc1->addParam("sku","Item SKU");
@@ -60,7 +60,7 @@ TEST(RestApplicationProtocol, RemovingProductShoppingCart){
 //  TransportProtocol tp = TransportProtocol();
   UART sendPort{ttyUSB0, 9600, "8N1"};
   RestApplicationProtocol * rap = new RestApplicationProtocol(sendPort);
-
+  sendPort.set_listener(rap);
   RESTCallBack * pc2 = new RESTCallBack(p, &ShoppingCart::removeFromCart,"This lets you remove an item from a shopping cart");
   pc2->addParam("id","Shopping cart ID");
   pc2->addParam("sku","Item SKU");

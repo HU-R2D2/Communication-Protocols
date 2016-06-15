@@ -5,6 +5,7 @@
 #include <iostream>
 #include <thread>
 #include <algorithm>
+#include <chrono>
 #include "TransportProtocol.hpp"
 #include "comport_defines.hpp"
 #include "../../../deps/rs232/rs232.h"
@@ -55,11 +56,11 @@ public:
 
 	/// Method for adding a listener to the listeners list.
 	/// \param t TransportListener to be added
-	void set_listener(TransportListener * t) override;
+	void set_listener(TransportListener * t);
 
 	/// Method for removing a listener to the listeners list.
 	/// \param t TransportListener to be removed
-	void remove_listener(TransportListener * t) override;
+	void remove_listener(TransportListener * t);
 
 	/// Active method which should run in it's own thread.
 	/// Sends data in the send_buffer through the established connection,
@@ -74,7 +75,6 @@ private:
 
 	bool running = false;
 	std::thread runningThread;
-
 };
 
 #endif

@@ -3,8 +3,9 @@ project(ComminucationProtocols)
 find_package (Threads)
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=gnu++11 -O2 -lpthread -lssl -lcrypto -pthread ")
-SET(BASEPATH "${CMAKE_SOURCE_DIR}")
-INCLUDE_DIRECTORIES("${BASEPATH}")
+set(serial_SRCS ../deps/rs232/rs232.h ../deps/rs232/rs232.c ./source/include/UART.hpp ./source/src/UART.cpp)
+set(BASEPATH "${CMAKE_SOURCE_DIR}")
+include_directories("${BASEPATH}")
 
 
 file(GLOB SOURCES "source/src/*.cpp" "source/src/json/*.cpp"  )
@@ -16,13 +17,12 @@ include_directories(
   ../deps/rs232
   )
 
-set(serial_SRCS ../deps/rs232/rs232.h ../deps/rs232/rs232.c ./source/include/UART.hpp ./source/src/UART.cpp)
 
 
 link_directories(../deps/gtest-1.7.0/src)
-ADD_LIBRARY(gtest ../deps/gtest-1.7.0/src/gtest-all.cc)
-ADD_LIBRARY(rs232 ${serial_SRCS})
-ADD_LIBRARY(gtest_main ../deps/gtest-1.7.0/src/gtest_main.cc)
+add_library(gtest ../deps/gtest-1.7.0/src/gtest-all.cc)
+add_library(rs232 ${serial_SRCS})
+add_library(gtest_main ../deps/gtest-1.7.0/src/gtest_main.cc)
 
 
 add_executable(ComminucationProtocols_test  ${GTEST} ${SOURCES_GTEST}  ${SOURCES})

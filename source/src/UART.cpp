@@ -1,25 +1,12 @@
 #include "../include/UART.hpp"
-#include <windows.h>
-
-void usleep(__int64 usec)
-{
-    HANDLE timer;
-    LARGE_INTEGER ft;
-
-    ft.QuadPart = -(10*usec); // Convert to 100 nanosecond interval, negative value indicates relative time
-
-    timer = CreateWaitableTimer(NULL, TRUE, NULL);
-    SetWaitableTimer(timer, &ft, 0, NULL, NULL, 0);
-    WaitForSingleObject(timer, INFINITE);
-    CloseHandle(timer);
-}
+#include <unistd.h>
 
 UART::UART(int comport_nr, int baudrate, const char* mode_type):
 comport(comport_nr),
 baud(baudrate),
 mode(mode_type)
 {
-//	RS232_setPortInvalid();
+	RS232_setPortInvalid();
 }
 
 UART::~UART(){
@@ -61,13 +48,12 @@ void UART::flush(){
 }
 
 bool UART::is_open(){
-/*	if(RS232_cport(comport) == -1){
+	if(RS232_cport(comport) == -1){
 		return false;
 	}
 	else{
 		return true;
 	}
-  */
 }
 
 void UART::set_listener(TransportListener * t){
@@ -101,7 +87,7 @@ void UART::run(){
 					}
 				}
 				numberOfReadBytes = 0;
-				usleep(100000);
+				std::this_thread::sleep_for(std::chrono::milliseconds(100));
 			}
 		}
 	}
