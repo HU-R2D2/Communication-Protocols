@@ -23,22 +23,20 @@ void RestApplicationProtocol::addCallbackFunction(std::string link, std::string 
 void RestApplicationProtocol::data_received(uint8_t * data){
 //TODO cut string and method and message from http request? Use API or external library.
 //Send data like this: URL,METHOD,DATA
-    std::stringstream ss(std::string(data));
+    std::istringstream ss("/shoppingcart/item?id=1000&sku=1234&qty=4,POST,MESSAGE");
+    std::string token;
     std::vector<std::string> result;
-
-    while( ss.good() )
-    {
-        std::string substr;
-        getline( ss, substr, ',' );
-        result.push_back( substr );
+    while(std::getline(ss, token, ',')) {
+        result.push_back( token );
     }
-    std::string link = result.get(0);
-    std::string method = result.get(1);
-    std::string data = result.get(2);
 
-    if(!link.empty() && !method.empty() && !data.empty())
+    std::string link = result.at(0);
+    std::string method = result.at(1);
+    std::string message = result.at(2);
+
+    if(!link.empty() && !method.empty() && !message.empty())
     {
-        this.invokeApiCall(link,method,data);
+        invokeApiCall(link,method,message);
     } else{
       std::cout << "Wrong input, ignoring result" << "\n";
     }

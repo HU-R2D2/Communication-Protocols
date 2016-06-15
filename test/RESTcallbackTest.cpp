@@ -65,6 +65,7 @@ TEST(RestApplicationProtocol, RemovingProductShoppingCart){
   pc2->addParam("id","Shopping cart ID");
   pc2->addParam("sku","Item SKU");
   rap->addCallbackFunction("/shoppingcart/item","DELETE",pc2);
+
   rap->invokeApiCall("/shoppingcart/item?id=1000&sku=1234","DELETE","blablablabla");
 
 
