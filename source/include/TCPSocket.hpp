@@ -2,7 +2,7 @@
 #define HPP_TCPSOCKET
 
 #include <ws2tcpip.h>
-#include <winsock2.h>	//winsock2.h contains most of the Winsock functions, structures, and definitions. 
+#include <winsock2.h>
 #include <windows.h>
 
 #include <string>
@@ -12,10 +12,10 @@
 #include <algorithm>
 //#include "ConnectionException.hpp"
 #include "TransportProtocol.hpp"
-//#define _WIN32_WINNT 0x0501
 
 
-#define WIN32_LEAN_AND_MEAN //used to exclude rarely-used services from Windows headers(to speed up building time)
+
+#define WIN32_LEAN_AND_MEAN 
 #define DEFAULT_BUFLEN 4096
 
 /// A protocol class for TCPSocket, wrapper for the winsock library.

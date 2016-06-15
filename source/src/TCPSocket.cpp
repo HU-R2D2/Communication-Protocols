@@ -1,4 +1,3 @@
-// TCPSocket.cpp : Defines the entry point for the console application.
 #include "../include/TCPSocket.hpp"
 
 TCPSocket::TCPSocket(std::string ipNr, std::string portNr) :
@@ -17,7 +16,6 @@ TCPSocket::~TCPSocket(){
 	runningThread.join();
 }
 void TCPSocket::init() {
-	std::cout << "initialise Winsock\n";
 	iResult = WSAStartup(MAKEWORD(2, 2), &wsaData);
 	if (iResult != 0) {
 		std::cout << "WSAStartup failed with error: " << iResult;
@@ -27,12 +25,10 @@ void TCPSocket::init() {
 	hints.ai_family = AF_UNSPEC;
 	hints.ai_socktype = SOCK_STREAM;
 	hints.ai_protocol = IPPROTO_TCP;
-	std::cout << "Initialised\n";
+	std::cout << "Initialised Winsock\n";
 }
 void TCPSocket::connect() {
-	// Attempt to connect to an address until one succeeds
 	for (ptr = result; ptr != NULL; ptr = ptr->ai_next) {
-		// Create a SOCKET for connecting to server
 		ConnectSocket = socket(ptr->ai_family, ptr->ai_socktype,
 			ptr->ai_protocol);
 		if (ConnectSocket == INVALID_SOCKET) {
@@ -40,7 +36,6 @@ void TCPSocket::connect() {
 			WSACleanup();
 			exit(EXIT_FAILURE);
 		}
-		// Connect to server.
 		iResult = ::connect(ConnectSocket, ptr->ai_addr, (int)ptr->ai_addrlen);
 		if (iResult == SOCKET_ERROR) {
 			closesocket(ConnectSocket);
@@ -79,7 +74,6 @@ uint8_t * TCPSocket::data_read() {
 }
 
 void TCPSocket::disconnect() {
-	// shutdown the connection since no more data will be sent
 	shutdown(ConnectSocket, SD_SEND);
 	closesocket(ConnectSocket);
 	WSACleanup();
