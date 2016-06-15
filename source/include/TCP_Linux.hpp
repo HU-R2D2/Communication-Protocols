@@ -5,15 +5,18 @@
 #include <iostream>
 #include <thread>
 #include <unistd.h>
+#include <chrono>
 #include "TransportProtocol.hpp"
+#include <algorithm>
 #include "../../deps/practicalSocket/PracticalSocket.h"
 
 class TCP_Linux : public TransportProtocol, public std::thread{
 
 public:
 	TCP_Linux(){}
+	~TCP_Linux();
 	TCP_Linux(std::string ipNr, std::string portNr);
-
+	
 	void data_write(uint8_t* data, int numberOfBytes);
 
 	uint8_t* data_read();
@@ -26,25 +29,27 @@ public:
 
 	bool is_open();
 
-	void sendMessage();
+	void send_message();
 	
-	void receiveMessage();
+	void send_message(const char * message);
+	
+	void set_receive_timeout(int milisec);
+	
+	void receive_message();
 
 	void run();
 
-	bool set_listener(TransportProtocol * t);
+	void set_listener(TransportListener * t);
 	
-	bool remove_listener(TransportProtocol * t);
+	void remove_listener(TransportListener * t);
 
 private:
-	std::queue<uint8_t> send_buffer;
-	std::queue<uint8_t> receive_buffer;
-	//const char * ipNr;
-	//const char *portNr;
 	TCPSocket sock;
+	std::thread runningThread;
+
+	bool is_running = false;
 	const std::string ipNr, portNr;
-	
-	
+	int iResult;
 };
 
 #endif

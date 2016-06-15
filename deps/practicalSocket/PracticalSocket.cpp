@@ -228,6 +228,10 @@ Socket::~Socket() {
   }
 }
 
+const int Socket::getSocketDesc(){
+	return sockDesc;
+}
+
 void Socket::cleanUp() throw(SocketException) {
 #ifdef WIN32
   if (WSACleanup() != 0) {

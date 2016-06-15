@@ -155,6 +155,8 @@ public:
    */
   SocketAddress getLocalAddress() throw(SocketException);
 
+  const int getSocketDesc();
+
   /** Close this socket. */
   void close();
 
