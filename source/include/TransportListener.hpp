@@ -3,9 +3,8 @@
 
 #include <cstdint>
 
-/// A listener interface to comminucatie to REST application protocol.
-/// This can be used for protocols that need TCP access.
-/// \author Koen van der Kruk
+/// A listener interface to comminucatie to application protocols
+/// \author Koen van der Kruk, Job Verhaar
 /// \version 1.0
 /// \date 8-6-2016
 class TransportListener{

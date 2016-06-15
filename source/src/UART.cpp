@@ -29,6 +29,7 @@ uint8_t* UART::data_read(){
 	return tempBuf;
 }
 
+
 void UART::connect(){
 	RS232_OpenComport(comport, baud, mode);
 	running = true;
@@ -47,7 +48,7 @@ void UART::flush(){
 	std::swap(receive_buffer, empty);
 }
 
-bool UART::is_open(){
+bool UART::is_open(){	
 	if(RS232_cport(comport) == -1){
 		return false;
 	}
@@ -87,7 +88,6 @@ void UART::run(){
 					}
 				}
 				numberOfReadBytes = 0;
-				usleep(100000);
 			}
 		}
 	}

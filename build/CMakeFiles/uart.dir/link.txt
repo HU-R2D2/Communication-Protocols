@@ -1,0 +1,1 @@
+/usr/bin/c++.exe   -std=gnu++0x -pthread -Wall -Wextra -o2  -Wl,--enable-auto-import CMakeFiles/uart.dir/source/src/Main.cpp.o CMakeFiles/uart.dir/source/src/Qik.cpp.o CMakeFiles/uart.dir/source/src/UART.cpp.o  -o uart.exe -Wl,--out-implib,libuart.dll.a -Wl,--major-image-version,0,--minor-image-version,0  

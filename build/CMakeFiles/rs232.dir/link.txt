@@ -1,0 +1,2 @@
+/usr/bin/ar.exe cq librs232.a  CMakeFiles/rs232.dir/cygdrive/c/Users/Job/Documents/Git/deps/rs232/rs232.c.o
+/usr/bin/ranlib.exe librs232.a

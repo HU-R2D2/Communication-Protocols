@@ -5,9 +5,10 @@
 #include <iostream>
 #include <thread>
 #include <algorithm>
+#include <chrono>
 #include "TransportProtocol.hpp"
 #include "comport_defines.hpp"
-#include "rs232.h"
+#include "../../../deps/rs232/rs232.h"
 
 
 /// A protocol class for UART, wrapper for the RS232 library.
