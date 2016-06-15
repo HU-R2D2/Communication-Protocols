@@ -4,6 +4,7 @@
 
 RESTCallBack::~RESTCallBack()
 {
+  std::cout << "RestCallBack descructor"<<"\n";
 }
 
 void RESTCallBack::addParam(const std::string &paramName, const std::string &description,

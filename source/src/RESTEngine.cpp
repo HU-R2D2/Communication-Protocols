@@ -11,12 +11,12 @@ RESTEngine::RESTEngine(){
 
 RESTEngine::~RESTEngine()
 {
-    std::cout << "Restengine break down" << "\n";
+  //  std::cout << "Restengine break down" << "\n";
     for (CallbackMap::iterator it = mCallbacks.begin(); it != mCallbacks.end(); it++)
     {
         for (std::list<ResourceIdentifier>::iterator it2 = it->second.begin(); it2 != it->second.end(); ++it2)
         {
-            delete it2->mpCallback;
+      //     delete it2->mpCallback;
         }
     }
 }
