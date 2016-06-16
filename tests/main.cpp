@@ -5,8 +5,10 @@ int main(void){
 	TCP_Linux s1("127.0.0.1", "8080");
 	s1.connect();
 	s1.data_write((uint8_t *)"waila", 5);
-	std::this_thread::sleep_for(std::chrono::milliseconds(200000));
-	s1.disconnect();
+	std::cout << "blabla1" << std::endl;
+	std::cout << "blabla2" << std::endl;
+	std::cout << "blabla3" << std::endl;
+	//s1.disconnect();
 	/*
 	usleep(wacht);
 	

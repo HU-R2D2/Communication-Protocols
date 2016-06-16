@@ -14,11 +14,13 @@ void TCP_Linux::connect(){
 	SocketAddress servaddr(ipNr.c_str(), portNr.c_str());
 	sock.connect(servaddr);
 	is_running = true;
+	open = true;
 	runningThread = std::thread(&TCP_Linux::run, this);
 	std::cout << "connected!" << std::endl;
 }
 
 void TCP_Linux::disconnect(){
+	std::cout << "disc" << std::endl;
 	is_running = false;
 	sock.close();
 }
@@ -30,14 +32,8 @@ void TCP_Linux::flush(){
 }
 
 bool TCP_Linux::is_open(){
-	std::string s = "isOpen?\n";
-	try{
-		sock.send( s.data(),s.size() );
-	}
-	catch (SocketException &e) { 
-		return false;	
-	} 	
-	return true;
+
+	return open;
 }
 
 void TCP_Linux::data_write(uint8_t* data, int numberOfBytes){
@@ -103,21 +99,21 @@ void TCP_Linux::receive_message(){
 		}
 		for(auto &TransportListener : transportListeners){
 			TransportListener->data_received( (uint8_t *)&tempReceiveBuf);
-		}				
+		}
 	}
-	else 
+	else if(iResult == 0){
 		std::cout << "Error: didn't receive anything" << std::endl;
-	std::cout << tempReceiveBuf << std::endl;
-	std::cout << "received" << std::endl;
+	}
 }
 
 void TCP_Linux::run(){
-	while(is_running){
+	while(true){
 		if(is_open()){
+			std::cout << "running" << std::endl;
 			send_message();
 			receive_message();
+			std::this_thread::sleep_for(std::chrono::milliseconds(1000));
 		}
-		std::this_thread::sleep_for(std::chrono::milliseconds(100));
 	}
 }
 

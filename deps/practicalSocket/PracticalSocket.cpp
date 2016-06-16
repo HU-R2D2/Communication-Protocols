@@ -293,10 +293,6 @@ void CommunicatingSocket::send(const void *buffer, int bufferLen)
 size_t CommunicatingSocket::recv(void *buffer, int bufferLen)
   throw(SocketException) {
   int rtn = ::recv(sockDesc, (raw_type *) buffer, bufferLen, 0);
-  if (rtn < 0) {
-    throw SocketException("Receive failed (recv())");
-  }
-
   return rtn;
 }
 
@@ -309,10 +305,6 @@ size_t CommunicatingSocket::recvFully(void *buffer, int bufferLen)
     len = ::recv(sockDesc, (raw_type *) (((char *) buffer) + rcount),
                  bufferLen - rcount, 0);
   }
-
-  if (len < 0)
-    throw SocketException("Receive failed (recv())");
-
   return rcount + len;
 }
 

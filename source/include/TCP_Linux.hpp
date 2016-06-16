@@ -29,7 +29,7 @@ public:
 
 	bool is_open();
 
-	void send_message();
+	void send_message();	
 	
 	void send_message(const char * message);
 	
@@ -48,6 +48,7 @@ private:
 	std::thread runningThread;
 
 	bool is_running = false;
+	bool open = false;
 	const std::string ipNr, portNr;
 	int iResult;
 };
