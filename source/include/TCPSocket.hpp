@@ -30,7 +30,7 @@ public:
 	///The constructor for TCP
 	///\param ipNr The ip addres you want to connect to
 	///\param portNR The port number which it will be connected to
-	TCPSocket(std::string ipNr, std::string portNr);
+	TCPSocket(std::string ip_nr, std::string port_nr);
 
 	~TCPSocket();
 
@@ -42,22 +42,22 @@ public:
 	///Writes data to the send_buffer queue.
 	///\param data The data to be send.
 	///\param numberOfBytes Number of bytes that data contains.
-	void data_write(uint8_t* data, int numberOfBytes);
+	void data_write(uint8_t* data, int number_of_bytes) override;
 
 	///Reads data from the receive_buffer queue.
-	uint8_t* data_read();
+	uint8_t* data_read() override;
 
 	///Establisching the TCP connection.
-	void connect();
+	void connect() override;
 	///Disconnet the TCP connection.
-	void disconnect();
+	void disconnect() override;
 
 	///Flushes the send_buffer & receive_buffer .
-	void flush();
+	void flush() override;
 
 
 	//Checks wether the connection is open.
-	bool is_open();
+	bool is_open() override;
 
 	///Checks for messages in the send_buffer queue to send to the
 	///connected TCP Connection.
@@ -75,11 +75,11 @@ public:
 
 	/// Method for adding a listener to the listeners list.
 	/// \param t TransportListener to be added
-	void set_listener(TransportListener * t);
+	void set_listener(TransportListener * t) override;
 
 	/// Method for removing a listener to the listeners list.
 	/// \param t TransportListener to be removed
-	void remove_listener(TransportListener * t);
+	void remove_listener(TransportListener * t) override;
 
 	/// Active method which should run in it's own thread.
 	/// Sends data in the send_buffer through the established connection,
@@ -88,16 +88,16 @@ public:
 
 
 private:
-	WSADATA wsaData;
+	WSADATA wsa_data;
 	SOCKET ConnectSocket = INVALID_SOCKET;
 	struct addrinfo *result = NULL,
 					*ptr = NULL,
 					hints;
 
-	const std::string ipNr, portNr;
-	std::thread runningThread;
-	int iResult;
-	bool isOpen = false;
+	const std::string ip_nr, port_nr;
+	std::thread running_thread;
+	int i_result;
+	bool is_opened = false;
 	bool is_running = false;
 };
 

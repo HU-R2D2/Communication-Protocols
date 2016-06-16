@@ -13,8 +13,8 @@ UART::~UART(){
 	runningThread.join();
 }
 
-void UART::data_write(uint8_t* data, int numberOfBytes){
-	for(int i = 0; i < numberOfBytes; i++){
+void UART::data_write(uint8_t* data, int number_of_bytes){
+	for(int i = 0; i < number_of_bytes; i++){
 		send_buffer.push(data[i]);
 	}
 }
@@ -57,11 +57,11 @@ bool UART::is_open(){
 }
 
 void UART::set_listener(TransportListener * t){
-	transportListeners.push_back(t);
+	transport_listeners.push_back(t);
 }
 
 void UART::remove_listener(TransportListener * t){
-	transportListeners.erase(std::remove(transportListeners.begin(), transportListeners.end(), t), transportListeners.end());
+	transport_listeners.erase(std::remove(transport_listeners.begin(), transport_listeners.end(), t), transport_listeners.end());
 }
 
 void UART::run(){
@@ -79,10 +79,11 @@ void UART::run(){
 				}
 				RS232_SendBuf(comport, tempSendBuf, size);
 			}
+
 			if((numberOfReadBytes = RS232_PollComport(comport, tempReceiveBuf, 4096)) > 0){
 				for(int i = 0; i < numberOfReadBytes; i++){
 					receive_buffer.push(tempReceiveBuf[i]);
-					for(auto &TransportListener : transportListeners){
+					for(auto &TransportListener : transport_listeners){
 						TransportListener->data_received(&tempReceiveBuf[i], numberOfReadBytes);
 					}
 				}

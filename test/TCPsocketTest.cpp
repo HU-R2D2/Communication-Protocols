@@ -6,7 +6,6 @@ TEST(TCPSocketTransportProtocol, TestConnection){
   TCPSocket sock1("127.0.0.1", "27015");
 
   sock1.connect();
-  sock1.set_receive_timeout(1000);
   Sleep(1000);
   std::cout<<"send wailawoe to server"<<std::endl;
   sock1.data_write((uint8_t *) "wailawoe", 8);

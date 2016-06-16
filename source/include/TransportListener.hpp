@@ -14,7 +14,7 @@ public:
 
    /// This function is called from the TransportProtocol to send data between multiple nodes.
    /// \param data The transfered data to the listener.
-   virtual void data_received(uint8_t * data, int numberOfBytes) = 0;
+   virtual void data_received(uint8_t * data, int number_of_bytes) = 0;
 };
 
 #endif

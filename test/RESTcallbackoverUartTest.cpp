@@ -1,6 +1,6 @@
 #include "gtest/gtest.h"
-#include "../source/include/RESTCallBack.hpp"
-#include "../source/include/RESTEngine.hpp"
+#include "../../../deps/REST/include/RESTCallBack.hpp"
+#include "../../../deps/REST/include/RESTEngine.hpp"
 #include "../source/include/RestApplicationProtocol.hpp"
 #include "../source/include/UART.hpp"
 #include <stdio.h>

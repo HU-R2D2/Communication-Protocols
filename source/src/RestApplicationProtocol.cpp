@@ -15,11 +15,11 @@ RestApplicationProtocol::~RestApplicationProtocol(){
 }
 
 
-void RestApplicationProtocol::addCallbackFunction(std::string link, std::string method, RESTCallBack * callBackAddition){
-    engine.addCallBack(link,method,callBackAddition);
+void RestApplicationProtocol::addCallbackFunction(std::string link, std::string method, RESTCallBack * callback_addition){
+    engine.addCallBack(link,method,callback_addition);
 }
 
-void RestApplicationProtocol::data_received(uint8_t * data,  int numberOfBytes){
+void RestApplicationProtocol::data_received(uint8_t * data,  int number_of_bytes){
 //TODO cut string and method and message from http request? Use API or external library.
 //Send data like this: URL,METHOD,DATA
     std::istringstream ss("/shoppingcart/item?id=1000&sku=1234&qty=4,POST,MESSAGE");
@@ -47,7 +47,7 @@ void RestApplicationProtocol::invokeApiCall(std::string link, std::string method
 
 }
 
-void RestApplicationProtocol::getJsonAPIDump(std::string fileName){
+void RestApplicationProtocol::getJsonAPIDump(std::string file_name){
 
     Dumais::JSON::JSON json;
     engine.documentInterface(json);
@@ -57,7 +57,7 @@ void RestApplicationProtocol::getJsonAPIDump(std::string fileName){
     if (!swaggerSchema.isValid()) {
         std::cerr << "invalid JSON swagger schema" << std::endl;
     } else {
-        std::ofstream swaggerSchemaFile(fileName);
+        std::ofstream swaggerSchemaFile(file_name);
         swaggerSchemaFile << swaggerSchema.stringify(true);
         swaggerSchemaFile.close();
     }

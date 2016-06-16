@@ -12,7 +12,7 @@ public:
 	//TransportProtocol();
 	//~TransportProtocol();
 
-	virtual void data_write(uint8_t* data, int numberOfBytes) = 0;
+	virtual void data_write(uint8_t* data, int number_of_bytes) = 0;
 
 	virtual uint8_t* data_read() = 0;
 
@@ -30,7 +30,7 @@ public:
 
 protected:
 
-	std::vector<TransportListener *> transportListeners;
+	std::vector<TransportListener *> transport_listeners;
 
 	std::queue<uint8_t> send_buffer;
 

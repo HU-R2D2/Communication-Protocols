@@ -1,26 +1,26 @@
 // TCPSocket.cpp : Defines the entry point for the console application.
 #include "../include/TCPSocket.hpp"
 
-TCPSocket::TCPSocket(std::string ipNr, std::string portNr) :
-	ipNr(ipNr),
-	portNr(portNr)
+TCPSocket::TCPSocket(std::string ip_nr, std::string port_nr) :
+	ip_nr(ip_nr),
+	port_nr(port_nr)
 {
 	init();
-	iResult = getaddrinfo(ipNr.c_str(), portNr.c_str(), &hints, &result);
-	if (iResult != 0) {
-		std::cout << "\ngetaddrinfo failed with error:" << iResult;
+	i_result = getaddrinfo(ip_nr.c_str(), port_nr.c_str(), &hints, &result);
+	if (i_result != 0) {
+		std::cout << "\ngetaddrinfo failed with error:" << i_result;
 		WSACleanup();
 		exit(EXIT_FAILURE);
 	}
 }
 TCPSocket::~TCPSocket(){
-	runningThread.join();
+	running_thread.join();
 }
 void TCPSocket::init() {
 	std::cout << "initialise Winsock\n";
-	iResult = WSAStartup(MAKEWORD(2, 2), &wsaData);
-	if (iResult != 0) {
-		std::cout << "WSAStartup failed with error: " << iResult;
+	i_result = WSAStartup(MAKEWORD(2, 2), &wsa_data);
+	if (i_result != 0) {
+		std::cout << "WSAStartup failed with error: " << i_result;
 		exit(EXIT_FAILURE);
 	}
 	ZeroMemory(&hints, sizeof(hints));
@@ -41,8 +41,8 @@ void TCPSocket::connect() {
 			exit(EXIT_FAILURE);
 		}
 		// Connect to server.
-		iResult = ::connect(ConnectSocket, ptr->ai_addr, (int)ptr->ai_addrlen);
-		if (iResult == SOCKET_ERROR) {
+		i_result = ::connect(ConnectSocket, ptr->ai_addr, (int)ptr->ai_addrlen);
+		if (i_result == SOCKET_ERROR) {
 			closesocket(ConnectSocket);
 			ConnectSocket = INVALID_SOCKET;
 			continue;
@@ -55,14 +55,14 @@ void TCPSocket::connect() {
 		WSACleanup();
 		exit(EXIT_FAILURE);
 	}
-	runningThread = std::thread(&TCPSocket::run, this);
+	running_thread = std::thread(&TCPSocket::run, this);
 	is_running = true;
 	std::cout << ("Connected!\n");
 }
 
-void TCPSocket::data_write(uint8_t* data, int numberOfBytes) {
+void TCPSocket::data_write(uint8_t* data, int number_of_bytes) {
 	std::cout << "\ndata_write done! \n" << std::endl;
-	for (unsigned int i = 0; i < numberOfBytes; i++) {
+	for (unsigned int i = 0; i < number_of_bytes; i++) {
 		send_buffer.push(data[i]);
 	}
 }
@@ -94,8 +94,8 @@ void TCPSocket::flush() {
 
 bool TCPSocket::is_open() {
 	std::string data = "isOpen?";
-	iResult = send(ConnectSocket, data.c_str(), (int)strlen(data.c_str()), 0);
-	if (iResult == SOCKET_ERROR) {
+	i_result = send(ConnectSocket, data.c_str(), (int)strlen(data.c_str()), 0);
+	if (i_result == SOCKET_ERROR) {
 		return false;
 	}
 	return true;
@@ -109,8 +109,8 @@ void TCPSocket::send_message() {
 			data[i] = send_buffer.front();
 			send_buffer.pop();
 		}
-		iResult = send(ConnectSocket, data, s, 0);
-		if (iResult == SOCKET_ERROR) {
+		i_result = send(ConnectSocket, data, s, 0);
+		if (i_result == SOCKET_ERROR) {
 			std::cout << ("send failed with error: %d\n", WSAGetLastError());
 			closesocket(ConnectSocket);
 			WSACleanup();
@@ -121,8 +121,8 @@ void TCPSocket::send_message() {
 
 void TCPSocket::send_message(uint8_t * d) {
 	char *data = reinterpret_cast<char*>(d);
-	iResult = send(ConnectSocket, data, (int)strlen(data), 0);
-	if (iResult == SOCKET_ERROR) {
+	i_result = send(ConnectSocket, data, (int)strlen(data), 0);
+	if (i_result == SOCKET_ERROR) {
 		std::cout << ("send failed with error: %d\n", WSAGetLastError());
 		closesocket(ConnectSocket);
 		WSACleanup();
@@ -132,18 +132,18 @@ void TCPSocket::send_message(uint8_t * d) {
 
 void TCPSocket::receive_message() {
 	char* tempReceiveBuf = (char*)malloc(DEFAULT_BUFLEN);
-	iResult = recv(ConnectSocket, tempReceiveBuf, DEFAULT_BUFLEN, 0);
-	if (iResult > 0) {
-		for (unsigned int i = 0; i < iResult; i++) {
+	i_result = recv(ConnectSocket, tempReceiveBuf, DEFAULT_BUFLEN, 0);
+	if (i_result > 0) {
+		for (unsigned int i = 0; i < i_result; i++) {
 			receive_buffer.push(tempReceiveBuf[i]);
 		}
-		for(auto &TransportListener : transportListeners){
-			TransportListener->data_received( (uint8_t *)&tempReceiveBuf, iResult);
+		for(auto &TransportListener : transport_listeners){
+			TransportListener->data_received( (uint8_t *)&tempReceiveBuf, i_result);
 		}
 	}
-	else if (iResult == 0)
+	else if (i_result == 0)
 		std::cout << "Error: connection is closed";
-	else if (iResult == 10093)
+	else if (i_result == 10093)
 		std::cout << "receive timeout" << std::endl;
 	else
 		std::cout << "recv failed with error: " << WSAGetLastError() << "\n";
@@ -160,18 +160,17 @@ void TCPSocket::set_receive_timeout(unsigned int i) {
 }
 
 void TCPSocket::set_listener(TransportListener * t){
-	transportListeners.push_back(t);
+	transport_listeners.push_back(t);
 }
 
 void TCPSocket::remove_listener(TransportListener * t){
-	transportListeners.erase(std::remove(transportListeners.begin(), transportListeners.end(), t), transportListeners.end());
+	transport_listeners.erase(std::remove(transport_listeners.begin(), transport_listeners.end(), t), transport_listeners.end());
 }
 
 void TCPSocket::run(){
 	while (is_running) {
 		Sleep(1500);
 		if (is_open()) {
-			std::cout <<"jaja"<<std::endl;
 			send_message();
 			receive_message();
 		}
