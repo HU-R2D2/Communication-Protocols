@@ -54,20 +54,34 @@
 class TransportProtocol{
 
 public:
+
+	/// Method for writing data to the send_buffer queue,
+	/// for it to be send through the com port.
+	/// \param data The data to be send
+	/// \param numberOfBytes Length of the data in bytes
 	virtual void data_write(uint8_t* data, int number_of_bytes) = 0;
 
+	/// Method for reading data from the receive_buffer.
 	virtual uint8_t* data_read() = 0;
 
+	/// Method for establishing the  connection.
 	virtual void connect() = 0;
 
+	/// Method for dissolving the connection.
 	virtual void disconnect() = 0;
 
+	/// Method for flushing the send_buffer and receive_buffer.
 	virtual void flush() = 0;
 
+	/// Method for checking if the connection is established.
 	virtual bool is_open() = 0;
 
+	/// Method for adding a listener to the listeners list.
+	/// \param t TransportListener to be added
 	virtual void set_listener(TransportListener * t) = 0;
 
+	/// Method for removing a listener to the listeners list.
+	/// \param t TransportListener to be removed
 	virtual void remove_listener(TransportListener * t) = 0;
 
 protected:

@@ -49,12 +49,21 @@
 #include <string>
 #include <exception>
 
+/// An abstract class used to create a wrapper around a Applicaion Protocol.
+/// \author Thijs Hendrickx
+/// \version 1.0
+/// \date 16-6-2016
 class ConnectionException : public std::exception{
 public:
-ConnectionException(std::string arg) :
+
+	/// Constructor to create a connection exception.
+	/// \param arg The message for the exception
+	ConnectionException(std::string arg) :
 	error_msg(arg)
 	{}
 
+	/// Virtual method to throw connection exception
+	/// \return The const char containing the exception message.
 	virtual const char* what() const throw(){
 		return ("[Connection error]" + error_msg).c_str();
 	}
