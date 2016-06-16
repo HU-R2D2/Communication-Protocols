@@ -5,7 +5,7 @@
 
 
 /// An abstract class used to create a wrapper around a Applicaion Protocol.
-/// \author Koen van der Kruk
+/// \author Koen van der Kruk,
 /// \version 1.0
 /// \date 8-6-2016
 class ApplicationProtocol{

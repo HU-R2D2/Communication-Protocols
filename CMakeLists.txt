@@ -27,9 +27,8 @@ set(rest_SRCS ../deps/REST/include/RESTCallBack.hpp
 ./source/src/RestApplicationProtocol.cpp
 )
 
-
-file(GLOB SOURCES "source/src/*.cpp" "source/src/json/*.cpp"  )
-file(GLOB SOURCES_GTEST "source/src/*.cpp" "source/src/json/*.cpp" "test/*.cpp" )
+file(GLOB SOURCES "source/src/*.cpp" "source/src/json/*.cpp" "source/include/json/*.hpp" "source/include/*.hpp" )
+file(GLOB SOURCES_GTEST "source/src/*.cpp" "source/src/json/*.cpp" "test/*.cpp" "source/include/json/*.hpp" "source/include/*.hpp" )
 
 include_directories(
   ../deps/gtest-1.7.0/include
@@ -41,7 +40,8 @@ include_directories(
   ../deps/REST/src
   )
 
-
+file(GLOB SOURCES "source/src/*.cpp" "source/src/json/*.cpp"  )
+file(GLOB SOURCES_GTEST "source/src/*.cpp" "source/src/json/*.cpp" "test/*.cpp" )
 
 link_directories(../deps/gtest-1.7.0/src)
 add_library(gtest ../deps/gtest-1.7.0/src/gtest-all.cc)

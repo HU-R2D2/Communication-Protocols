@@ -4,7 +4,7 @@
 #include <string>
 
 RestApplicationProtocol::RestApplicationProtocol(TransportProtocol & t):
-ApplicationProtocol{t}
+ApplicationProtocol(t)
 {
     engine = RESTEngine();
     transport.connect();
