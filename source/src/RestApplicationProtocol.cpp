@@ -7,11 +7,13 @@ RestApplicationProtocol::RestApplicationProtocol(TransportProtocol & t):
 ApplicationProtocol(t)
 {
     engine = RESTEngine();
+    transport.set_listener(this);
     transport.connect();
 }
 
 RestApplicationProtocol::~RestApplicationProtocol(){
     transport.disconnect();
+    transport.remove_listener(this);
 }
 
 
@@ -20,9 +22,8 @@ void RestApplicationProtocol::addCallbackFunction(std::string link, std::string 
 }
 
 void RestApplicationProtocol::data_received(uint8_t * data,  int number_of_bytes){
-//TODO cut string and method and message from http request? Use API or external library.
-//Send data like this: URL,METHOD,DATA
-    std::istringstream ss("/shoppingcart/item?id=1000&sku=1234&qty=4,POST,MESSAGE");
+    //Send data like this: URL,METHOD,DATA: "/shoppingcart/item?id=1000&sku=1234&qty=4,POST,MESSAGE"
+    std::istringstream ss(std::string{data, data + number_of_bytes});
     std::string token;
     std::vector<std::string> result;
     while(std::getline(ss, token, ',')) {
