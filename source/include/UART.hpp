@@ -56,6 +56,7 @@
 #include "ComportDefines.hpp"
 #include "../../../deps/rs232/rs232.h"
 
+typedef unsigned int uint;
 
 /// A protocol class for UART, wrapper for the RS232 library.
 /// \author Thijs Hendrickx
