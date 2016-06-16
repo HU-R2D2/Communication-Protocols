@@ -1,0 +1,132 @@
+\hypertarget{_qik_8hpp}{}\section{C\+:/\+Users/koen/\+Documents/\+Git\+Hub/communication-\/protocols/source/include/\+Qik.hpp File Reference}
+\label{_qik_8hpp}\index{C\+:/\+Users/koen/\+Documents/\+Git\+Hub/communication-\/protocols/source/include/\+Qik.\+hpp@{C\+:/\+Users/koen/\+Documents/\+Git\+Hub/communication-\/protocols/source/include/\+Qik.\+hpp}}
+
+
+\hyperlink{class_qik}{Qik} is a application protocol to comminucate with the Rosbee procotol \hyperlink{class_qik}{Qik}.  
+
+
+{\ttfamily \#include \char`\"{}Application\+Protocol.\+hpp\char`\"{}}\\*
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{class_qik}{Qik}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{_qik_8hpp_a2ec3a115fdb6552a53153ba3808a649f}{}\#define {\bfseries Q\+I\+K\+\_\+\+G\+E\+T\+\_\+\+F\+I\+R\+M\+W\+A\+R\+E\+\_\+\+V\+E\+R\+S\+I\+O\+N}~0x81\label{_qik_8hpp_a2ec3a115fdb6552a53153ba3808a649f}
+
+\item 
+\hypertarget{_qik_8hpp_ab64ec57d37b43a538b1bfaf0fe9878c2}{}\#define {\bfseries Q\+I\+K\+\_\+\+G\+E\+T\+\_\+\+E\+R\+R\+O\+R\+\_\+\+B\+Y\+T\+E}~0x82\label{_qik_8hpp_ab64ec57d37b43a538b1bfaf0fe9878c2}
+
+\item 
+\hypertarget{_qik_8hpp_a34b8f53b53c3315b09ce0e571252601a}{}\#define {\bfseries Q\+I\+K\+\_\+\+G\+E\+T\+\_\+\+C\+O\+N\+F\+I\+G\+U\+R\+A\+T\+I\+O\+N\+\_\+\+P\+A\+R\+A\+M\+E\+T\+E\+R}~0x83\label{_qik_8hpp_a34b8f53b53c3315b09ce0e571252601a}
+
+\item 
+\hypertarget{_qik_8hpp_a346eab8f4a25bf631a245e336de464c2}{}\#define {\bfseries Q\+I\+K\+\_\+\+S\+E\+T\+\_\+\+C\+O\+N\+F\+I\+G\+U\+R\+A\+T\+I\+O\+N\+\_\+\+P\+A\+R\+A\+M\+E\+T\+E\+R}~0x84\label{_qik_8hpp_a346eab8f4a25bf631a245e336de464c2}
+
+\item 
+\hypertarget{_qik_8hpp_a9cea6bc2c212fbad1e9c1b0e09a5d547}{}\#define {\bfseries Q\+I\+K\+\_\+\+M\+O\+T\+O\+R\+\_\+\+M0\+\_\+\+F\+O\+R\+W\+A\+R\+D}~0x88\label{_qik_8hpp_a9cea6bc2c212fbad1e9c1b0e09a5d547}
+
+\item 
+\hypertarget{_qik_8hpp_a9d94d1c37c25264a6d86ebc3062ed05f}{}\#define {\bfseries Q\+I\+K\+\_\+\+M\+O\+T\+O\+R\+\_\+\+M0\+\_\+\+F\+O\+R\+W\+A\+R\+D\+\_\+8\+\_\+\+B\+I\+T}~0x89\label{_qik_8hpp_a9d94d1c37c25264a6d86ebc3062ed05f}
+
+\item 
+\hypertarget{_qik_8hpp_a92ba20eadb29e7cc475d8b007e226492}{}\#define {\bfseries Q\+I\+K\+\_\+\+M\+O\+T\+O\+R\+\_\+\+M0\+\_\+\+R\+E\+V\+E\+R\+S\+E}~0x8\+A\label{_qik_8hpp_a92ba20eadb29e7cc475d8b007e226492}
+
+\item 
+\hypertarget{_qik_8hpp_a263f5f14c44a5bd867180cbac4bd070e}{}\#define {\bfseries Q\+I\+K\+\_\+\+M\+O\+T\+O\+R\+\_\+\+M0\+\_\+\+R\+E\+V\+E\+R\+S\+E\+\_\+8\+\_\+\+B\+I\+T}~0x8\+B\label{_qik_8hpp_a263f5f14c44a5bd867180cbac4bd070e}
+
+\item 
+\hypertarget{_qik_8hpp_a97eda8f5b0c01ab06229981cfc90d8d7}{}\#define {\bfseries Q\+I\+K\+\_\+\+M\+O\+T\+O\+R\+\_\+\+M1\+\_\+\+F\+O\+R\+W\+A\+R\+D}~0x8\+C\label{_qik_8hpp_a97eda8f5b0c01ab06229981cfc90d8d7}
+
+\item 
+\hypertarget{_qik_8hpp_a09447ce3ffec80b059fbb6ceccbcaf2f}{}\#define {\bfseries Q\+I\+K\+\_\+\+M\+O\+T\+O\+R\+\_\+\+M1\+\_\+\+F\+O\+R\+W\+A\+R\+D\+\_\+8\+\_\+\+B\+I\+T}~0x8\+D\label{_qik_8hpp_a09447ce3ffec80b059fbb6ceccbcaf2f}
+
+\item 
+\hypertarget{_qik_8hpp_a11de1a862e86c6a1ec1f80516d57b7b2}{}\#define {\bfseries Q\+I\+K\+\_\+\+M\+O\+T\+O\+R\+\_\+\+M1\+\_\+\+R\+E\+V\+E\+R\+S\+E}~0x8\+E\label{_qik_8hpp_a11de1a862e86c6a1ec1f80516d57b7b2}
+
+\item 
+\hypertarget{_qik_8hpp_a9dacf6ec9fbab05c42a6eb26df7d52d7}{}\#define {\bfseries Q\+I\+K\+\_\+\+M\+O\+T\+O\+R\+\_\+\+M1\+\_\+\+R\+E\+V\+E\+R\+S\+E\+\_\+8\+\_\+\+B\+I\+T}~0x8\+F\label{_qik_8hpp_a9dacf6ec9fbab05c42a6eb26df7d52d7}
+
+\item 
+\hypertarget{_qik_8hpp_a77bc14a743ca788aa81b0a01c7dd7309}{}\#define {\bfseries Q\+I\+K\+\_\+2\+S12\+V10\+\_\+\+M\+O\+T\+O\+R\+\_\+\+M0\+\_\+\+B\+R\+A\+K\+E}~0x86\label{_qik_8hpp_a77bc14a743ca788aa81b0a01c7dd7309}
+
+\item 
+\hypertarget{_qik_8hpp_a14e6e952047b145b09062fdd48ee6517}{}\#define {\bfseries Q\+I\+K\+\_\+2\+S12\+V10\+\_\+\+M\+O\+T\+O\+R\+\_\+\+M1\+\_\+\+B\+R\+A\+K\+E}~0x87\label{_qik_8hpp_a14e6e952047b145b09062fdd48ee6517}
+
+\item 
+\hypertarget{_qik_8hpp_aab946289a8f60ab5730192e50165e770}{}\#define {\bfseries Q\+I\+K\+\_\+2\+S12\+V10\+\_\+\+G\+E\+T\+\_\+\+M\+O\+T\+O\+R\+\_\+\+M0\+\_\+\+C\+U\+R\+R\+E\+N\+T}~0x90\label{_qik_8hpp_aab946289a8f60ab5730192e50165e770}
+
+\item 
+\hypertarget{_qik_8hpp_a9e725e698da2383a84bdc54b26742841}{}\#define {\bfseries Q\+I\+K\+\_\+2\+S12\+V10\+\_\+\+G\+E\+T\+\_\+\+M\+O\+T\+O\+R\+\_\+\+M1\+\_\+\+C\+U\+R\+R\+E\+N\+T}~0x91\label{_qik_8hpp_a9e725e698da2383a84bdc54b26742841}
+
+\item 
+\hypertarget{_qik_8hpp_a947970cfb4c44a1317bbcdd717d39912}{}\#define {\bfseries Q\+I\+K\+\_\+2\+S12\+V10\+\_\+\+G\+E\+T\+\_\+\+M\+O\+T\+O\+R\+\_\+\+M0\+\_\+\+S\+P\+E\+E\+D}~0x92\label{_qik_8hpp_a947970cfb4c44a1317bbcdd717d39912}
+
+\item 
+\hypertarget{_qik_8hpp_aac0c89fee4d60ab26a96cc14cf1583ec}{}\#define {\bfseries Q\+I\+K\+\_\+2\+S12\+V10\+\_\+\+G\+E\+T\+\_\+\+M\+O\+T\+O\+R\+\_\+\+M1\+\_\+\+S\+P\+E\+E\+D}~0x9\label{_qik_8hpp_aac0c89fee4d60ab26a96cc14cf1583ec}
+
+\item 
+\hypertarget{_qik_8hpp_aeefba97b02d26d29ea09cb4514cde9ef}{}\#define {\bfseries Q\+I\+K\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+D\+E\+V\+I\+C\+E\+\_\+\+I\+D}~0\label{_qik_8hpp_aeefba97b02d26d29ea09cb4514cde9ef}
+
+\item 
+\hypertarget{_qik_8hpp_adad6cbdbf20b214e3c818b8d5078a65d}{}\#define {\bfseries Q\+I\+K\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+P\+W\+M\+\_\+\+P\+A\+R\+A\+M\+E\+T\+E\+R}~1\label{_qik_8hpp_adad6cbdbf20b214e3c818b8d5078a65d}
+
+\item 
+\hypertarget{_qik_8hpp_ab4916629c561217c20fbc8ed56f41bb5}{}\#define {\bfseries Q\+I\+K\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+S\+H\+U\+T\+\_\+\+D\+O\+W\+N\+\_\+\+M\+O\+T\+O\+R\+S\+\_\+\+O\+N\+\_\+\+E\+R\+R\+O\+R}~2\label{_qik_8hpp_ab4916629c561217c20fbc8ed56f41bb5}
+
+\item 
+\hypertarget{_qik_8hpp_a1beb891ca1f96e1548629dc9e9681058}{}\#define {\bfseries Q\+I\+K\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+S\+E\+R\+I\+A\+L\+\_\+\+T\+I\+M\+E\+O\+U\+T}~3\label{_qik_8hpp_a1beb891ca1f96e1548629dc9e9681058}
+
+\item 
+\hypertarget{_qik_8hpp_ae67806723c560707754008a6cab3c17b}{}\#define {\bfseries Q\+I\+K\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+M\+O\+T\+O\+R\+\_\+\+M0\+\_\+\+A\+C\+C\+E\+L\+E\+R\+A\+T\+I\+O\+N}~4\label{_qik_8hpp_ae67806723c560707754008a6cab3c17b}
+
+\item 
+\hypertarget{_qik_8hpp_a81b01a6a1d57a19b1afd3b90dfe7d408}{}\#define {\bfseries Q\+I\+K\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+M\+O\+T\+O\+R\+\_\+\+M1\+\_\+\+A\+C\+C\+E\+L\+E\+R\+A\+T\+I\+O\+N}~5\label{_qik_8hpp_a81b01a6a1d57a19b1afd3b90dfe7d408}
+
+\item 
+\hypertarget{_qik_8hpp_a952d63f6556adfc12aec10ec97144db4}{}\#define {\bfseries Q\+I\+K\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+M\+O\+T\+O\+R\+\_\+\+M0\+\_\+\+B\+R\+A\+K\+E\+\_\+\+D\+U\+R\+A\+T\+I\+O\+N}~6\label{_qik_8hpp_a952d63f6556adfc12aec10ec97144db4}
+
+\item 
+\hypertarget{_qik_8hpp_ab016e70dba0d2b6b1d9f390a2fd4a01c}{}\#define {\bfseries Q\+I\+K\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+M\+O\+T\+O\+R\+\_\+\+M1\+\_\+\+B\+R\+A\+K\+E\+\_\+\+D\+U\+R\+A\+T\+I\+O\+N}~7\label{_qik_8hpp_ab016e70dba0d2b6b1d9f390a2fd4a01c}
+
+\item 
+\hypertarget{_qik_8hpp_a0e5c311506ebfedf8c2eb988c633b058}{}\#define {\bfseries Q\+I\+K\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+M\+O\+T\+O\+R\+\_\+\+M0\+\_\+\+C\+U\+R\+R\+E\+N\+T\+\_\+\+L\+I\+M\+I\+T\+\_\+\+D\+I\+V\+\_\+2}~8\label{_qik_8hpp_a0e5c311506ebfedf8c2eb988c633b058}
+
+\item 
+\hypertarget{_qik_8hpp_a6a43a1e648c20e696bfdb345f820c055}{}\#define {\bfseries Q\+I\+K\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+M\+O\+T\+O\+R\+\_\+\+M1\+\_\+\+C\+U\+R\+R\+E\+N\+T\+\_\+\+L\+I\+M\+I\+T\+\_\+\+D\+I\+V\+\_\+2}~9\label{_qik_8hpp_a6a43a1e648c20e696bfdb345f820c055}
+
+\item 
+\hypertarget{_qik_8hpp_a3c10f69ec12c5bea750138f29591a55c}{}\#define {\bfseries Q\+I\+K\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+M\+O\+T\+O\+R\+\_\+\+M0\+\_\+\+C\+U\+R\+R\+E\+N\+T\+\_\+\+L\+I\+M\+I\+T\+\_\+\+R\+E\+S\+P\+O\+N\+S\+E}~10\label{_qik_8hpp_a3c10f69ec12c5bea750138f29591a55c}
+
+\item 
+\hypertarget{_qik_8hpp_af91af168fecd30c2575d5fa8cb223274}{}\#define {\bfseries Q\+I\+K\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+M\+O\+T\+O\+R\+\_\+\+M1\+\_\+\+C\+U\+R\+R\+E\+N\+T\+\_\+\+L\+I\+M\+I\+T\+\_\+\+R\+E\+S\+P\+O\+N\+S\+E}~11\label{_qik_8hpp_af91af168fecd30c2575d5fa8cb223274}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\hyperlink{class_qik}{Qik} is a application protocol to comminucate with the Rosbee procotol \hyperlink{class_qik}{Qik}. 
+
+\begin{DoxyAuthor}{Author}
+Job Verhaar 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+Created\+: 16-\/6-\/2016 
+
+Last Modified\+: 16-\/6-\/2016 \hyperlink{class_qik}{Qik} is a application protocol to comminucate with the Rosbee. It can be used with T\+C\+P and \hyperlink{class_u_a_r_t}{U\+A\+R\+T}.
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+Copyright © 2016, H\+U University of Applied Sciences Utrecht. All rights reserved.
+\end{DoxyCopyright}
+License\+: new\+B\+S\+D
+
+Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met\+:
+\begin{DoxyItemize}
+\item Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
+\item Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
+\item Neither the name of the H\+U University of Applied Sciences Utrecht nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.
+\end{DoxyItemize}
+
+T\+H\+I\+S S\+O\+F\+T\+W\+A\+R\+E I\+S P\+R\+O\+V\+I\+D\+E\+D B\+Y T\+H\+E C\+O\+P\+Y\+R\+I\+G\+H\+T H\+O\+L\+D\+E\+R\+S A\+N\+D C\+O\+N\+T\+R\+I\+B\+U\+T\+O\+R\+S \char`\"{}\+A\+S I\+S\char`\"{} A\+N\+D A\+N\+Y E\+X\+P\+R\+E\+S\+S O\+R I\+M\+P\+L\+I\+E\+D W\+A\+R\+R\+A\+N\+T\+I\+E\+S, I\+N\+C\+L\+U\+D\+I\+N\+G, B\+U\+T N\+O\+T L\+I\+M\+I\+T\+E\+D T\+O, T\+H\+E I\+M\+P\+L\+I\+E\+D W\+A\+R\+R\+A\+N\+T\+I\+E\+S O\+F M\+E\+R\+C\+H\+A\+N\+T\+A\+B\+I\+L\+I\+T\+Y A\+N\+D F\+I\+T\+N\+E\+S\+S F\+O\+R A P\+A\+R\+T\+I\+C\+U\+L\+A\+R P\+U\+R\+P\+O\+S\+E A\+R\+E D\+I\+S\+C\+L\+A\+I\+M\+E\+D. I\+N N\+O E\+V\+E\+N\+T S\+H\+A\+L\+L T\+H\+E H\+U U\+N\+I\+V\+E\+R\+S\+I\+T\+Y O\+F A\+P\+P\+L\+I\+E\+D S\+C\+I\+E\+N\+C\+E\+S U\+T\+R\+E\+C\+H\+T B\+E L\+I\+A\+B\+L\+E F\+O\+R A\+N\+Y D\+I\+R\+E\+C\+T, I\+N\+D\+I\+R\+E\+C\+T, I\+N\+C\+I\+D\+E\+N\+T\+A\+L, S\+P\+E\+C\+I\+A\+L, E\+X\+E\+M\+P\+L\+A\+R\+Y, O\+R C\+O\+N\+S\+E\+Q\+U\+E\+N\+T\+I\+A\+L D\+A\+M\+A\+G\+E\+S (I\+N\+C\+L\+U\+D\+I\+N\+G, B\+U\+T N\+O\+T L\+I\+M\+I\+T\+E\+D T\+O, P\+R\+O\+C\+U\+R\+E\+M\+E\+N\+T O\+F S\+U\+B\+S\+T\+I\+T\+U\+T\+E G\+O\+O\+D\+S O\+R S\+E\+R\+V\+I\+C\+E\+S; L\+O\+S\+S O\+F U\+S\+E, D\+A\+T\+A, O\+R P\+R\+O\+F\+I\+T\+S; O\+R B\+U\+S\+I\+N\+E\+S\+S I\+N\+T\+E\+R\+R\+U\+P\+T\+I\+O\+N) H\+O\+W\+E\+V\+E\+R C\+A\+U\+S\+E\+D A\+N\+D O\+N A\+N\+Y T\+H\+E\+O\+R\+Y O\+F L\+I\+A\+B\+I\+L\+I\+T\+Y, W\+H\+E\+T\+H\+E\+R I\+N C\+O\+N\+T\+R\+A\+C\+T, S\+T\+R\+I\+C\+T L\+I\+A\+B\+I\+L\+I\+T\+Y, O\+R T\+O\+R\+T (I\+N\+C\+L\+U\+D\+I\+N\+G N\+E\+G\+L\+I\+G\+E\+N\+C\+E O\+R O\+T\+H\+E\+R\+W\+I\+S\+E) A\+R\+I\+S\+I\+N\+G I\+N A\+N\+Y W\+A\+Y O\+U\+T O\+F T\+H\+E U\+S\+E O\+F T\+H\+I\+S S\+O\+F\+T\+W\+A\+R\+E, E\+V\+E\+N I\+F A\+D\+V\+I\+S\+E\+D O\+F T\+H\+E P\+O\+S\+S\+I\+B\+I\+L\+I\+T\+Y O\+F S\+U\+C\+H D\+A\+M\+A\+G\+E. 

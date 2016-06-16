@@ -1,0 +1,116 @@
+\hypertarget{class_rest_application_protocol}{}\section{Rest\+Application\+Protocol Class Reference}
+\label{class_rest_application_protocol}\index{Rest\+Application\+Protocol@{Rest\+Application\+Protocol}}
+
+
+{\ttfamily \#include $<$Rest\+Application\+Protocol.\+hpp$>$}
+
+Inheritance diagram for Rest\+Application\+Protocol\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_rest_application_protocol}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_rest_application_protocol_a6642fe64e3448d1e524239ab87ff9cfd}{}\hyperlink{class_rest_application_protocol_a6642fe64e3448d1e524239ab87ff9cfd}{Rest\+Application\+Protocol} (\hyperlink{class_transport_protocol}{Transport\+Protocol} \&t)\label{class_rest_application_protocol_a6642fe64e3448d1e524239ab87ff9cfd}
+
+\begin{DoxyCompactList}\small\item\em Second constructor with support for the \hyperlink{class_transport_protocol}{Transport\+Protocol}. \end{DoxyCompactList}\item 
+\hypertarget{class_rest_application_protocol_a869529fb061e565fedfe556bc0b13962}{}\hyperlink{class_rest_application_protocol_a869529fb061e565fedfe556bc0b13962}{$\sim$\+Rest\+Application\+Protocol} ()\label{class_rest_application_protocol_a869529fb061e565fedfe556bc0b13962}
+
+\begin{DoxyCompactList}\small\item\em Destructs the \hyperlink{class_application_protocol}{Application\+Protocol} object so the \hyperlink{class_transport_protocol}{Transport\+Protocol} is also removed. \end{DoxyCompactList}\item 
+void \hyperlink{class_rest_application_protocol_a1df053880d539be48c83693739bb033e}{add\+Callback\+Function} (std\+::string link, std\+::string method, R\+E\+S\+T\+Call\+Back $\ast$callback\+\_\+addition)
+\item 
+void \hyperlink{class_rest_application_protocol_a79abf85e9dc1b650ab059735237fde8e}{data\+\_\+received} (uint8\+\_\+t $\ast$data, int number\+\_\+of\+\_\+bytes) override
+\item 
+void \hyperlink{class_rest_application_protocol_aef36c940842a56d6e8ca520f3c648852}{invoke\+Api\+Call} (std\+::string link, std\+::string method, std\+::string message)
+\item 
+void \hyperlink{class_rest_application_protocol_a4a979770d89ba354d8321c2d4c751e05}{get\+Json\+A\+P\+I\+Dump} (std\+::string file\+\_\+name)
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+An extension on \hyperlink{class_application_protocol}{Application\+Protocol} with support for R\+E\+S\+T api. \begin{DoxyAuthor}{Author}
+Koen van der Kruk 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+1.\+0 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+8-\/6-\/2016 
+\end{DoxyDate}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_rest_application_protocol_a1df053880d539be48c83693739bb033e}{}\index{Rest\+Application\+Protocol@{Rest\+Application\+Protocol}!add\+Callback\+Function@{add\+Callback\+Function}}
+\index{add\+Callback\+Function@{add\+Callback\+Function}!Rest\+Application\+Protocol@{Rest\+Application\+Protocol}}
+\subsubsection[{add\+Callback\+Function}]{\setlength{\rightskip}{0pt plus 5cm}void Rest\+Application\+Protocol\+::add\+Callback\+Function (
+\begin{DoxyParamCaption}
+\item[{std\+::string}]{link, }
+\item[{std\+::string}]{method, }
+\item[{R\+E\+S\+T\+Call\+Back $\ast$}]{callback\+\_\+addition}
+\end{DoxyParamCaption}
+)}\label{class_rest_application_protocol_a1df053880d539be48c83693739bb033e}
+This will assign a new function as callback function. 
+\begin{DoxyParams}{Parameters}
+{\em link} & The http url to access \\
+\hline
+{\em method} & The http method, such as P\+O\+S\+T, P\+U\+T, D\+E\+L\+E\+T\+E, G\+E\+T \\
+\hline
+{\em call\+Back\+Addition} & The function that receives the callback message. \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_rest_application_protocol_a79abf85e9dc1b650ab059735237fde8e}{}\index{Rest\+Application\+Protocol@{Rest\+Application\+Protocol}!data\+\_\+received@{data\+\_\+received}}
+\index{data\+\_\+received@{data\+\_\+received}!Rest\+Application\+Protocol@{Rest\+Application\+Protocol}}
+\subsubsection[{data\+\_\+received}]{\setlength{\rightskip}{0pt plus 5cm}void Rest\+Application\+Protocol\+::data\+\_\+received (
+\begin{DoxyParamCaption}
+\item[{uint8\+\_\+t $\ast$}]{data, }
+\item[{int}]{number\+\_\+of\+\_\+bytes}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}\label{class_rest_application_protocol_a79abf85e9dc1b650ab059735237fde8e}
+\hyperlink{class_rest_application_protocol}{Rest\+Application\+Protocol} is a \hyperlink{class_transport_listener}{Transport\+Listener} that will receive incoming messages. 
+\begin{DoxyParams}{Parameters}
+{\em data} & The incoming data package \\
+\hline
+\end{DoxyParams}
+
+
+Implements \hyperlink{class_transport_listener_aafc4dd15ef03baa68b36b45c43c5addd}{Transport\+Listener}.
+
+\hypertarget{class_rest_application_protocol_a4a979770d89ba354d8321c2d4c751e05}{}\index{Rest\+Application\+Protocol@{Rest\+Application\+Protocol}!get\+Json\+A\+P\+I\+Dump@{get\+Json\+A\+P\+I\+Dump}}
+\index{get\+Json\+A\+P\+I\+Dump@{get\+Json\+A\+P\+I\+Dump}!Rest\+Application\+Protocol@{Rest\+Application\+Protocol}}
+\subsubsection[{get\+Json\+A\+P\+I\+Dump}]{\setlength{\rightskip}{0pt plus 5cm}void Rest\+Application\+Protocol\+::get\+Json\+A\+P\+I\+Dump (
+\begin{DoxyParamCaption}
+\item[{std\+::string}]{file\+\_\+name}
+\end{DoxyParamCaption}
+)}\label{class_rest_application_protocol_a4a979770d89ba354d8321c2d4c751e05}
+This function will dump a full R\+E\+S\+T api in json format. 
+\begin{DoxyParams}{Parameters}
+{\em file\+Name} & The filename is used to dump the R\+E\+S\+T A\+P\+I in json format. The same directory is used as the current running program. \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_rest_application_protocol_aef36c940842a56d6e8ca520f3c648852}{}\index{Rest\+Application\+Protocol@{Rest\+Application\+Protocol}!invoke\+Api\+Call@{invoke\+Api\+Call}}
+\index{invoke\+Api\+Call@{invoke\+Api\+Call}!Rest\+Application\+Protocol@{Rest\+Application\+Protocol}}
+\subsubsection[{invoke\+Api\+Call}]{\setlength{\rightskip}{0pt plus 5cm}void Rest\+Application\+Protocol\+::invoke\+Api\+Call (
+\begin{DoxyParamCaption}
+\item[{std\+::string}]{link, }
+\item[{std\+::string}]{method, }
+\item[{std\+::string}]{message}
+\end{DoxyParamCaption}
+)}\label{class_rest_application_protocol_aef36c940842a56d6e8ca520f3c648852}
+Invoke A\+P\+I call, callback to another function. 
+\begin{DoxyParams}{Parameters}
+{\em link} & The url conencted to the callback function \\
+\hline
+{\em method} & The H\+T\+T\+P method that can be used to invoke an A\+P\+I call over H\+T\+T\+P. \\
+\hline
+{\em message} & The message for the callback function \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/koen/\+Documents/\+Git\+Hub/communication-\/protocols/source/include/\hyperlink{_rest_application_protocol_8hpp}{Rest\+Application\+Protocol.\+hpp}\item 
+C\+:/\+Users/koen/\+Documents/\+Git\+Hub/communication-\/protocols/source/src/Rest\+Application\+Protocol.\+cpp\end{DoxyCompactItemize}

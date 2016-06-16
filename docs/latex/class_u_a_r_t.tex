@@ -1,0 +1,154 @@
+\hypertarget{class_u_a_r_t}{}\section{U\+A\+R\+T Class Reference}
+\label{class_u_a_r_t}\index{U\+A\+R\+T@{U\+A\+R\+T}}
+
+
+{\ttfamily \#include $<$U\+A\+R\+T.\+hpp$>$}
+
+Inheritance diagram for U\+A\+R\+T\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_u_a_r_t}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_u_a_r_t_a2912097d50627bf539e3247845ceb899}{U\+A\+R\+T} (int comport\+\_\+nr, int baudrate=9600, const char $\ast$mode=\char`\"{}8\+N1\char`\"{})
+\item 
+\hypertarget{class_u_a_r_t_a79aea29bd989d2e2ce9692042375b83e}{}\hyperlink{class_u_a_r_t_a79aea29bd989d2e2ce9692042375b83e}{$\sim$\+U\+A\+R\+T} ()\label{class_u_a_r_t_a79aea29bd989d2e2ce9692042375b83e}
+
+\begin{DoxyCompactList}\small\item\em Destructor for \hyperlink{class_u_a_r_t}{U\+A\+R\+T} connection. \end{DoxyCompactList}\item 
+void \hyperlink{class_u_a_r_t_ad03f74b9d5181ed48aef24a93508c31c}{data\+\_\+write} (uint8\+\_\+t $\ast$data, int number\+Of\+Bytes) override
+\item 
+\hypertarget{class_u_a_r_t_a199246f2e9b7d430c30aefd36230321f}{}uint8\+\_\+t $\ast$ \hyperlink{class_u_a_r_t_a199246f2e9b7d430c30aefd36230321f}{data\+\_\+read} () override\label{class_u_a_r_t_a199246f2e9b7d430c30aefd36230321f}
+
+\begin{DoxyCompactList}\small\item\em Method for reading data from the receive\+\_\+buffer. \end{DoxyCompactList}\item 
+\hypertarget{class_u_a_r_t_a0ec2cd830665a221b6cd3355cc7ef0e2}{}void \hyperlink{class_u_a_r_t_a0ec2cd830665a221b6cd3355cc7ef0e2}{connect} () override\label{class_u_a_r_t_a0ec2cd830665a221b6cd3355cc7ef0e2}
+
+\begin{DoxyCompactList}\small\item\em Method for establishing the \hyperlink{class_u_a_r_t}{U\+A\+R\+T} connection. \end{DoxyCompactList}\item 
+\hypertarget{class_u_a_r_t_a85257ba6ca852314fae7b0c4dd5650c3}{}void \hyperlink{class_u_a_r_t_a85257ba6ca852314fae7b0c4dd5650c3}{disconnect} () override\label{class_u_a_r_t_a85257ba6ca852314fae7b0c4dd5650c3}
+
+\begin{DoxyCompactList}\small\item\em Method for dissolving the \hyperlink{class_u_a_r_t}{U\+A\+R\+T} connection. \end{DoxyCompactList}\item 
+void \hyperlink{class_u_a_r_t_ac34a3da482eafe1e32f3b2111a910d2a}{flush} () override
+\item 
+\hypertarget{class_u_a_r_t_a5551a0313999a799a948b80a407d1e2f}{}bool \hyperlink{class_u_a_r_t_a5551a0313999a799a948b80a407d1e2f}{is\+\_\+open} () override\label{class_u_a_r_t_a5551a0313999a799a948b80a407d1e2f}
+
+\begin{DoxyCompactList}\small\item\em Method for checking if the connection is established. \end{DoxyCompactList}\item 
+void \hyperlink{class_u_a_r_t_a865baf02a528c89bd5c0c2f01e04c2f1}{set\+\_\+listener} (\hyperlink{class_transport_listener}{Transport\+Listener} $\ast$t) override
+\item 
+void \hyperlink{class_u_a_r_t_ab70270f949057521043566efbdb7b3c3}{remove\+\_\+listener} (\hyperlink{class_transport_listener}{Transport\+Listener} $\ast$t) override
+\item 
+void \hyperlink{class_u_a_r_t_a9efd5e5c4d36ad9f69b9e22feb11ca0e}{run} ()
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+A protocol class for \hyperlink{class_u_a_r_t}{U\+A\+R\+T}, wrapper for the R\+S232 library. \begin{DoxyAuthor}{Author}
+Thijs Hendrickx 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+1.\+0 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+13-\/6-\/2016 
+\end{DoxyDate}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_u_a_r_t_a2912097d50627bf539e3247845ceb899}{}\index{U\+A\+R\+T@{U\+A\+R\+T}!U\+A\+R\+T@{U\+A\+R\+T}}
+\index{U\+A\+R\+T@{U\+A\+R\+T}!U\+A\+R\+T@{U\+A\+R\+T}}
+\subsubsection[{U\+A\+R\+T}]{\setlength{\rightskip}{0pt plus 5cm}U\+A\+R\+T\+::\+U\+A\+R\+T (
+\begin{DoxyParamCaption}
+\item[{int}]{comport\+\_\+nr, }
+\item[{int}]{baudrate = {\ttfamily 9600}, }
+\item[{const char $\ast$}]{mode = {\ttfamily \char`\"{}8N1\char`\"{}}}
+\end{DoxyParamCaption}
+)}\label{class_u_a_r_t_a2912097d50627bf539e3247845ceb899}
+Constructor for initialising \hyperlink{class_u_a_r_t}{U\+A\+R\+T} connection. 
+\begin{DoxyParams}{Parameters}
+{\em comport\+\_\+nr} & The com port which to connect to. This is for example C\+O\+M4 for windows or tty\+U\+Sb4 for linux. Full list of defines can be found in comport\+\_\+defines.\+hpp \\
+\hline
+{\em baudrate} & The baudrate to use when sending and receiving data over the selected com port. \\
+\hline
+{\em mode} & The settings to use for the connection, data bits, parity and stopbits. \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_u_a_r_t_ad03f74b9d5181ed48aef24a93508c31c}{}\index{U\+A\+R\+T@{U\+A\+R\+T}!data\+\_\+write@{data\+\_\+write}}
+\index{data\+\_\+write@{data\+\_\+write}!U\+A\+R\+T@{U\+A\+R\+T}}
+\subsubsection[{data\+\_\+write}]{\setlength{\rightskip}{0pt plus 5cm}void U\+A\+R\+T\+::data\+\_\+write (
+\begin{DoxyParamCaption}
+\item[{uint8\+\_\+t $\ast$}]{data, }
+\item[{int}]{number\+Of\+Bytes}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}\label{class_u_a_r_t_ad03f74b9d5181ed48aef24a93508c31c}
+Method for writing data to the send\+\_\+buffer queue, for it to be send through the com port. 
+\begin{DoxyParams}{Parameters}
+{\em data} & The data to be send \\
+\hline
+{\em number\+Of\+Bytes} & Length of the data in bytes \\
+\hline
+\end{DoxyParams}
+
+
+Implements \hyperlink{class_transport_protocol_af3f6c35f652d73ea3170c64d2b96ff53}{Transport\+Protocol}.
+
+\hypertarget{class_u_a_r_t_ac34a3da482eafe1e32f3b2111a910d2a}{}\index{U\+A\+R\+T@{U\+A\+R\+T}!flush@{flush}}
+\index{flush@{flush}!U\+A\+R\+T@{U\+A\+R\+T}}
+\subsubsection[{flush}]{\setlength{\rightskip}{0pt plus 5cm}void U\+A\+R\+T\+::flush (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}\label{class_u_a_r_t_ac34a3da482eafe1e32f3b2111a910d2a}
+Method for flushing the send\+\_\+buffer and receive\+\_\+buffer. Also flushes the R\+X and T\+X pins of the com port specified. 
+
+Implements \hyperlink{class_transport_protocol_a1a375d6ab518309c432e56e59043ff4a}{Transport\+Protocol}.
+
+\hypertarget{class_u_a_r_t_ab70270f949057521043566efbdb7b3c3}{}\index{U\+A\+R\+T@{U\+A\+R\+T}!remove\+\_\+listener@{remove\+\_\+listener}}
+\index{remove\+\_\+listener@{remove\+\_\+listener}!U\+A\+R\+T@{U\+A\+R\+T}}
+\subsubsection[{remove\+\_\+listener}]{\setlength{\rightskip}{0pt plus 5cm}void U\+A\+R\+T\+::remove\+\_\+listener (
+\begin{DoxyParamCaption}
+\item[{{\bf Transport\+Listener} $\ast$}]{t}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}\label{class_u_a_r_t_ab70270f949057521043566efbdb7b3c3}
+Method for removing a listener to the listeners list. 
+\begin{DoxyParams}{Parameters}
+{\em t} & \hyperlink{class_transport_listener}{Transport\+Listener} to be removed \\
+\hline
+\end{DoxyParams}
+
+
+Implements \hyperlink{class_transport_protocol_ac7fcdf3b49efae156223bb3351c49553}{Transport\+Protocol}.
+
+\hypertarget{class_u_a_r_t_a9efd5e5c4d36ad9f69b9e22feb11ca0e}{}\index{U\+A\+R\+T@{U\+A\+R\+T}!run@{run}}
+\index{run@{run}!U\+A\+R\+T@{U\+A\+R\+T}}
+\subsubsection[{run}]{\setlength{\rightskip}{0pt plus 5cm}void U\+A\+R\+T\+::run (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_u_a_r_t_a9efd5e5c4d36ad9f69b9e22feb11ca0e}
+Active method which should run in it\textquotesingle{}s own thread. Sends data in the send\+\_\+buffer through the established connection, and polls the com port for received data while putting it in the receive\+\_\+buffer. \hypertarget{class_u_a_r_t_a865baf02a528c89bd5c0c2f01e04c2f1}{}\index{U\+A\+R\+T@{U\+A\+R\+T}!set\+\_\+listener@{set\+\_\+listener}}
+\index{set\+\_\+listener@{set\+\_\+listener}!U\+A\+R\+T@{U\+A\+R\+T}}
+\subsubsection[{set\+\_\+listener}]{\setlength{\rightskip}{0pt plus 5cm}void U\+A\+R\+T\+::set\+\_\+listener (
+\begin{DoxyParamCaption}
+\item[{{\bf Transport\+Listener} $\ast$}]{t}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}\label{class_u_a_r_t_a865baf02a528c89bd5c0c2f01e04c2f1}
+Method for adding a listener to the listeners list. 
+\begin{DoxyParams}{Parameters}
+{\em t} & \hyperlink{class_transport_listener}{Transport\+Listener} to be added \\
+\hline
+\end{DoxyParams}
+
+
+Implements \hyperlink{class_transport_protocol_ad7a9c131bbd9b2a26f1884b18ce11820}{Transport\+Protocol}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/koen/\+Documents/\+Git\+Hub/communication-\/protocols/source/include/\hyperlink{_u_a_r_t_8hpp}{U\+A\+R\+T.\+hpp}\item 
+C\+:/\+Users/koen/\+Documents/\+Git\+Hub/communication-\/protocols/source/src/U\+A\+R\+T.\+cpp\end{DoxyCompactItemize}

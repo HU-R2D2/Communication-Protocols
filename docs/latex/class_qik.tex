@@ -1,0 +1,327 @@
+\hypertarget{class_qik}{}\section{Qik Class Reference}
+\label{class_qik}\index{Qik@{Qik}}
+Inheritance diagram for Qik\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_qik}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_qik_a40dc67c7d28bb8e5148fa459795482b3}{Qik} (\hyperlink{class_transport_protocol}{Transport\+Protocol} \&t)
+\begin{DoxyCompactList}\small\item\em Constructor of the \hyperlink{class_qik}{Qik} Application protocol. \end{DoxyCompactList}\item 
+void \hyperlink{class_qik_a0104c2a0c22fbbf83de456cc7cb9840d}{data\+\_\+received} (uint8\+\_\+t $\ast$data, int number\+\_\+of\+\_\+bytes) override
+\item 
+uint8\+\_\+t \hyperlink{class_qik_adb551278953edfda128886a9df14e986}{get\+\_\+firmware\+\_\+version} ()
+\begin{DoxyCompactList}\small\item\em reads the frimwareversion from the \hyperlink{class_qik}{Qik}. \end{DoxyCompactList}\item 
+uint8\+\_\+t \hyperlink{class_qik_ad65a5d6fbdfde7998b4ef537ad07b843}{get\+\_\+errors} ()
+\begin{DoxyCompactList}\small\item\em reads the Errors from the \hyperlink{class_qik}{Qik}. \end{DoxyCompactList}\item 
+uint8\+\_\+t \hyperlink{class_qik_a8b4e0f9f0c42cc812f9ead37a766e5ff}{get\+\_\+configuration\+\_\+parameter} (uint8\+\_\+t parameter)
+\begin{DoxyCompactList}\small\item\em reads the configurated parameter from the qik; \end{DoxyCompactList}\item 
+\hypertarget{class_qik_a6201e2e6a24997827aefd2eac20524f6}{}uint8\+\_\+t {\bfseries set\+\_\+configuration\+\_\+parameter} (uint8\+\_\+t parameter, uint8\+\_\+t value)\label{class_qik_a6201e2e6a24997827aefd2eac20524f6}
+
+\item 
+void \hyperlink{class_qik_a6dc1b476ef343bdc6def0f6fd548002a}{set\+\_\+m0\+\_\+speed} (int speed)
+\begin{DoxyCompactList}\small\item\em set the speed of motor 0 \end{DoxyCompactList}\item 
+void \hyperlink{class_qik_a0973688f7c423dff7cfaa26dab91a126}{set\+\_\+m1\+\_\+speed} (int speed)
+\begin{DoxyCompactList}\small\item\em set the speed of motor 1 \end{DoxyCompactList}\item 
+void \hyperlink{class_qik_a6d504c59e7eec46da40ad9e71199b6ff}{set\+\_\+speeds} (int m0\+Speed, int m1\+Speed)
+\begin{DoxyCompactList}\small\item\em set the speeds of motor 1 and 2 \end{DoxyCompactList}\item 
+void \hyperlink{class_qik_a2b2195033a0459df0daec4a01898811a}{set\+\_\+m0\+\_\+brake} (uint8\+\_\+t brake)
+\begin{DoxyCompactList}\small\item\em set the brake for motor 0 \end{DoxyCompactList}\item 
+void \hyperlink{class_qik_a1795a6acae6aa0f9be0784ff408e5225}{set\+\_\+m1\+\_\+brake} (uint8\+\_\+t brake)
+\begin{DoxyCompactList}\small\item\em set the brake for motor 0 \end{DoxyCompactList}\item 
+void \hyperlink{class_qik_a0c6762eb5ffe8eaaa12407126caf568c}{set\+\_\+brakes} (uint8\+\_\+t m0\+Brake, uint8\+\_\+t m1\+Brake)
+\begin{DoxyCompactList}\small\item\em set the brakes for motor 0 and 1 \end{DoxyCompactList}\item 
+uint8\+\_\+t \hyperlink{class_qik_a73e1dfec2256dbe5d8ba2147501bf7d9}{get\+\_\+m0\+\_\+current} ()
+\begin{DoxyCompactList}\small\item\em get the current of motor 0 \end{DoxyCompactList}\item 
+uint8\+\_\+t \hyperlink{class_qik_a4d786f955b48b2d1a4e866ca6f3b94b8}{get\+\_\+m1\+\_\+current} ()
+\begin{DoxyCompactList}\small\item\em get the current of motor 1 \end{DoxyCompactList}\item 
+unsigned int \hyperlink{class_qik_a44a14db2e00629f31c2996269c856a19}{get\+\_\+m0\+\_\+current\+\_\+milliamps} ()
+\begin{DoxyCompactList}\small\item\em get the current of motor 0 in milliamps \end{DoxyCompactList}\item 
+unsigned int \hyperlink{class_qik_a44bb8dd4f9086e94e253ab7907080fb9}{get\+\_\+m1\+\_\+current\+\_\+milliamps} ()
+\begin{DoxyCompactList}\small\item\em get the current of motor 1 in milliamps \end{DoxyCompactList}\item 
+uint8\+\_\+t \hyperlink{class_qik_a8bab82a92a918d6c5f8f1aa921354fd6}{get\+\_\+m0\+\_\+speed} ()
+\begin{DoxyCompactList}\small\item\em get the speed of motor 0 \end{DoxyCompactList}\item 
+uint8\+\_\+t \hyperlink{class_qik_a8d37d1be0a983cf255990ee137985b1d}{get\+\_\+m1\+\_\+speed} ()
+\begin{DoxyCompactList}\small\item\em get the speed of motor 1 \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_qik_a40dc67c7d28bb8e5148fa459795482b3}{}\index{Qik@{Qik}!Qik@{Qik}}
+\index{Qik@{Qik}!Qik@{Qik}}
+\subsubsection[{Qik}]{\setlength{\rightskip}{0pt plus 5cm}Qik\+::\+Qik (
+\begin{DoxyParamCaption}
+\item[{{\bf Transport\+Protocol} \&}]{t}
+\end{DoxyParamCaption}
+)}\label{class_qik_a40dc67c7d28bb8e5148fa459795482b3}
+
+
+Constructor of the \hyperlink{class_qik}{Qik} Application protocol. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em t} & The transportprotocol that is used to send data. \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_qik_a0104c2a0c22fbbf83de456cc7cb9840d}{}\index{Qik@{Qik}!data\+\_\+received@{data\+\_\+received}}
+\index{data\+\_\+received@{data\+\_\+received}!Qik@{Qik}}
+\subsubsection[{data\+\_\+received}]{\setlength{\rightskip}{0pt plus 5cm}void Qik\+::data\+\_\+received (
+\begin{DoxyParamCaption}
+\item[{uint8\+\_\+t $\ast$}]{data, }
+\item[{int}]{number\+\_\+of\+\_\+bytes}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}\label{class_qik_a0104c2a0c22fbbf83de456cc7cb9840d}
+This function is called from the \hyperlink{class_transport_protocol}{Transport\+Protocol} to send data between multiple nodes. 
+\begin{DoxyParams}{Parameters}
+{\em data} & The transfered data to the listener. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \hyperlink{class_transport_listener_aafc4dd15ef03baa68b36b45c43c5addd}{Transport\+Listener}.
+
+\hypertarget{class_qik_a8b4e0f9f0c42cc812f9ead37a766e5ff}{}\index{Qik@{Qik}!get\+\_\+configuration\+\_\+parameter@{get\+\_\+configuration\+\_\+parameter}}
+\index{get\+\_\+configuration\+\_\+parameter@{get\+\_\+configuration\+\_\+parameter}!Qik@{Qik}}
+\subsubsection[{get\+\_\+configuration\+\_\+parameter}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t Qik\+::get\+\_\+configuration\+\_\+parameter (
+\begin{DoxyParamCaption}
+\item[{uint8\+\_\+t}]{parameter}
+\end{DoxyParamCaption}
+)}\label{class_qik_a8b4e0f9f0c42cc812f9ead37a766e5ff}
+
+
+reads the configurated parameter from the qik; 
+
+
+\begin{DoxyParams}{Parameters}
+{\em parameter} & the parameter in range 0-\/11 that needs to be readed; \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+uint8\+\_\+t The value of the parameter that is readed; 
+\end{DoxyReturn}
+\hypertarget{class_qik_ad65a5d6fbdfde7998b4ef537ad07b843}{}\index{Qik@{Qik}!get\+\_\+errors@{get\+\_\+errors}}
+\index{get\+\_\+errors@{get\+\_\+errors}!Qik@{Qik}}
+\subsubsection[{get\+\_\+errors}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t Qik\+::get\+\_\+errors (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_qik_ad65a5d6fbdfde7998b4ef537ad07b843}
+
+
+reads the Errors from the \hyperlink{class_qik}{Qik}. 
+
+\begin{DoxyReturn}{Returns}
+uint8\+\_\+t The Errorcode version that is readed. 
+\end{DoxyReturn}
+\hypertarget{class_qik_adb551278953edfda128886a9df14e986}{}\index{Qik@{Qik}!get\+\_\+firmware\+\_\+version@{get\+\_\+firmware\+\_\+version}}
+\index{get\+\_\+firmware\+\_\+version@{get\+\_\+firmware\+\_\+version}!Qik@{Qik}}
+\subsubsection[{get\+\_\+firmware\+\_\+version}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t Qik\+::get\+\_\+firmware\+\_\+version (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_qik_adb551278953edfda128886a9df14e986}
+
+
+reads the frimwareversion from the \hyperlink{class_qik}{Qik}. 
+
+\begin{DoxyReturn}{Returns}
+uint8\+\_\+t The frimware version that is readed. 
+\end{DoxyReturn}
+\hypertarget{class_qik_a73e1dfec2256dbe5d8ba2147501bf7d9}{}\index{Qik@{Qik}!get\+\_\+m0\+\_\+current@{get\+\_\+m0\+\_\+current}}
+\index{get\+\_\+m0\+\_\+current@{get\+\_\+m0\+\_\+current}!Qik@{Qik}}
+\subsubsection[{get\+\_\+m0\+\_\+current}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t Qik\+::get\+\_\+m0\+\_\+current (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_qik_a73e1dfec2256dbe5d8ba2147501bf7d9}
+
+
+get the current of motor 0 
+
+\begin{DoxyReturn}{Returns}
+uint8\+\_\+t the current value of motor 0 
+\end{DoxyReturn}
+\hypertarget{class_qik_a44a14db2e00629f31c2996269c856a19}{}\index{Qik@{Qik}!get\+\_\+m0\+\_\+current\+\_\+milliamps@{get\+\_\+m0\+\_\+current\+\_\+milliamps}}
+\index{get\+\_\+m0\+\_\+current\+\_\+milliamps@{get\+\_\+m0\+\_\+current\+\_\+milliamps}!Qik@{Qik}}
+\subsubsection[{get\+\_\+m0\+\_\+current\+\_\+milliamps}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int Qik\+::get\+\_\+m0\+\_\+current\+\_\+milliamps (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_qik_a44a14db2e00629f31c2996269c856a19}
+
+
+get the current of motor 0 in milliamps 
+
+\begin{DoxyReturn}{Returns}
+unsigned int the current value of motor 0 in milliamps 
+\end{DoxyReturn}
+\hypertarget{class_qik_a8bab82a92a918d6c5f8f1aa921354fd6}{}\index{Qik@{Qik}!get\+\_\+m0\+\_\+speed@{get\+\_\+m0\+\_\+speed}}
+\index{get\+\_\+m0\+\_\+speed@{get\+\_\+m0\+\_\+speed}!Qik@{Qik}}
+\subsubsection[{get\+\_\+m0\+\_\+speed}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t Qik\+::get\+\_\+m0\+\_\+speed (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_qik_a8bab82a92a918d6c5f8f1aa921354fd6}
+
+
+get the speed of motor 0 
+
+\begin{DoxyReturn}{Returns}
+uint8\+\_\+t the speed value of motor 0 in range 0-\/255. 
+\end{DoxyReturn}
+\hypertarget{class_qik_a4d786f955b48b2d1a4e866ca6f3b94b8}{}\index{Qik@{Qik}!get\+\_\+m1\+\_\+current@{get\+\_\+m1\+\_\+current}}
+\index{get\+\_\+m1\+\_\+current@{get\+\_\+m1\+\_\+current}!Qik@{Qik}}
+\subsubsection[{get\+\_\+m1\+\_\+current}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t Qik\+::get\+\_\+m1\+\_\+current (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_qik_a4d786f955b48b2d1a4e866ca6f3b94b8}
+
+
+get the current of motor 1 
+
+\begin{DoxyReturn}{Returns}
+uint8\+\_\+t the current value of motor 1 
+\end{DoxyReturn}
+\hypertarget{class_qik_a44bb8dd4f9086e94e253ab7907080fb9}{}\index{Qik@{Qik}!get\+\_\+m1\+\_\+current\+\_\+milliamps@{get\+\_\+m1\+\_\+current\+\_\+milliamps}}
+\index{get\+\_\+m1\+\_\+current\+\_\+milliamps@{get\+\_\+m1\+\_\+current\+\_\+milliamps}!Qik@{Qik}}
+\subsubsection[{get\+\_\+m1\+\_\+current\+\_\+milliamps}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int Qik\+::get\+\_\+m1\+\_\+current\+\_\+milliamps (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_qik_a44bb8dd4f9086e94e253ab7907080fb9}
+
+
+get the current of motor 1 in milliamps 
+
+\begin{DoxyReturn}{Returns}
+unsigned int the current value of motor 1 in milliamps 
+\end{DoxyReturn}
+\hypertarget{class_qik_a8d37d1be0a983cf255990ee137985b1d}{}\index{Qik@{Qik}!get\+\_\+m1\+\_\+speed@{get\+\_\+m1\+\_\+speed}}
+\index{get\+\_\+m1\+\_\+speed@{get\+\_\+m1\+\_\+speed}!Qik@{Qik}}
+\subsubsection[{get\+\_\+m1\+\_\+speed}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t Qik\+::get\+\_\+m1\+\_\+speed (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_qik_a8d37d1be0a983cf255990ee137985b1d}
+
+
+get the speed of motor 1 
+
+\begin{DoxyReturn}{Returns}
+uint8\+\_\+t the speed value of motor 1 in range 0-\/255. 
+\end{DoxyReturn}
+\hypertarget{class_qik_a0c6762eb5ffe8eaaa12407126caf568c}{}\index{Qik@{Qik}!set\+\_\+brakes@{set\+\_\+brakes}}
+\index{set\+\_\+brakes@{set\+\_\+brakes}!Qik@{Qik}}
+\subsubsection[{set\+\_\+brakes}]{\setlength{\rightskip}{0pt plus 5cm}void Qik\+::set\+\_\+brakes (
+\begin{DoxyParamCaption}
+\item[{uint8\+\_\+t}]{m0\+Brake, }
+\item[{uint8\+\_\+t}]{m1\+Brake}
+\end{DoxyParamCaption}
+)}\label{class_qik_a0c6762eb5ffe8eaaa12407126caf568c}
+
+
+set the brakes for motor 0 and 1 
+
+
+\begin{DoxyParams}{Parameters}
+{\em m0\+Brake} & the brake value for motor 0 \\
+\hline
+{\em m1\+Brake} & the brake value for motor 1 \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_qik_a2b2195033a0459df0daec4a01898811a}{}\index{Qik@{Qik}!set\+\_\+m0\+\_\+brake@{set\+\_\+m0\+\_\+brake}}
+\index{set\+\_\+m0\+\_\+brake@{set\+\_\+m0\+\_\+brake}!Qik@{Qik}}
+\subsubsection[{set\+\_\+m0\+\_\+brake}]{\setlength{\rightskip}{0pt plus 5cm}void Qik\+::set\+\_\+m0\+\_\+brake (
+\begin{DoxyParamCaption}
+\item[{uint8\+\_\+t}]{brake}
+\end{DoxyParamCaption}
+)}\label{class_qik_a2b2195033a0459df0daec4a01898811a}
+
+
+set the brake for motor 0 
+
+
+\begin{DoxyParams}{Parameters}
+{\em brake} & the brake value for motor 0 \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_qik_a6dc1b476ef343bdc6def0f6fd548002a}{}\index{Qik@{Qik}!set\+\_\+m0\+\_\+speed@{set\+\_\+m0\+\_\+speed}}
+\index{set\+\_\+m0\+\_\+speed@{set\+\_\+m0\+\_\+speed}!Qik@{Qik}}
+\subsubsection[{set\+\_\+m0\+\_\+speed}]{\setlength{\rightskip}{0pt plus 5cm}void Qik\+::set\+\_\+m0\+\_\+speed (
+\begin{DoxyParamCaption}
+\item[{int}]{speed}
+\end{DoxyParamCaption}
+)}\label{class_qik_a6dc1b476ef343bdc6def0f6fd548002a}
+
+
+set the speed of motor 0 
+
+
+\begin{DoxyParams}{Parameters}
+{\em speed} & the speed value for motor 0 in range 0-\/255 \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_qik_a1795a6acae6aa0f9be0784ff408e5225}{}\index{Qik@{Qik}!set\+\_\+m1\+\_\+brake@{set\+\_\+m1\+\_\+brake}}
+\index{set\+\_\+m1\+\_\+brake@{set\+\_\+m1\+\_\+brake}!Qik@{Qik}}
+\subsubsection[{set\+\_\+m1\+\_\+brake}]{\setlength{\rightskip}{0pt plus 5cm}void Qik\+::set\+\_\+m1\+\_\+brake (
+\begin{DoxyParamCaption}
+\item[{uint8\+\_\+t}]{brake}
+\end{DoxyParamCaption}
+)}\label{class_qik_a1795a6acae6aa0f9be0784ff408e5225}
+
+
+set the brake for motor 0 
+
+
+\begin{DoxyParams}{Parameters}
+{\em brake} & the brake value for motor 1 \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_qik_a0973688f7c423dff7cfaa26dab91a126}{}\index{Qik@{Qik}!set\+\_\+m1\+\_\+speed@{set\+\_\+m1\+\_\+speed}}
+\index{set\+\_\+m1\+\_\+speed@{set\+\_\+m1\+\_\+speed}!Qik@{Qik}}
+\subsubsection[{set\+\_\+m1\+\_\+speed}]{\setlength{\rightskip}{0pt plus 5cm}void Qik\+::set\+\_\+m1\+\_\+speed (
+\begin{DoxyParamCaption}
+\item[{int}]{speed}
+\end{DoxyParamCaption}
+)}\label{class_qik_a0973688f7c423dff7cfaa26dab91a126}
+
+
+set the speed of motor 1 
+
+
+\begin{DoxyParams}{Parameters}
+{\em speed} & the speed value for motor 1 in range 0-\/255 \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_qik_a6d504c59e7eec46da40ad9e71199b6ff}{}\index{Qik@{Qik}!set\+\_\+speeds@{set\+\_\+speeds}}
+\index{set\+\_\+speeds@{set\+\_\+speeds}!Qik@{Qik}}
+\subsubsection[{set\+\_\+speeds}]{\setlength{\rightskip}{0pt plus 5cm}void Qik\+::set\+\_\+speeds (
+\begin{DoxyParamCaption}
+\item[{int}]{m0\+Speed, }
+\item[{int}]{m1\+Speed}
+\end{DoxyParamCaption}
+)}\label{class_qik_a6d504c59e7eec46da40ad9e71199b6ff}
+
+
+set the speeds of motor 1 and 2 
+
+
+\begin{DoxyParams}{Parameters}
+{\em m0\+Speed} & the speed value for motor 0 in range 0-\/255 \\
+\hline
+{\em m0\+Speed} & the speed value for motor 1 in range 0-\/255 \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/koen/\+Documents/\+Git\+Hub/communication-\/protocols/source/include/\hyperlink{_qik_8hpp}{Qik.\+hpp}\item 
+C\+:/\+Users/koen/\+Documents/\+Git\+Hub/communication-\/protocols/source/src/Qik.\+cpp\end{DoxyCompactItemize}

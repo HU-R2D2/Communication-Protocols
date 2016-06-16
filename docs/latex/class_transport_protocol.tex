@@ -1,0 +1,103 @@
+\hypertarget{class_transport_protocol}{}\section{Transport\+Protocol Class Reference}
+\label{class_transport_protocol}\index{Transport\+Protocol@{Transport\+Protocol}}
+Inheritance diagram for Transport\+Protocol\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_transport_protocol}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \hyperlink{class_transport_protocol_af3f6c35f652d73ea3170c64d2b96ff53}{data\+\_\+write} (uint8\+\_\+t $\ast$data, int number\+\_\+of\+\_\+bytes)=0
+\item 
+\hypertarget{class_transport_protocol_a0145d85c5758e08c94cf60d708eaba08}{}virtual uint8\+\_\+t $\ast$ \hyperlink{class_transport_protocol_a0145d85c5758e08c94cf60d708eaba08}{data\+\_\+read} ()=0\label{class_transport_protocol_a0145d85c5758e08c94cf60d708eaba08}
+
+\begin{DoxyCompactList}\small\item\em Method for reading data from the receive\+\_\+buffer. \end{DoxyCompactList}\item 
+\hypertarget{class_transport_protocol_ad0ba1d2982dfaa4b51493548efbf09c6}{}virtual void \hyperlink{class_transport_protocol_ad0ba1d2982dfaa4b51493548efbf09c6}{connect} ()=0\label{class_transport_protocol_ad0ba1d2982dfaa4b51493548efbf09c6}
+
+\begin{DoxyCompactList}\small\item\em Method for establishing the connection. \end{DoxyCompactList}\item 
+\hypertarget{class_transport_protocol_a6bc407636830e8e5ff10377b965181eb}{}virtual void \hyperlink{class_transport_protocol_a6bc407636830e8e5ff10377b965181eb}{disconnect} ()=0\label{class_transport_protocol_a6bc407636830e8e5ff10377b965181eb}
+
+\begin{DoxyCompactList}\small\item\em Method for dissolving the connection. \end{DoxyCompactList}\item 
+\hypertarget{class_transport_protocol_a1a375d6ab518309c432e56e59043ff4a}{}virtual void \hyperlink{class_transport_protocol_a1a375d6ab518309c432e56e59043ff4a}{flush} ()=0\label{class_transport_protocol_a1a375d6ab518309c432e56e59043ff4a}
+
+\begin{DoxyCompactList}\small\item\em Method for flushing the send\+\_\+buffer and receive\+\_\+buffer. \end{DoxyCompactList}\item 
+\hypertarget{class_transport_protocol_aee4e0241f2dbb3cd89712a1e01fe38d4}{}virtual bool \hyperlink{class_transport_protocol_aee4e0241f2dbb3cd89712a1e01fe38d4}{is\+\_\+open} ()=0\label{class_transport_protocol_aee4e0241f2dbb3cd89712a1e01fe38d4}
+
+\begin{DoxyCompactList}\small\item\em Method for checking if the connection is established. \end{DoxyCompactList}\item 
+virtual void \hyperlink{class_transport_protocol_ad7a9c131bbd9b2a26f1884b18ce11820}{set\+\_\+listener} (\hyperlink{class_transport_listener}{Transport\+Listener} $\ast$t)=0
+\item 
+virtual void \hyperlink{class_transport_protocol_ac7fcdf3b49efae156223bb3351c49553}{remove\+\_\+listener} (\hyperlink{class_transport_listener}{Transport\+Listener} $\ast$t)=0
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_transport_protocol_a5b8448f205035c7c89fca15b21009617}{}std\+::vector$<$ \hyperlink{class_transport_listener}{Transport\+Listener} $\ast$ $>$ {\bfseries transport\+\_\+listeners}\label{class_transport_protocol_a5b8448f205035c7c89fca15b21009617}
+
+\item 
+\hypertarget{class_transport_protocol_a0319fa0da3f02058ce98e8464f1e119a}{}std\+::queue$<$ uint8\+\_\+t $>$ {\bfseries send\+\_\+buffer}\label{class_transport_protocol_a0319fa0da3f02058ce98e8464f1e119a}
+
+\item 
+\hypertarget{class_transport_protocol_a5aa66fcb326af8fce0dfdbad9dfdf675}{}std\+::queue$<$ uint8\+\_\+t $>$ {\bfseries receive\+\_\+buffer}\label{class_transport_protocol_a5aa66fcb326af8fce0dfdbad9dfdf675}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_transport_protocol_af3f6c35f652d73ea3170c64d2b96ff53}{}\index{Transport\+Protocol@{Transport\+Protocol}!data\+\_\+write@{data\+\_\+write}}
+\index{data\+\_\+write@{data\+\_\+write}!Transport\+Protocol@{Transport\+Protocol}}
+\subsubsection[{data\+\_\+write}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Transport\+Protocol\+::data\+\_\+write (
+\begin{DoxyParamCaption}
+\item[{uint8\+\_\+t $\ast$}]{data, }
+\item[{int}]{number\+\_\+of\+\_\+bytes}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}\label{class_transport_protocol_af3f6c35f652d73ea3170c64d2b96ff53}
+Method for writing data to the send\+\_\+buffer queue, for it to be send through the com port. 
+\begin{DoxyParams}{Parameters}
+{\em data} & The data to be send \\
+\hline
+{\em number\+Of\+Bytes} & Length of the data in bytes \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \hyperlink{class_t_c_p_socket_ae083947a4caa02a1a8dd1cc59b2514ac}{T\+C\+P\+Socket}, and \hyperlink{class_u_a_r_t_ad03f74b9d5181ed48aef24a93508c31c}{U\+A\+R\+T}.
+
+\hypertarget{class_transport_protocol_ac7fcdf3b49efae156223bb3351c49553}{}\index{Transport\+Protocol@{Transport\+Protocol}!remove\+\_\+listener@{remove\+\_\+listener}}
+\index{remove\+\_\+listener@{remove\+\_\+listener}!Transport\+Protocol@{Transport\+Protocol}}
+\subsubsection[{remove\+\_\+listener}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Transport\+Protocol\+::remove\+\_\+listener (
+\begin{DoxyParamCaption}
+\item[{{\bf Transport\+Listener} $\ast$}]{t}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}\label{class_transport_protocol_ac7fcdf3b49efae156223bb3351c49553}
+Method for removing a listener to the listeners list. 
+\begin{DoxyParams}{Parameters}
+{\em t} & \hyperlink{class_transport_listener}{Transport\+Listener} to be removed \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \hyperlink{class_t_c_p_socket_ab7bce90af0f70773836fab6b7edc6fbd}{T\+C\+P\+Socket}, and \hyperlink{class_u_a_r_t_ab70270f949057521043566efbdb7b3c3}{U\+A\+R\+T}.
+
+\hypertarget{class_transport_protocol_ad7a9c131bbd9b2a26f1884b18ce11820}{}\index{Transport\+Protocol@{Transport\+Protocol}!set\+\_\+listener@{set\+\_\+listener}}
+\index{set\+\_\+listener@{set\+\_\+listener}!Transport\+Protocol@{Transport\+Protocol}}
+\subsubsection[{set\+\_\+listener}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Transport\+Protocol\+::set\+\_\+listener (
+\begin{DoxyParamCaption}
+\item[{{\bf Transport\+Listener} $\ast$}]{t}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}\label{class_transport_protocol_ad7a9c131bbd9b2a26f1884b18ce11820}
+Method for adding a listener to the listeners list. 
+\begin{DoxyParams}{Parameters}
+{\em t} & \hyperlink{class_transport_listener}{Transport\+Listener} to be added \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \hyperlink{class_t_c_p_socket_a074a08d48b3ec4e758f0d5fc287a32c2}{T\+C\+P\+Socket}, and \hyperlink{class_u_a_r_t_a865baf02a528c89bd5c0c2f01e04c2f1}{U\+A\+R\+T}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/koen/\+Documents/\+Git\+Hub/communication-\/protocols/source/include/\hyperlink{_transport_protocol_8hpp}{Transport\+Protocol.\+hpp}\end{DoxyCompactItemize}
