@@ -1,10 +1,14 @@
 cmake_minimum_required(VERSION 2.8.9)
 project(ComminucationProtocols)
 find_package (Threads)
-find_library(ws2_32_LIBRARY_PATH ws2_32)
 
+if (WIN32)
+find_library(ws2_32_LIBRARY_PATH ws2_32)
 set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -lws2_32")
+endif (WIN32)
+
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=gnu++0x -lpthread -lssl -lcrypto -pthread -D_WINSOCK_H ")
+
 
 set(serial_SRCS ../deps/rs232/rs232.h ../deps/rs232/rs232.c ./source/include/UART.hpp ./source/src/UART.cpp)
 set(rest_SRCS ../deps/REST/include/RESTCallBack.hpp
@@ -27,8 +31,14 @@ set(rest_SRCS ../deps/REST/include/RESTCallBack.hpp
 ./source/src/RestApplicationProtocol.cpp
 )
 
-file(GLOB SOURCES "source/src/*.cpp" "source/src/json/*.cpp" "source/include/json/*.hpp" "source/include/*.hpp" )
-file(GLOB SOURCES_GTEST "source/src/*.cpp" "source/src/json/*.cpp" "test/*.cpp" "source/include/json/*.hpp" "source/include/*.hpp" )
+if (UNIX)
+file(GLOB SOURCES "../source/src/TCP_Linux.cpp"  "../source/include/TCP_Linux.hpp" "../source/include/TransportListener.hpp" "../source/include/TransportProtocol" "../deps/practicalSocket/PracticalSocket.hpp" "../deps/practicalSocket/PracticalSocket.cpp")
+endif (UNIX)
+if (WIN32)
+file(GLOB SOURCES "../source/src/TCP_Windows.cpp"  "../source/include/TCP_Windows.hpp")
+endif (WIN32)
+
+file(GLOB SOURCES_GTEST "source/src/*.cpp" "test/*.cpp" "source/include/*.hpp" )
 
 include_directories(
   ../deps/gtest-1.7.0/include
@@ -40,9 +50,6 @@ include_directories(
   ../deps/REST/src
   )
 
-file(GLOB SOURCES "source/src/*.cpp" "source/src/json/*.cpp"  )
-file(GLOB SOURCES_GTEST "source/src/*.cpp" "source/src/json/*.cpp" "test/*.cpp" )
-
 link_directories(../deps/gtest-1.7.0/src)
 add_library(gtest ../deps/gtest-1.7.0/src/gtest-all.cc)
 add_library(rs232 ${serial_SRCS})
@@ -50,4 +57,11 @@ add_library(rest ${rest_SRCS})
 add_library(gtest_main ../deps/gtest-1.7.0/src/gtest_main.cc)
 
 add_executable(ComminucationProtocols  ${SOURCES} ${SOURCES_GTEST}  ${GTEST} )
+
+if (WIN32)
 target_link_libraries(ComminucationProtocols gtest rest rs232 gtest_main ${ws2_32_LIBRARY_PATH} ${CMAKE_THREAD_LIBS_INIT} ${SOURCES} "-Wl,--allow-multiple-definition" ) #
+endif (WIN32) 
+
+if (UNIX)
+target_link_libraries(ComminucationProtocols gtest rest rs232 gtest_main ${CMAKE_THREAD_LIBS_INIT} ${SOURCES} "-Wl,--allow-multiple-definition" ) #
+endif (WIN32)
