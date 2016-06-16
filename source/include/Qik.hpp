@@ -88,7 +88,7 @@ public:
     //! @brief listener method for transportListener
     //!
     //! @param data     Pointer to the receive buffer.
-    void data_received(uint8_t * data);
+    void data_received(uint8_t * data) override;
     
     //! @fn  Qik::get_firmware_version();
     //!

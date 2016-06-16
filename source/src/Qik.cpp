@@ -64,7 +64,6 @@ void Qik::set_m0_speed(int speed){
 
     if (speed > 255)
     speed = 255;
-
     if (speed > 127){
     // 8-bit mode: actual speed is (speed + 128)
     cmd[0] = reverse ? QIK_MOTOR_M0_REVERSE_8_BIT : QIK_MOTOR_M0_FORWARD_8_BIT;
