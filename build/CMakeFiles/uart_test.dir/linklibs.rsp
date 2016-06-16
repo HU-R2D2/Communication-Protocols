@@ -1,1 +1,0 @@
- -LC:/Users/Job/Documents/Git/communication-protocols/../deps/gtest-1.7.0/src  libgtest.a libgtest_main.a -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32 
