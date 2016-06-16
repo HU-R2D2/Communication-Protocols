@@ -2,19 +2,17 @@
 #define _TRANSPORTPROTOCOL_HPP
 
 #include <cstdint>
-#include <vector>
 #include <queue>
+#include <vector>
 #include "TransportListener.hpp"
 
-/// Base class for creating transport protocols
-/// \author Koen van der Kruk, Job Verhaar
-/// \version 1.0
-/// \date 8-6-2016
 class TransportProtocol{
 
 public:
+	//TransportProtocol();
+	//~TransportProtocol();
 
-	virtual void data_write(uint8_t* data, int numberOfBytes) = 0;
+	virtual void data_write(uint8_t* data, int number_of_bytes) = 0;
 
 	virtual uint8_t* data_read() = 0;
 
@@ -32,10 +30,10 @@ public:
 
 protected:
 
-	std::vector<TransportListener *> transportListeners;
-	
+	std::vector<TransportListener *> transport_listeners;
+
 	std::queue<uint8_t> send_buffer;
-	
+
 	std::queue<uint8_t> receive_buffer;
 };
 

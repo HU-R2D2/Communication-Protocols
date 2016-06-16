@@ -5,8 +5,8 @@
 
 
 TEST(UARTtransportProtocol, OpenComPort){
-    UART sendPort{ttyUSB0, 9600, "8N1"};
-  	UART receivePort{ttyUSB1, 9600, "8N1"};
+    UART sendPort{COM6, 9600, "8N1"};
+  	UART receivePort{COM5, 9600, "8N1"};
 
   	sendPort.connect();
   	receivePort.connect();

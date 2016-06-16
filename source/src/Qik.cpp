@@ -6,7 +6,7 @@ Qik::Qik(TransportProtocol &t): ApplicationProtocol(t){
     transport.connect();
 }
 
-void Qik::data_received(uint8_t * data){
+void Qik::data_received(uint8_t * data, int number_of_bytes){
     //Use count to wait till lenght of data is equal to the databytes needed.
     static int count = 0;
     ++count;
@@ -59,7 +59,7 @@ void Qik::set_m0_speed(int speed){
     bool reverse = false;
     if (speed < 0){
         speed = -speed;
-        reverse = 1; 
+        reverse = 1;
     }
 
     if (speed > 255)

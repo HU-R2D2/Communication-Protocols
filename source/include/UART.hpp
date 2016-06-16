@@ -36,31 +36,31 @@ public:
 	/// for it to be send through the com port.
 	/// \param data The data to be send
 	/// \param numberOfBytes Length of the data in bytes
-	void data_write(uint8_t* data, int numberOfBytes);
+	void data_write(uint8_t* data, int numberOfBytes) override;
 
 	/// Method for reading data from the receive_buffer.
-	uint8_t* data_read();
+	uint8_t* data_read() override;
 
 	/// Method for establishing the UART connection.
-	void connect();
+	void connect() override;
 
 	/// Method for dissolving the UART connection.
-	void disconnect();
+	void disconnect() override;
 
 	/// Method for flushing the send_buffer and receive_buffer.
 	/// Also flushes the RX and TX pins of the com port specified.
-	void flush();
+	void flush() override;
 
 	/// Method for checking if the connection is established.
-	bool is_open();
+	bool is_open() override;
 
 	/// Method for adding a listener to the listeners list.
 	/// \param t TransportListener to be added
-	void set_listener(TransportListener * t);
+	void set_listener(TransportListener * t) override;
 
 	/// Method for removing a listener to the listeners list.
 	/// \param t TransportListener to be removed
-	void remove_listener(TransportListener * t);
+	void remove_listener(TransportListener * t) override;
 
 	/// Active method which should run in it's own thread.
 	/// Sends data in the send_buffer through the established connection,

@@ -88,20 +88,20 @@ public:
     //! @brief listener method for transportListener
     //!
     //! @param data     Pointer to the receive buffer.
-    void data_received(uint8_t * data) override;
-    
+    void data_received(uint8_t * data, int number_of_bytes) override;
+
     //! @fn  Qik::get_firmware_version();
     //!
     //! @brief  reads the frimwareversion from the Qik.
     //!
-    //! @return uint8_t The frimware version that is readed.    
+    //! @return uint8_t The frimware version that is readed.
     uint8_t get_firmware_version();
 
     //! @fn  Qik::get_errors();
     //!
     //! @brief  reads the Errors from the Qik.
     //!
-    //! @return uint8_t The Errorcode version that is readed. 
+    //! @return uint8_t The Errorcode version that is readed.
     uint8_t get_errors();
 
     //! @fn  Qik::get_configuration_parameter(uint8_t parameter);
@@ -115,7 +115,7 @@ public:
     //! @fn Qik::set_configuration_paramater(uint8_t parameter, uint8_t value);
     //!
     //! @brief  set a parameter of the qik
-    //! 
+    //!
     //! @param parameter  the parameter in range 0-11 that needs to be changed
     uint8_t set_configuration_parameter(uint8_t parameter, uint8_t value);
 
@@ -141,14 +141,14 @@ public:
     //! @param m0Speed the speed value for motor 0 in range 0-255
     //! @param m0Speed the speed value for motor 1 in range 0-255
     void set_speeds(int m0Speed, int m1Speed);
-    
+
     //! @fn Qik::set_m0_brake(uint8_t brake)
     //!
     //! @brief set the brake for motor 0
     //!
     //! @param brake the brake value for motor 0
     void set_m0_brake(uint8_t brake);
-    
+
     //! @fn Qik::set_m1_brake(uint8_t brake)
     //!
     //! @brief set the brake for motor 0
@@ -184,7 +184,7 @@ public:
     //!
     //! @return unsigned int the current value of motor 0 in milliamps
     unsigned int get_m0_current_milliamps();
-    
+
     //! @fn Qik::get_m1_current_milliamps()
     //!
     //! @brief get the current of motor 1 in milliamps
@@ -212,7 +212,7 @@ private:
     //!
     //! @param dataLength  The length of the answer.
     //!
-    //! @return uint8_t* the received answer. 
+    //! @return uint8_t* the received answer.
     uint8_t* get_answer(int dataLength);
     uint8_t cmd[5];
     int dataBytesNeeded;

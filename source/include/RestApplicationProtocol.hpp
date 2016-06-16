@@ -5,8 +5,8 @@
 #include "TransportListener.hpp"
 #include <fstream>
 #include <iostream>
-#include "RESTCallBack.hpp"
-#include "RESTEngine.hpp"
+#include "../../../deps/REST/include/RESTCallBack.hpp"
+#include "../../../deps/REST/include/RESTEngine.hpp"
 #include <string>
 #include <vector>
 
@@ -29,11 +29,11 @@ public:
     /// \param link The http url to access
     /// \param method The http method, such as POST, PUT, DELETE, GET
     /// \param callBackAddition The function that receives the callback message.
-    void addCallbackFunction(std::string link, std::string method, RESTCallBack * callBackAddition);
+    void addCallbackFunction(std::string link, std::string method, RESTCallBack * callback_addition);
 
     //// RestApplicationProtocol is a TransportListener that will receive incoming messages.
     /// \param data The incoming data package
-    void data_received(uint8_t * data) override;
+    void data_received(uint8_t * data, int number_of_bytes) override;
 
     /// Invoke API call, callback to another function.
     /// \param link The url conencted to the callback function
@@ -43,7 +43,7 @@ public:
 
     /// This function will dump a full REST api in json format.
     /// \param fileName The filename is used to dump the REST API in json format. The same directory is used as the current running program.
-    void getJsonAPIDump(std::string fileName);
+    void getJsonAPIDump(std::string file_name);
 
 private:
     RESTEngine engine;
