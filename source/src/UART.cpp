@@ -1,4 +1,5 @@
 #include "../include/UART.hpp"
+#include <unistd.h>
 
 UART::UART(int comport_nr, int baudrate, const char* mode_type):
 comport(comport_nr),
@@ -12,8 +13,8 @@ UART::~UART(){
 	runningThread.join();
 }
 
-void UART::data_write(uint8_t* data, int numberOfBytes){
-	for(int i = 0; i < numberOfBytes; i++){
+void UART::data_write(uint8_t* data, int number_of_bytes){
+	for(int i = 0; i < number_of_bytes; i++){
 		send_buffer.push(data[i]);
 	}
 }
@@ -27,6 +28,7 @@ uint8_t* UART::data_read(){
 	}
 	return tempBuf;
 }
+
 
 void UART::connect(){
 	RS232_OpenComport(comport, baud, mode);
@@ -46,7 +48,7 @@ void UART::flush(){
 	std::swap(receive_buffer, empty);
 }
 
-bool UART::is_open(){
+bool UART::is_open(){	
 	if(RS232_cport(comport) == -1){
 		return false;
 	}
@@ -56,11 +58,11 @@ bool UART::is_open(){
 }
 
 void UART::set_listener(TransportListener * t){
-	transportListeners.push_back(t);
+	transport_listeners.push_back(t);
 }
 
 void UART::remove_listener(TransportListener * t){
-	transportListeners.erase(std::remove(transportListeners.begin(), transportListeners.end(), t), transportListeners.end());
+	transport_listeners.erase(std::remove(transport_listeners.begin(), transport_listeners.end(), t), transport_listeners.end());
 }
 
 void UART::run(){
@@ -78,15 +80,15 @@ void UART::run(){
 				}
 				RS232_SendBuf(comport, tempSendBuf, size);
 			}
+
 			if((numberOfReadBytes = RS232_PollComport(comport, tempReceiveBuf, 4096)) > 0){
 				for(int i = 0; i < numberOfReadBytes; i++){
 					receive_buffer.push(tempReceiveBuf[i]);
-					for(auto &TransportListener : transportListeners){
-						TransportListener->data_received(&tempReceiveBuf[i]);
+					for(auto &TransportListener : transport_listeners){
+						TransportListener->data_received(&tempReceiveBuf[i], numberOfReadBytes);
 					}
 				}
 				numberOfReadBytes = 0;
-				std::this_thread::sleep_for(std::chrono::milliseconds(100));
 			}
 		}
 	}

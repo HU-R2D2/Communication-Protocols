@@ -1,0 +1,54 @@
+\hypertarget{class_transport_listener}{}\section{Transport\+Listener Class Reference}
+\label{class_transport_listener}\index{Transport\+Listener@{Transport\+Listener}}
+
+
+{\ttfamily \#include $<$Transport\+Listener.\+hpp$>$}
+
+Inheritance diagram for Transport\+Listener\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_transport_listener}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \hyperlink{class_transport_listener_aafc4dd15ef03baa68b36b45c43c5addd}{data\+\_\+received} (uint8\+\_\+t $\ast$data, int number\+\_\+of\+\_\+bytes)=0
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+A listener interface to comminucatie to R\+E\+S\+T application protocol. This can be used for protocols that need T\+C\+P access. \begin{DoxyAuthor}{Author}
+Koen van der Kruk 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+1.\+0 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+8-\/6-\/2016 
+\end{DoxyDate}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_transport_listener_aafc4dd15ef03baa68b36b45c43c5addd}{}\index{Transport\+Listener@{Transport\+Listener}!data\+\_\+received@{data\+\_\+received}}
+\index{data\+\_\+received@{data\+\_\+received}!Transport\+Listener@{Transport\+Listener}}
+\subsubsection[{data\+\_\+received}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Transport\+Listener\+::data\+\_\+received (
+\begin{DoxyParamCaption}
+\item[{uint8\+\_\+t $\ast$}]{data, }
+\item[{int}]{number\+\_\+of\+\_\+bytes}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}\label{class_transport_listener_aafc4dd15ef03baa68b36b45c43c5addd}
+This function is called from the \hyperlink{class_transport_protocol}{Transport\+Protocol} to send data between multiple nodes. 
+\begin{DoxyParams}{Parameters}
+{\em data} & The transfered data to the listener. \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \hyperlink{class_qik_a0104c2a0c22fbbf83de456cc7cb9840d}{Qik}, and \hyperlink{class_rest_application_protocol_a79abf85e9dc1b650ab059735237fde8e}{Rest\+Application\+Protocol}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/koen/\+Documents/\+Git\+Hub/communication-\/protocols/source/include/\hyperlink{_transport_listener_8hpp}{Transport\+Listener.\+hpp}\end{DoxyCompactItemize}
